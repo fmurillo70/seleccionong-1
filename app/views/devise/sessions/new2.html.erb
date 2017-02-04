@@ -1,0 +1,109 @@
+<div class="ui container" style="margin-top: 80px;">
+  <h2 style="text-align: center;color: #0d0b43;">Iniciar Sesion</h2>
+
+
+
+
+
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "ui form"}) do |f| %>
+      <div class="ui centered grid">
+
+        <div class="row">
+          <div class="column six wide">
+            <div class="field">
+
+              <%= f.email_field :email, autofocus: true, placeholder: "Correo Electronico" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column six wide">
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Contrasena" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column three wide">
+            <% if devise_mapping.rememberable? -%>
+                <div class="ui checkbox" style="float: left;">
+                  <%= f.check_box :remember_me, class: "filled-in" %>
+                  <%= f.label :recuerdame %>
+                </div>
+            <% end -%>
+          </div>
+          <div class="column three wide">
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "Olvidaste tu clave?", new_password_path(resource_name) %><br/>
+            <% end -%>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column six wide">
+
+
+            <div class="field">
+              <%= f.submit "Iniciar Sesion", class: "ui primary button btnLogin" %>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+          <div class="column three wide">
+
+
+            <div class="field">
+              <button class="ui primary button btnNuevoONG">Nueva ONG?</button>
+            </div>
+          </div>
+
+          <div class="column three wide">
+            <div class="field">
+              <button class="ui primary button btnNuevoVol">Nuevo Voluntario?</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column three wide">
+            <%= image_tag "LogoInstitucionalPantalla.png", class: "logoU" %>
+          </div>
+          <div class="column three wide">
+            <h4 style="text-align: center;">Seleccion de voluntarios para las organizaciones no gubernamentales</h4>
+          </div>
+        </div>
+      </div>
+
+  <% end %>
+
+
+
+
+  <!--
+
+  <%= render "devise/shared/links" %>
+-->
+
+</div>
+
+<style>
+
+
+
+
+
+
+
+  /*
+  .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before,.hvr-sweep-to-right:before {
+    background: #000000;
+  }
+  .btnNuevoONG.hvr-sweep-to-right:hover:before, .btnNuevoONG.hvr-sweep-to-right:focus:before, .btnNuevoONG.hvr-sweep-to-right:before {
+    background: rgb(255,59,48);
+  }
+  */
+
+</style>
