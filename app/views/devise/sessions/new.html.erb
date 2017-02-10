@@ -57,13 +57,18 @@
 
 
             <div class="field">
+
+
               <button class="ui primary button btnNuevoONG">Nueva ONG?</button>
             </div>
           </div>
 
           <div class="column three wide">
             <div class="field">
-              <button class="ui primary button btnNuevoVol">Nuevo Voluntario?</button>
+              <%= link_to new_registration_path(resource_name) do %>
+                  <button class="ui primary button btnNuevoVol">Nuevo Voluntario?</button>
+              <% end %>
+
             </div>
           </div>
         </div>

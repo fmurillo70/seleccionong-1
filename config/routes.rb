@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
+  root 'home#index'
+
+
   resources :publicaciones
+
+  
   get 'prueba/index'
 
   get 'prueba/show'
