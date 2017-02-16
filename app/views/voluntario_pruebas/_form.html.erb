@@ -1,0 +1,17 @@
+<%= form_for(voluntario_prueba) do |f| %>
+  <% if voluntario_prueba.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(voluntario_prueba.errors.count, "error") %> prohibited this voluntario_prueba from being saved:</h2>
+
+      <ul>
+      <% voluntario_prueba.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

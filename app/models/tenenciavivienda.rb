@@ -1,0 +1,2 @@
+class Tenenciavivienda < ApplicationRecord
+end

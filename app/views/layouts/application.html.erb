@@ -8,9 +8,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js">
 
+    </script>
 
     <style>
       * {
@@ -21,6 +24,31 @@
 
   <body>
 
+  <div class="ui secondary  menu">
+
+    <%= link_to "Inicio", root_path, class: "item" %>
+
+    <%= link_to "Contestar Pruebas de Aptitud ", home_conpruebas_path, class: "item" %>
+
+    <a class="item">
+      Otro
+    </a>
+    <div class="right menu" style="float: right;">
+
+
+
+      <% if user_signed_in? %>
+
+          <%= link_to('Cerrar sesion', destroy_user_session_path, class: "ui item", :method => :delete) %>
+
+      <% else %>
+
+          <%= link_to('Iniciar Sesion', new_user_session_path, class: "ui item")  %>
+
+      <% end %>
+
+    </div>
+  </div>
 
 
     <%= yield %>

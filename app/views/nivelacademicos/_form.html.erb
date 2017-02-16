@@ -1,0 +1,42 @@
+<%= form_for(nivelacademico) do |f| %>
+  <% if nivelacademico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nivelacademico.errors.count, "error") %> prohibited this nivelacademico from being saved:</h2>
+
+      <ul>
+      <% nivelacademico.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :actualmenteestudia %>
+    <%= f.check_box :actualmenteestudia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :programaestudio %>
+    <%= f.text_field :programaestudio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ultimotitulo %>
+    <%= f.text_field :ultimotitulo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipoestudio_id %>
+    <%= f.text_field :tipoestudio_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :jornadaestudio_id %>
+    <%= f.text_field :jornadaestudio_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

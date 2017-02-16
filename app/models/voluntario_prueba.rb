@@ -1,0 +1,2 @@
+class VoluntarioPrueba < ApplicationRecord
+end

@@ -1,0 +1,1 @@
+json.partial! "opciones_respuesta/opciones_respuestum", opciones_respuestum: @opciones_respuestum

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pruebas Competencia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pruebas_competencia.each do |pruebas_competencium| %>
+      <tr>
+        <td><%= pruebas_competencium.nombre %></td>
+        <td><%= link_to 'Show', pruebas_competencium %></td>
+        <td><%= link_to 'Edit', edit_pruebas_competencium_path(pruebas_competencium) %></td>
+        <td><%= link_to 'Destroy', pruebas_competencium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pruebas Competencium', new_pruebas_competencium_path %>

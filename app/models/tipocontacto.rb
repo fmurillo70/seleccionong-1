@@ -1,0 +1,2 @@
+class Tipocontacto < ApplicationRecord
+end

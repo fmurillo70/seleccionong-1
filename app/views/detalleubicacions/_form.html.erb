@@ -1,0 +1,27 @@
+<%= form_for(detalleubicacion) do |f| %>
+  <% if detalleubicacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(detalleubicacion.errors.count, "error") %> prohibited this detalleubicacion from being saved:</h2>
+
+      <ul>
+      <% detalleubicacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ubicacionvivienda_id %>
+    <%= f.text_field :ubicacionvivienda_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

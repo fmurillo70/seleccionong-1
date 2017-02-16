@@ -1,0 +1,2 @@
+module TipoestudiosHelper
+end

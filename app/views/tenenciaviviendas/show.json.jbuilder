@@ -1,0 +1,1 @@
+json.partial! "tenenciaviviendas/tenenciavivienda", tenenciavivienda: @tenenciavivienda

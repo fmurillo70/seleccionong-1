@@ -1,0 +1,1 @@
+json.partial! "pruebas_competencia/pruebas_competencium", pruebas_competencium: @pruebas_competencium

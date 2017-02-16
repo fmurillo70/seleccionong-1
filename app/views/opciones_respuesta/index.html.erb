@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Opciones Respuesta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Valor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @opciones_respuesta.each do |opciones_respuestum| %>
+      <tr>
+        <td><%= opciones_respuestum.nombre %></td>
+        <td><%= opciones_respuestum.valor %></td>
+        <td><%= link_to 'Show', opciones_respuestum %></td>
+        <td><%= link_to 'Edit', edit_opciones_respuestum_path(opciones_respuestum) %></td>
+        <td><%= link_to 'Destroy', opciones_respuestum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Opciones Respuestum', new_opciones_respuestum_path %>

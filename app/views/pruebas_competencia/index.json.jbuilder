@@ -1,0 +1,1 @@
+json.array! @pruebas_competencia, partial: 'pruebas_competencia/pruebas_competencium', as: :pruebas_competencium

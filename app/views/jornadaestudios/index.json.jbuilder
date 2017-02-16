@@ -1,0 +1,1 @@
+json.array! @jornadaestudios, partial: 'jornadaestudios/jornadaestudio', as: :jornadaestudio

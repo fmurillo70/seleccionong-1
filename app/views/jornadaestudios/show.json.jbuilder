@@ -1,0 +1,1 @@
+json.partial! "jornadaestudios/jornadaestudio", jornadaestudio: @jornadaestudio

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Detalleubicacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Ubicacionvivienda</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detalleubicacions.each do |detalleubicacion| %>
+      <tr>
+        <td><%= detalleubicacion.nombre %></td>
+        <td><%= detalleubicacion.ubicacionvivienda %></td>
+        <td><%= link_to 'Show', detalleubicacion %></td>
+        <td><%= link_to 'Edit', edit_detalleubicacion_path(detalleubicacion) %></td>
+        <td><%= link_to 'Destroy', detalleubicacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detalleubicacion', new_detalleubicacion_path %>

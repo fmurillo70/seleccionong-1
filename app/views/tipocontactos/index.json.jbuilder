@@ -1,0 +1,1 @@
+json.array! @tipocontactos, partial: 'tipocontactos/tipocontacto', as: :tipocontacto

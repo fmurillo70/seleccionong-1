@@ -1,0 +1,169 @@
+<script type="text/javascript" charset="utf-8">
+    angular.module('pruebasApp', [])
+        .controller('TodoListController', ['$scope', '$http', function ($scope, $http) {
+            $scope.titulo = "Nueva Prueba de Competencias";
+            $scope.preguntas = [];
+            $scope.nuevaPreg = function () {
+                $scope.preguntas.push({
+                    nombre: '',
+                    respuestas: [],
+                    editingresp: true
+                })
+            };
+
+            $scope.nuevaResp = function (pregunta) {
+                pregunta.push({
+                    nombre: ''
+                })
+            };
+            $scope.estado = 1;
+            $scope.impreguntas = function () {
+
+
+                if ($scope.estado >= 3) {
+                    $http.post("/pruebas_competencia",
+                        {
+                            nombrePrueba: $scope.nombrePrueba,
+                            competencia: $scope.competencia,
+                            preguntas: $scope.preguntas
+
+                        }).then(function (data) {
+                        console.log(data);
+                    }).catch(function (err) {
+                        console.log(err);
+                    })
+                }
+                $scope.estado += 1;
+
+            };
+
+
+
+            $scope.eliminarResp = function (respuestas, i) {
+                var index = respuestas.indexOf(i);
+                respuestas.splice(index, 1);
+            }
+
+
+        }])
+</script>
+<div ng-app="pruebasApp" ng-controller="TodoListController" class="ui container" style="margin-top: 80px;">
+  <h2 style="text-align: center;color: #0d0b43;">{{titulo}}</h2>
+
+  <style>
+    label {
+      text-align: center !important;
+    }
+  </style>
+
+
+  <form class="ui form">
+    <div class="ui grid">
+
+      <div class="column three wide">
+
+      </div>
+
+      <div class="column eight wide">
+        <div id="form1" ng-show="estado == 1">
+          <div class="field">
+            <label for="nombreCompetencia">Nombre de la Prueba</label>
+            <input type="text" id="nombreCompetencia" name="nombreCompetencia" ng-model="nombrePrueba">
+          </div>
+
+          <div class="field">
+            <label for="">Competencia que evalua la prueba</label>
+            <select class="ui fluid search dropdown" name="user[tipo_documentos]" ng-model="competencia">
+              <option value="">Competencia...</option>
+
+                  <% @apitudes.each do |p| %>
+                      <option value="<%= p.id %>"><%= p.nombre %></option>
+                  <% end %>
+
+
+
+            </select>
+          </div>
+
+        </div>
+
+        <div id="form2" ng-show="estado == 2">
+
+          <div ng-repeat="p in preguntas">
+            <div class="field">
+              <label for="nombreCompetencia">Nombre de la Pregunta</label>
+              <input type="text" id="nombreCompetencia" name="nombreCompetencia" ng-model="p.nombre">
+            </div>
+            <h3>Respuestas</h3>
+            <div ng-repeat="r in p.respuestas" ng-show="p.editingresp">
+              <input type="text" id="nombreCompetencia" name="nombreCompetencia" ng-model="r.nombre">
+              <p style="display: inline-block;">Valor: {{$index + 1}}</p>
+              <a ng-click="eliminarResp(p.respuestas, $index)" style="float: right;">Eliminar</a>
+            </div>
+            <div ng-repeat="r in p.respuestas" ng-show="!p.editingresp">
+              <ul>
+                <li>{{r.nombre}} valor: {{$index+1}}</li>
+              </ul>
+            </div>
+            <a ng-click="nuevaResp(p.respuestas)" style="cursor: pointer;display: inline-block;">Nueva Respuesta</a>
+
+            <a ng-click="p.editingresp = false" ng-show="p.editingresp" style="float: right;cursor: pointer;">Guardar
+              respuestas</a>
+            <a ng-click="p.editingresp = true" ng-show="!p.editingresp" style="float: right;cursor: pointer;">Editar
+              respuestas</a>
+          </div>
+          <div class="ui divider" style="width: 100%;"></div>
+          <br>
+
+          <a ng-click="nuevaPreg()" style="cursor: pointer;">Nueva Pregunta</a>
+
+        </div>
+
+
+        <br>
+        <p id="siguiente" ng-click="impreguntas()" class="ui primary button btnLogin">Siguiente</p>
+
+      </div>
+
+      <div class="column five wide">
+        <div class="ui vertical steps">
+          <div class="{{(estado == 1) ? 'active' : 'completed'}} step" id="step1" data-id="1">
+            <i class="truck icon"></i>
+            <div class="content">
+              <div class="title">Nombre</div>
+              <div class="description">Competencias que evalua</div>
+            </div>
+          </div>
+          <div class="{{(estado == 2) ? 'active' : ((estado < 2) ? '' : 'completed' )}} step" id="step2" data-id="2">
+            <i class="credit card icon"></i>
+            <div class="content">
+              <div class="title">Preguntas</div>
+              <div class="description">Crea preguntas y valores</div>
+            </div>
+          </div>
+          <div class="{{(estado == 3) ? 'active' : ((estado < 3) ? '' : 'completed' )}} step" id="step3" data-id="3">
+            <i class="info icon"></i>
+            <div class="content">
+              <div class="title">Confirmar</div>
+              <div class="description">Confirma la prueba</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+    $('.ui.dropdown').dropdown();
+    $('.ui.checkbox').checkbox();
+
+</script>
+<!--
+
+-->
+
+<%= link_to 'Back', pruebas_competencia_path %>

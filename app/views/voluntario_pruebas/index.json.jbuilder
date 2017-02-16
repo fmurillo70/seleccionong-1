@@ -1,0 +1,1 @@
+json.array! @voluntario_pruebas, partial: 'voluntario_pruebas/voluntario_prueba', as: :voluntario_prueba

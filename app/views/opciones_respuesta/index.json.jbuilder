@@ -1,0 +1,1 @@
+json.array! @opciones_respuesta, partial: 'opciones_respuesta/opciones_respuestum', as: :opciones_respuestum

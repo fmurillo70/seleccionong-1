@@ -10,10 +10,140 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205225120) do
+ActiveRecord::Schema.define(version: 20190131004008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aptitudes", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "detalleubicacions", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "ubicacionvivienda_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["ubicacionvivienda_id"], name: "index_detalleubicacions_on_ubicacionvivienda_id", using: :btree
+  end
+
+  create_table "jornadaestudios", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nivelacademicos", force: :cascade do |t|
+    t.boolean  "actualmenteestudia"
+    t.string   "programaestudio"
+    t.string   "ultimotitulo"
+    t.integer  "tipoestudio_id"
+    t.integer  "jornadaestudio_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["jornadaestudio_id"], name: "index_nivelacademicos_on_jornadaestudio_id", using: :btree
+    t.index ["tipoestudio_id"], name: "index_nivelacademicos_on_tipoestudio_id", using: :btree
+  end
+
+  create_table "opciones_respuesta", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "valor"
+    t.integer  "pregunta_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["pregunta_id"], name: "index_opciones_respuesta_on_pregunta_id", using: :btree
+  end
+
+  create_table "paises", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "bandera"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pregunta", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "pruebas_competencia_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["pruebas_competencia_id"], name: "index_pregunta_on_pruebas_competencia_id", using: :btree
+  end
+
+  create_table "pruebas_competencia", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "aptitudes_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["aptitudes_id"], name: "index_pruebas_competencia_on_aptitudes_id", using: :btree
+  end
+
+  create_table "religions", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "respuesta", force: :cascade do |t|
+    t.string   "texto"
+    t.integer  "puntaje"
+    t.integer  "resultados_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["resultados_id"], name: "index_respuesta_on_resultados_id", using: :btree
+  end
+
+  create_table "resultados", force: :cascade do |t|
+    t.integer  "pruebas_competencia_id"
+    t.integer  "users_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["pruebas_competencia_id"], name: "index_resultados_on_pruebas_competencia_id", using: :btree
+    t.index ["users_id"], name: "index_resultados_on_users_id", using: :btree
+  end
+
+  create_table "tenenciaviviendas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipo_de_sexos", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipo_documentos", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipo_estado_civils", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipocontactos", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipoestudios", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ubicacionviviendas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,31 +156,64 @@ ActiveRecord::Schema.define(version: 20170205225120) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
     t.string   "nombres"
     t.string   "apellidos"
-    t.string   "tipodoc"
     t.string   "numdoc"
     t.date     "fechanacimiento"
     t.integer  "edad"
-    t.string   "sexo"
-    t.string   "nacionalidad"
-    t.string   "estadocivil"
     t.string   "direccion"
-    t.string   "ubicacionvivienda"
-    t.string   "tenenciavivienda"
     t.string   "numerocontacto"
-    t.string   "tipocontacto"
-    t.string   "religion"
-    t.string   "nivelacademico"
-    t.string   "ultimotitulo"
-    t.boolean  "actualestudiante"
-    t.boolean  "programaestudio"
-    t.boolean  "tipoestudio"
-    t.boolean  "jornadaestudio"
+    t.integer  "paises_id"
+    t.integer  "tipo_de_sexos_id"
+    t.integer  "tipo_estado_civils_id"
+    t.integer  "tipo_documentos_id"
+    t.integer  "religions_id"
+    t.integer  "ubicacionviviendas_id"
+    t.integer  "tenenciaviviendas_id"
+    t.integer  "tipocontactos_id"
+    t.integer  "nivelacademicos_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["nivelacademicos_id"], name: "index_users_on_nivelacademicos_id", using: :btree
+    t.index ["paises_id"], name: "index_users_on_paises_id", using: :btree
+    t.index ["religions_id"], name: "index_users_on_religions_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["tenenciaviviendas_id"], name: "index_users_on_tenenciaviviendas_id", using: :btree
+    t.index ["tipo_de_sexos_id"], name: "index_users_on_tipo_de_sexos_id", using: :btree
+    t.index ["tipo_documentos_id"], name: "index_users_on_tipo_documentos_id", using: :btree
+    t.index ["tipo_estado_civils_id"], name: "index_users_on_tipo_estado_civils_id", using: :btree
+    t.index ["tipocontactos_id"], name: "index_users_on_tipocontactos_id", using: :btree
+    t.index ["ubicacionviviendas_id"], name: "index_users_on_ubicacionviviendas_id", using: :btree
   end
 
+  create_table "voluntario_pruebas", force: :cascade do |t|
+    t.integer  "pruebas_competencia_id"
+    t.integer  "users_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["pruebas_competencia_id"], name: "index_voluntario_pruebas_on_pruebas_competencia_id", using: :btree
+    t.index ["users_id"], name: "index_voluntario_pruebas_on_users_id", using: :btree
+  end
+
+  add_foreign_key "detalleubicacions", "ubicacionviviendas"
+  add_foreign_key "nivelacademicos", "jornadaestudios"
+  add_foreign_key "nivelacademicos", "tipoestudios"
+  add_foreign_key "opciones_respuesta", "pregunta", column: "pregunta_id"
+  add_foreign_key "pregunta", "pruebas_competencia", column: "pruebas_competencia_id"
+  add_foreign_key "pruebas_competencia", "aptitudes", column: "aptitudes_id"
+  add_foreign_key "respuesta", "resultados", column: "resultados_id"
+  add_foreign_key "resultados", "pruebas_competencia", column: "pruebas_competencia_id"
+  add_foreign_key "resultados", "users", column: "users_id"
+  add_foreign_key "users", "nivelacademicos", column: "nivelacademicos_id"
+  add_foreign_key "users", "paises", column: "paises_id"
+  add_foreign_key "users", "religions", column: "religions_id"
+  add_foreign_key "users", "tenenciaviviendas", column: "tenenciaviviendas_id"
+  add_foreign_key "users", "tipo_de_sexos", column: "tipo_de_sexos_id"
+  add_foreign_key "users", "tipo_documentos", column: "tipo_documentos_id"
+  add_foreign_key "users", "tipo_estado_civils", column: "tipo_estado_civils_id"
+  add_foreign_key "users", "tipocontactos", column: "tipocontactos_id"
+  add_foreign_key "users", "ubicacionviviendas", column: "ubicacionviviendas_id"
+  add_foreign_key "voluntario_pruebas", "pruebas_competencia", column: "pruebas_competencia_id"
+  add_foreign_key "voluntario_pruebas", "users", column: "users_id"
 end

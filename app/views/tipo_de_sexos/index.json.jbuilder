@@ -1,0 +1,1 @@
+json.array! @tipo_de_sexos, partial: 'tipo_de_sexos/tipo_de_sexo', as: :tipo_de_sexo

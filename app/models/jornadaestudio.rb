@@ -1,0 +1,2 @@
+class Jornadaestudio < ApplicationRecord
+end

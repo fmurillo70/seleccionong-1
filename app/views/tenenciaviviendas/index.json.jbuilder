@@ -1,0 +1,1 @@
+json.array! @tenenciaviviendas, partial: 'tenenciaviviendas/tenenciavivienda', as: :tenenciavivienda

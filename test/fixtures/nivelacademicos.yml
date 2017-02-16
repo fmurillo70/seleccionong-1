@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actualmenteestudia: false
+  programaestudio: MyString
+  ultimotitulo: MyString
+  tipoestudio: one
+  jornadaestudio: one
+
+two:
+  actualmenteestudia: false
+  programaestudio: MyString
+  ultimotitulo: MyString
+  tipoestudio: two
+  jornadaestudio: two

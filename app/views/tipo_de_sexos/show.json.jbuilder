@@ -1,0 +1,1 @@
+json.partial! "tipo_de_sexos/tipo_de_sexo", tipo_de_sexo: @tipo_de_sexo

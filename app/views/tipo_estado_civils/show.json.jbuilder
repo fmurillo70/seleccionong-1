@@ -1,0 +1,1 @@
+json.partial! "tipo_estado_civils/tipo_estado_civil", tipo_estado_civil: @tipo_estado_civil

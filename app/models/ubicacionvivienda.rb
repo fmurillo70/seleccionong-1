@@ -1,0 +1,2 @@
+class Ubicacionvivienda < ApplicationRecord
+end

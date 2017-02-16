@@ -1,0 +1,2 @@
+class PruebasCompetencia < ApplicationRecord
+end

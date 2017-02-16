@@ -1,0 +1,2 @@
+json.extract! nivelacademico, :id, :actualmenteestudia, :programaestudio, :ultimotitulo, :tipoestudio_id, :jornadaestudio_id, :created_at, :updated_at
+json.url nivelacademico_url(nivelacademico, format: :json)

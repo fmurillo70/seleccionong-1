@@ -1,0 +1,2 @@
+class TipoEstadoCivil < ApplicationRecord
+end
