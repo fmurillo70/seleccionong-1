@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'home/conpruebas'
 
   get '/conpruebas/:id', to: 'home#conpruebasid'
+  post '/pruebasresp', to: 'home#pruebasresp'
 
   get 'prueba/show'
 

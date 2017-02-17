@@ -1,21 +1,22 @@
 <div class="ui container" style="margin-top: 80px;">
   <h2 style="text-align: center;color: #0d0b43;"><%= @prueba.nombre %></h2>
   <div class="ui form">
-    <form action="">
-    <% @preguntas.each_with_index do |p, index| %>
-        <h3><%= p.nombre %></h3>
-        <div class="grouped fields">
-          <% p.opciones_respuestums.each_with_index do |o| %>
-
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input style="float: left;" value="<%= o.valor  %>" type="radio" name="resp<%= p.id %>" checked="" tabindex="0" class="hidden">
-                  <label><%= o.nombre %></label>
+    <form action="/pruebasresp" method="post">
+      <input type="hidden" name="pruebanum" value="<%= @prueba.id %>">
+      <% @preguntas.each_with_index do |p, index| %>
+          <h3><%= p.nombre %></h3>
+          <div class="grouped fields">
+            <% p.opciones_respuestums.each_with_index do |o| %>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input style="float: left;" value="<%= o.id %>" type="radio" name="resp<%= p.id %>" checked="" tabindex="0" class="hidden">
+                    <label><%= o.nombre %></label>
+                  </div>
                 </div>
-              </div>
-          <% end %>
-        </div>
-    <% end %>
+            <% end %>
+          </div>
+      <% end %>
+      <input type="submit" value="Enviar">
     </form>
   </div>
 </div>

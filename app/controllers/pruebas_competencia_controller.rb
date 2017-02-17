@@ -42,7 +42,7 @@ class PruebasCompetenciaController < ApplicationController
        z.save
      end
     end
-    render :json => 'ok'
+    render :json => {'ok': "Ok"}
 
 
     #@pruebas_competencium = PruebasCompetencia.new(pruebas_competencium_params)
