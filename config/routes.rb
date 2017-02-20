@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'verificacionusers/index'
+
   resources :voluntario_pruebas
   resources :respuesta
   resources :resultados

@@ -1,3 +1,4 @@
+<div class="ui container">
 <%= form_for(tipoestudio) do |f| %>
   <% if tipoestudio.errors.any? %>
     <div id="error_explanation">
@@ -17,6 +18,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear",  class:"ui primary button btnLogin"%>
   </div>
 <% end %>
+</div>

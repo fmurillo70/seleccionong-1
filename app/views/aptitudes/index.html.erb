@@ -1,27 +1,38 @@
+<div class="ui container">
+
 <p id="notice"><%= notice %></p>
 
-<h1>Aptitudes</h1>
+<h1>Competencias</h1>
 
-<table>
-  <thead>
+
+
+
+  <table class="ui unstackable table">
+    <thead>
     <tr>
-      <th>Nombre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+      <th>Nombre</th>
+      <th>Mostrar</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
     <% @aptitudes.each do |aptitude| %>
-      <tr>
-        <td><%= aptitude.nombre %></td>
-        <td><%= link_to 'Show', aptitude %></td>
-        <td><%= link_to 'Edit', edit_aptitude_path(aptitude) %></td>
-        <td><%= link_to 'Destroy', aptitude, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= aptitude.nombre %></td>
+          <td><%= link_to 'Mostrar', aptitude %></td>
+          <td><%= link_to 'Editar', edit_aptitude_path(aptitude) %></td>
+          <td><%= link_to 'Elimar', aptitude, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
 
 <br>
 
-<%= link_to 'New Aptitude', new_aptitude_path %>
+<%= link_to 'Neva Competencia', new_aptitude_path %>
+</div>

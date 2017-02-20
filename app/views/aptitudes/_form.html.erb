@@ -1,3 +1,4 @@
+
 <%= form_for(aptitude) do |f| %>
   <% if aptitude.errors.any? %>
     <div id="error_explanation">
@@ -17,6 +18,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear",  class:"ui primary button btnLogin"  %>
   </div>
 <% end %>

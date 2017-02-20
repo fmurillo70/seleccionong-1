@@ -1,27 +1,35 @@
+<div class="ui container">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Tipoestudios</h1>
+  <%= link_to 'Nuev Tipo De Estudio', new_tipoestudio_path %>
 
-<table>
-  <thead>
+  <table class="ui unstackable table">
+    <thead>
     <tr>
-      <th>Nombre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+      <th>Nombre</th>
+      <th>Mirar</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
     <% @tipoestudios.each do |tipoestudio| %>
-      <tr>
-        <td><%= tipoestudio.nombre %></td>
-        <td><%= link_to 'Show', tipoestudio %></td>
-        <td><%= link_to 'Edit', edit_tipoestudio_path(tipoestudio) %></td>
-        <td><%= link_to 'Destroy', tipoestudio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= tipoestudio.nombre %></td>
+          <td><%= link_to 'Mirar', tipoestudio %></td>
+          <td><%= link_to 'Editar', edit_tipoestudio_path(tipoestudio) %></td>
+          <td><%= link_to 'Eliminar', tipoestudio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
 <br>
 
-<%= link_to 'New Tipoestudio', new_tipoestudio_path %>
+<%= link_to 'Nuev Tipo De Estudio', new_tipoestudio_path %>
+</div>
