@@ -1,27 +1,34 @@
+<div class="ui container">
+
 <p id="notice"><%= notice %></p>
 
-<h1>Tipo Estado Civils</h1>
+<h1>Tipo De Estado Civil</h1>
 
-<table>
-  <thead>
+  <table class="ui unstackable table">
+    <thead>
     <tr>
-      <th>Nombre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+      <th>Estado civil</th>
+      <th>Mostrar</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
     <% @tipo_estado_civils.each do |tipo_estado_civil| %>
-      <tr>
-        <td><%= tipo_estado_civil.nombre %></td>
-        <td><%= link_to 'Show', tipo_estado_civil %></td>
-        <td><%= link_to 'Edit', edit_tipo_estado_civil_path(tipo_estado_civil) %></td>
-        <td><%= link_to 'Destroy', tipo_estado_civil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= tipo_estado_civil.nombre %></td>
+          <td><%= link_to 'Mostrar', tipo_estado_civil %></td>
+          <td><%= link_to 'Editar', edit_tipo_estado_civil_path(tipo_estado_civil) %></td>
+          <td><%= link_to 'Eliminar', tipo_estado_civil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
 <br>
 
-<%= link_to 'New Tipo Estado Civil', new_tipo_estado_civil_path %>
+<%= link_to 'Nuevo Tipo Estado Civil', new_tipo_estado_civil_path %>
+</div>

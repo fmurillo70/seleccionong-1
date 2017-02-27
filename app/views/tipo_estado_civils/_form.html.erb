@@ -1,3 +1,5 @@
+<div class="ui container">
+
 <%= form_for(tipo_estado_civil) do |f| %>
   <% if tipo_estado_civil.errors.any? %>
     <div id="error_explanation">
@@ -17,6 +19,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear",  class:"ui primary button btnLogin" %>
   </div>
 <% end %>
+</div>

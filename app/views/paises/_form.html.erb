@@ -1,4 +1,5 @@
-<%= form_for(paise) do |f| %>
+<div class="ui container">
+<%= form_for(paise, html: {class: "ui form"}) do |f| %>
   <% if paise.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(paise.errors.count, "error") %> prohibited this paise from being saved:</h2>
@@ -22,6 +23,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear",  class:"ui primary button btnLogin" %>
   </div>
 <% end %>
+</div>

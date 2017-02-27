@@ -1,27 +1,34 @@
+<div class="ui container">
+
 <p id="notice"><%= notice %></p>
 
-<h1>Tenenciaviviendas</h1>
+<h1>Tenencia De Viviendas</h1>
 
-<table>
+<table class="ui unstackable table">
   <thead>
-    <tr>
-      <th>Nombre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <tr>
 
+    <th>Nombre</th>
+    <th>Mirar</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+
+  </tr>
+  </thead>
   <tbody>
-    <% @tenenciaviviendas.each do |tenenciavivienda| %>
+  <% @tenenciaviviendas.each do |tenenciavivienda| %>
       <tr>
         <td><%= tenenciavivienda.nombre %></td>
         <td><%= link_to 'Show', tenenciavivienda %></td>
         <td><%= link_to 'Edit', edit_tenenciavivienda_path(tenenciavivienda) %></td>
         <td><%= link_to 'Destroy', tenenciavivienda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
+
 </table>
 
 <br>
 
-<%= link_to 'New Tenenciavivienda', new_tenenciavivienda_path %>
+<%= link_to 'Nueva Tenencia De Vivienda', new_tenenciavivienda_path %>
+</div>

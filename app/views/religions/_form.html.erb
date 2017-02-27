@@ -1,3 +1,5 @@
+<div class="ui container">
+
 <%= form_for(religion) do |f| %>
   <% if religion.errors.any? %>
     <div id="error_explanation">
@@ -17,6 +19,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear",  class:"ui primary button btnLogin" %>
   </div>
 <% end %>
+</div>

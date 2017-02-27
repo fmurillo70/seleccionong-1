@@ -1,29 +1,33 @@
+
+<div class="ui container">
 <p id="notice"><%= notice %></p>
 
-<h1>Detalleubicacions</h1>
+<h1>Detalle de Ubicacions</h1>
 
-<table>
-  <thead>
+  <table class="ui unstackable table">
+    <thead>
     <tr>
+
       <th>Nombre</th>
-      <th>Ubicacionvivienda</th>
-      <th colspan="3"></th>
+      <th>Mirar</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @detalleubicacions.each do |detalleubicacion| %>
-      <tr>
-        <td><%= detalleubicacion.nombre %></td>
-        <td><%= detalleubicacion.ubicacionvivienda %></td>
-        <td><%= link_to 'Show', detalleubicacion %></td>
-        <td><%= link_to 'Edit', edit_detalleubicacion_path(detalleubicacion) %></td>
-        <td><%= link_to 'Destroy', detalleubicacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= detalleubicacion.nombre %></td>
+          <td><%= link_to 'Mirar', detalleubicacion %></td>
+          <td><%= link_to 'Editar', edit_detalleubicacion_path(detalleubicacion) %></td>
+          <td><%= link_to 'Eliminar', detalleubicacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+  <br>
 
-<br>
-
-<%= link_to 'New Detalleubicacion', new_detalleubicacion_path %>
+<%= link_to 'Nuevo Detalle de Ubicacion', new_detalleubicacion_path %>
+</div>

@@ -1,27 +1,34 @@
+<div class="ui container">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Tipo De Sexos</h1>
 
-<table>
-  <thead>
+  <table class="ui unstackable table">
+    <thead>
     <tr>
-      <th>Nombre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+      <th>Tipo de sexo</th>
+      <th>Mostrar</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
     <% @tipo_de_sexos.each do |tipo_de_sexo| %>
-      <tr>
-        <td><%= tipo_de_sexo.nombre %></td>
-        <td><%= link_to 'Show', tipo_de_sexo %></td>
-        <td><%= link_to 'Edit', edit_tipo_de_sexo_path(tipo_de_sexo) %></td>
-        <td><%= link_to 'Destroy', tipo_de_sexo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= tipo_de_sexo.nombre %></td>
+          <td><%= link_to 'Mostrar', tipo_de_sexo %></td>
+          <td><%= link_to 'Editar', edit_tipo_de_sexo_path(tipo_de_sexo) %></td>
+          <td><%= link_to 'Eliminar', tipo_de_sexo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
 <br>
 
-<%= link_to 'New Tipo De Sexo', new_tipo_de_sexo_path %>
+<%= link_to 'Nuevo Tipo De Sexo', new_tipo_de_sexo_path %>
+</div>
