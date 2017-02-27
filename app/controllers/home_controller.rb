@@ -2,6 +2,10 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
+
+    if !current_user.aprobado
+      redirect_to "/users/edit"
+    end
     sexo_id = current_user.tipo_de_sexos_id
     @sexo = TipoDeSexo.find(sexo_id)
     @volprueba = VoluntarioPrueba.where(users_id: sexo_id)

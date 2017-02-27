@@ -1,0 +1,7 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true  }) do |form| %>
+    <%= current_user.certestudios_file_name %>
+    <%= form.file_field :certestudios %>
+    <%= form.file_field :certexperiencia %>
+    <%= form.file_field :docidentidad %>
+    <%= form.file_field :tarjetaprofesional %>
+<% end %>

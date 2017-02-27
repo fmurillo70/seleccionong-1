@@ -37,17 +37,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
          jornadaestudio_id:params[:jornadaestudio_id]
      )
      x.save
+
+
+
      params[:user][:nivelacademicos_id] = x[:id]
      params[:user][:edad] = edad
      params[:user][:fechanacimiento] = date
+     if params[:user][:esvoluntario] == "true"
+       params[:user][:esvoluntario] = true
+     end
+     params[:user][:aprobado] = false
+     params[:user][:tipo_documento] = TipoDocumento.find(Integer(params[:user][:tipo_documentos_id], 10))
+     params[:tipo_documento] = TipoDocumento.find(Integer(params[:user][:tipo_documentos_id], 10))
 
      super
    end
 
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
+
+   def edit
+     super
+  end
 
   # PUT /resource
   # def update

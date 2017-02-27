@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  belongs_to :tipo_documento
-  has_one :tipo_de_sexos
+  has_one :tipo_documento
+  # has_one :tipo_de_sexos
 
 
 end

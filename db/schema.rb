@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190131004008) do
+ActiveRecord::Schema.define(version: 20190131004010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,12 +146,12 @@ ActiveRecord::Schema.define(version: 20190131004008) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                           default: "", null: false
+    t.string   "encrypted_password",              default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -172,8 +172,41 @@ ActiveRecord::Schema.define(version: 20190131004008) do
     t.integer  "tenenciaviviendas_id"
     t.integer  "tipocontactos_id"
     t.integer  "nivelacademicos_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.string   "certestudios_file_name"
+    t.string   "certestudios_content_type"
+    t.integer  "certestudios_file_size"
+    t.datetime "certestudios_updated_at"
+    t.string   "certexperiencia_file_name"
+    t.string   "certexperiencia_content_type"
+    t.integer  "certexperiencia_file_size"
+    t.datetime "certexperiencia_updated_at"
+    t.string   "docidentidad_file_name"
+    t.string   "docidentidad_content_type"
+    t.integer  "docidentidad_file_size"
+    t.datetime "docidentidad_updated_at"
+    t.string   "tarjetaprofesional_file_name"
+    t.string   "tarjetaprofesional_content_type"
+    t.integer  "tarjetaprofesional_file_size"
+    t.datetime "tarjetaprofesional_updated_at"
+    t.string   "camaracomercio_file_name"
+    t.string   "camaracomercio_content_type"
+    t.integer  "camaracomercio_file_size"
+    t.datetime "camaracomercio_updated_at"
+    t.string   "rut_file_name"
+    t.string   "rut_content_type"
+    t.integer  "rut_file_size"
+    t.datetime "rut_updated_at"
+    t.string   "mision"
+    t.string   "vision"
+    t.string   "nombresrepresentante"
+    t.string   "apellidosrepresentante"
+    t.string   "numdocrepresentante"
+    t.boolean  "esvoluntario"
+    t.boolean  "esong"
+    t.boolean  "esadmin"
+    t.boolean  "aprobado"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["nivelacademicos_id"], name: "index_users_on_nivelacademicos_id", using: :btree
     t.index ["paises_id"], name: "index_users_on_paises_id", using: :btree
