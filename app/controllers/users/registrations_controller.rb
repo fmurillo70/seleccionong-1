@@ -26,6 +26,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
    end
   # POST /resource
    def create
+
+     @paises = Paise.all
+     @tipodocumentos = TipoDocumento.all
+     @sexos = TipoDeSexo.all
+     @ubicacionvivienda = Ubicacionvivienda.all
+     @tenenciavivienda = Tenenciavivienda.all
+     @tipocontacto = Tipocontacto.all
+     @religion = Religion.all
+     @estadocivil = TipoEstadoCivil.all
+     @tipoestudio = Tipoestudio.all
+     @jornadaestudio = Jornadaestudio.all
+
+
      date = DateTime.civil( Integer(params[:yearbirth]), Integer(params[:monthbirth]), Integer( params[:daybirth]))
      edad = age(date)
 
@@ -55,6 +68,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
    def edit
+     x = ""
      super
   end
 
@@ -84,10 +98,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+
+  def configure_account_update_params
+     devise_parameter_sanitizer.permit(:account_update, keys: [:avatar])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

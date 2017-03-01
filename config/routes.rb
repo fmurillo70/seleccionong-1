@@ -32,9 +32,14 @@ Rails.application.routes.draw do
   get 'home/conpruebas'
 
   get '/conpruebas/:id', to: 'home#conpruebasid'
+
+  get '/ong/new', to: 'verificacionusers#ong'
   post '/pruebasresp', to: 'home#pruebasresp'
+  put '/subirdocumentos', to: 'home#edit'
 
   get 'prueba/show'
+
+
 
   devise_for :users, controllers: {
       sessions: 'users/sessions',

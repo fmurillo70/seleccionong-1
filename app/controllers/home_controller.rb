@@ -12,6 +12,15 @@ class HomeController < ApplicationController
   end
 
 
+
+
+  def edit
+    hola = "hola"
+    usuario = User.find current_user.id
+    usuario.update(detalleubicacion_params)
+    redirect_to "/users/edit"
+  end
+
   def conpruebas
     @pruebas = PruebasCompetencia.all
   end
@@ -43,4 +52,13 @@ class HomeController < ApplicationController
   end
 
 
+
+  def detalleubicacion_params
+    params.require(:user).permit(:certestudios,
+    :docidentidad,
+    :tarjetaprofesional,
+    :camaracomercio,
+    :rut,
+    :certexperiencia)
+  end
 end

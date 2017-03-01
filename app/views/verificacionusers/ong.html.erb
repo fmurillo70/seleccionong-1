@@ -1,0 +1,194 @@
+<style>
+  .primerDelRow {
+    box-shadow: -1px 0 0 0 rgba(34, 36, 38, .15), 1px 0 0 0 rgba(34, 36, 38, .15) !important;
+  }
+</style>
+
+
+
+
+<div class="ui container" style="margin-top: 25px;">
+
+  <h2 style="text-align: center;">Registrate como ONG</h2>
+
+
+  <form action="" class="ui form">
+
+
+    <div class="ui divided grid">
+
+      <div class="ui divider" style="width: 100%;"></div>
+
+      <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <label for="">Nombre</label>
+          <input type="text" name="user[nombres]" placeholder="Nombre">
+
+        </div>
+      </div>
+
+      <div class=" four wide column">
+        <div class="field">
+          <label for="">NIT</label>
+          <input type="text" name="user[numdoc]" placeholder="NIT">
+
+        </div>
+      </div>
+      <div class=" four wide column">
+        <div class="field">
+          <label for="">Direccion</label>
+          <input type="text" name="user[direccion]" placeholder="Direccion">
+        </div>
+      </div>
+
+      <div class="ui divider" style="width: 100%;"></div>
+
+      <div class=" four wide column primerDelRow">
+        <div class="field">
+          <label for="">Telefono</label>
+          <input type="text" name="user[numerocontacto]" placeholder="Telefono">
+
+        </div>
+      </div>
+
+      <div class=" four wide column ">
+        <div class="field">
+          <label for="">Correo Electronico</label>
+          <input type="email" name="user[email]" placeholder="Correo Electronico">
+
+        </div>
+      </div>
+
+      <div class=" four wide column ">
+        <div class="field">
+          <label for="">Nombres representante legal</label>
+          <input type="text" name="user[nombresrepresentante]" placeholder="Nombres representante legal">
+
+        </div>
+      </div>
+      <div class=" four wide column ">
+        <div class="field">
+          <label for="">Apellidos representante legal</label>
+          <input type="text" name="user[apellidosrepresentante]" placeholder="Apellidos representante legal">
+
+        </div>
+      </div>
+
+      <div class="ui divider" style="width: 100%;"></div>
+
+      <div class=" four wide column primerDelRow">
+        <div class="field">
+          <label for="">Numero documento representante legal</label>
+          <input type="text" name="user[numdocrepresentante]" placeholder="Numero">
+
+        </div>
+      </div>
+
+      <div class=" twelve wide column primerDelRow">
+        <div class="field">
+          <label for="">Mision</label>
+          <input type="text" name="user[mision]" placeholder="Mision">
+
+        </div>
+      </div>
+
+
+      <div class="ui divider" style="width: 100%;"></div>
+
+
+      <div class=" sixteen wide column primerDelRow">
+        <div class="field">
+          <label for="">Vision</label>
+          <input type="text" name="user[vision]" placeholder="Vision">
+
+        </div>
+      </div>
+
+      <div class="ui divider" style="width: 100%;"></div>
+
+
+      <input type="hidden" value="true" name="user[esong]">
+
+      <div class="eight wide column">
+        <label for="">Fecha de constitucion</label>
+        <div class="three fields">
+          <div class="field">
+            <input type="text" name="daybirth" maxlength="2" placeholder="Dia">
+          </div>
+          <div class="field">
+            <select class="ui fluid search dropdown" name="monthbirth">
+              <option value="">Mes</option>
+              <option value="1">Enero</option>
+              <option value="2">Febrero</option>
+              <option value="3">Marzo</option>
+              <option value="4">Abril</option>
+              <option value="5">Mayo</option>
+              <option value="6">Junio</option>
+              <option value="7">Julio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Septiembre</option>
+              <option value="10">Octubre</option>
+              <option value="11">Noviembre</option>
+              <option value="12">Diciembre</option>
+            </select>
+          </div>
+          <div class="field">
+            <input type="text" name="yearbirth" maxlength="4" placeholder="Año">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="four wide column">
+        <div class="field">
+          <label for=""> Clave</label>
+          <input type="password" autocomplete="off">
+
+        </div>
+      </div>
+
+      <div class="four wide column">
+        <div class="field">
+          <label for="">Confirmar Clave</label>
+          <input type="password">
+
+        </div>
+      </div>
+
+      <div class="ui divider" style="width: 100%;"></div>
+      <div class="sixteen wide column primerDelRow">
+        <div class="field">
+          <label for=""> </label>
+          <input type="submit" value="Registrar" class="ui primary button btnLogin">
+
+        </div>
+      </div>
+
+
+      <div class="ui divider" style="width: 100%;"></div>
+
+
+
+
+
+    </div>
+  </form>
+</div>
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+    $('.ui.dropdown').dropdown();
+    $('.ui.checkbox').checkbox();
+</script>
+
+<style>
+  #nacionalidad.menu .item {
+    text-align: left;
+  }
+</style>
+
+
+

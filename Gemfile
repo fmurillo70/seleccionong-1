@@ -15,6 +15,7 @@ gem 'puma', '~> 3.0'
 gem "paperclip"
 gem 'devise'
 gem 'pg'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

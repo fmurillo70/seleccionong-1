@@ -1,27 +1,131 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, multipart: true}) do |form| %>
+<%= form_for(resource, as: resource_name, url: "/subirdocumentos", html: {method: :put, multipart: true, class: "ui form"}) do |form| %>
 
     <div class="ui container" style="margin-top: 25px;">
 
-      <h2 style="text-align: center;">Por favor adjunte los siguientes documentos</h2>
-
-
-
-      <% if current_user.certestudios_file_name.to_s.empty? %>
-          <%= form.file_field :certestudios %>
+      <% if current_user.esvoluntario %>
+          <% if current_user.certestudios_file_name.to_s.empty? or current_user.certexperiencia_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
+              <h2 style="text-align: center;">Por favor adjunte los siguientes documentos</h2>
+          <% else %>
+              <h2 style="text-align: center;">Sus documentos estan en revision, cuando sea aprovado nos
+                contactaremos</h2>
+          <% end %>
       <% end %>
 
-      <% if current_user.certexperiencia_file_name.to_s.empty? %>
-          <%= form.file_field :certexperiencia %>
+      <% if current_user.esong %>
+          <% if current_user.rut_file_name.to_s.empty? or current_user.camaracomercio_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
+              <h2 style="text-align: center;">Por favor adjunte los siguientes documentos</h2>
+          <% else %>
+              <h2 style="text-align: center;">Sus documentos estan en revision, cuando sea aprovado nos
+                contactaremos</h2>
+          <% end %>
       <% end %>
+      <div class="ui centered divided grid">
+        <div class="row">
+          <div class="column six wide">
+            <div class="ui divided grid">
 
-      <% if current_user.docidentidad_file_name.to_s.empty? %>
-          <%= form.file_field :docidentidad %>
-      <% end %>
 
-      <% if current_user.tarjetaprofesional_file_name.to_s.empty? %>
-          <%= form.file_field :tarjetaprofesional %>
-      <% end %>
+              <% if current_user.esvoluntario %>
+                  <% if current_user.certestudios_file_name.to_s.empty? or current_user.certexperiencia_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
 
+                      <div class="row">
+                        <div class=" sixteen wide column">
+                          <div class="field">
+                            <% if current_user.certestudios_file_name.to_s.empty? %>
+                                <label for="">Certificado de Estudios</label>
+                                <%= form.file_field :certestudios %>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ui divider" style="width: 100%;"></div>
+                      <div class="row">
+                        <div class=" sixteen wide column">
+                          <div class="field">
+                            <% if current_user.certexperiencia_file_name.to_s.empty? %>
+                                <label for="">Certificado de Experiencia laboral</label>
+                                <%= form.file_field :certexperiencia %>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="ui divider" style="width: 100%;"></div>
+                      <div class="row">
+                        <div class=" sixteen wide column">
+                          <div class="field">
+                            <% if current_user.docidentidad_file_name.to_s.empty? %>
+                                <label for="">Fotocopia del Documento de Identidad</label>
+                                <%= form.file_field :docidentidad %>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui divider" style="width: 100%;"></div>
+                      <div class="row">
+                        <div class=" sixteen wide column">
+                          <div class="field">
+                            <% if current_user.tarjetaprofesional_file_name.to_s.empty? %>
+                                <label for="">Tarjeta Profesional</label>
+                                <%= form.file_field :tarjetaprofesional %>
+                            <% end %>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class=" sixteen wide column">
+                          <div class="field">
+                            <input type="submit" value="Enviar" style="width: 100%;" class="ui primary button btnLogin">
+                          </div>
+                        </div>
+                      </div>
+                  <% end %>
+
+
+              <% end %>
+
+
+              <% if current_user.esong %>
+                  <% if current_user.rut_file_name.to_s.empty? or current_user.camaracomercio_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
+
+                      <div class="field">
+                        <% if current_user.certestudios_file_name.to_s.empty? %>
+                            <label for="">Certificado de Camara y Comercio</label>
+                            <%= form.file_field :camaracomercio %>
+                        <% end %>
+                      </div>
+
+                      <div class="field">
+                        <% if current_user.certexperiencia_file_name.to_s.empty? %>
+                            <label for="">Rut</label>
+                            <%= form.file_field :rut %>
+                        <% end %>
+                      </div>
+
+                      </div>
+                      <div class="field">
+                        <% if current_user.docidentidad_file_name.to_s.empty? %>
+                            <label for="">Documento de Identidad Representante Legal</label>
+                            <%= form.file_field :docidentidad %>
+                        <% end %>
+                      </div>
+
+
+                      <div class="field">
+                        <input type="submit" value="Enviar" style="width: 100%;">
+                      </div>
+                  <% end %>
+
+
+              <% end %>
+
+              </div>
+        </div>
+      </div>
     </div>
+
 
 <% end %>

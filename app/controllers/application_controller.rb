@@ -27,6 +27,9 @@ class ApplicationController < ActionController::Base
          :numdocrepresentante,
          :esvoluntario,
          :esong])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nombres])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nombres, :certestudios, :certexperiencia, :docidentidad, :tarjetaprofesional,:camaracomercio,
+                                                              :certestudios_file_name,
+                                                              :avatar,
+    :rut])
   end
 end

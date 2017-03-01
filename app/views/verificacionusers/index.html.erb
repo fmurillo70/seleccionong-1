@@ -1,7 +1,131 @@
 <h1>dddVerificacionusers#index</h1>
 
 <p>Find me in app/views/verificacionusers/index.html.erb</p>
-<% @usuarios.each do |u| %>
-<%=  u.apellidos %>
 
-<% end %>
+
+
+<div class="ui top attached tabular menu">
+  <a class="item active" data-tab="first">Verificar ONG</a>
+  <a class="item" data-tab="forth"> ONG activas</a>
+  <a class="item" data-tab="second">Verificar Usuarios</a>
+  <a class="item" data-tab="third">Usuarios activos</a>
+</div>
+<div class="ui bottom attached tab segment active" data-tab="first">
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+
+      <th>RUT</th>
+      <th>Camara y Comercio</th>
+      <th>Documento de Identidad Representante</th>
+      <th>Aprobar</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @ongverificar.each do |u| %>
+
+        <tr>
+          <td><%= u.nombres %></td>
+          <td><a href="<%= u.rut.url %>" target="_blank">Link</a></td>
+          <td><a href="<%= u.camaracomercio.url %>" target="_blank">Link</a></td>
+          <td><a href="<%= u.docidentidad.url %>" target="_blank"></a>Link</td>
+
+          <td>None</td>
+
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="ui bottom attached tab segment" data-tab="second">
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Certificado de Estudios</th>
+      <th>Certificado de Experiencia laboral</th>
+      <th>Fotocopia del Documento de Identidad</th>
+      <th>Tarjeta Profesional</th>
+      <th>Aprobar</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @usuariosverificar.each do |u| %>
+
+        <tr>
+          <td><%= u.nombres %></td>
+          <td><%= u.apellidos %></td>
+          <td><a href="<%= u.certestudios.url %>" target="_blank">Link</a></td>
+          <td><a href="<%= u.certexperiencia.url %>" target="_blank">Link</a></td>
+          <td><a href="<%= u.docidentidad.url %>" target="_blank"></a>Link</td>
+          <td><a href="<%= u.tarjetaprofesional.url %>" target="_blank">Link</a></td>
+          <td>None</td>
+
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="ui bottom attached tab segment" data-tab="third">
+
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Acciones</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @usuariosactivos.each do |u| %>
+
+        <tr>
+          <td><%= u.nombres %></td>
+          <td><%= u.apellidos %></td>
+
+          <td><a href="">Ver detalles</a></td>
+
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="ui bottom attached tab segment" data-tab="forth">
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+
+      <th>Acciones</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @ongactivos.each do |u| %>
+
+        <tr>
+          <td><%= u.nombres %></td>
+          <td><a href="">Ver detalles</a></td>
+
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $('.menu .item')
+        .tab()
+    ;
+</script>

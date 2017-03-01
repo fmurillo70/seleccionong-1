@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Seleccionong</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Seleccionong</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js">
-
-    </script>
-
-    <style>
-      * {
-        font-family: 'Raleway', sans-serif !important;
-      }
-    </style>
-  </head>
-
-  <body>
-
-  <div class="ui secondary  menu">
-
-    <%= link_to "Inicio", root_path, class: "item" %>
-
-    <%= link_to "Contestar Pruebas de Competencias ", home_conpruebas_path, class: "item" %>
-    <%= link_to "Crear Prueba de Competencias", new_pruebas_competencium_path, class: "item" %>
-
-    <a class="item">
-      Otro
-    </a>
-    <div class="right menu" style="float: right;">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
 
 
-      <% if user_signed_in? %>
 
-          <%= link_to('Cerrar sesion', destroy_user_session_path, class: "ui item", :method => :delete) %>
+  <style>
+    * {
+      font-family: 'Raleway', sans-serif !important;
+    }
 
-      <% else %>
+    @font-face {
+      font-family: 'Basic Icons';
+      src: url('/themes/basic/assets/fonts/icons.eot');
+      src: url('/themes/basic/assets/fonts/icons.eot?#iefix') format("embedded-opentype"), url('/themes/basic/assets/fonts/icons.svg#basic.icons') format("svg"), url('/themes/basic/assets/fonts/icons.woff') format("woff"), url('/themes/basic/assets/fonts/icons.ttf') format("truetype");
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-decoration: inherit;
+      text-transform: none;
+    }
 
-          <%= link_to('Iniciar Sesion', new_user_session_path, class: "ui item")  %>
+  </style>
+</head>
 
+<body>
+
+<div class="ui secondary  menu">
+
+  <%= link_to "Inicio", root_path, class: "item" %>
+
+
+  <% if user_signed_in? %>
+      <% if current_user.esadmin %>
+          <%= link_to "Crear Prueba de Competencias", new_pruebas_competencium_path, class: "item" %>
+          <%= link_to "Usuarios", "/verificacionusers/index", class: "item" %>
       <% end %>
+      <% if current_user.esvoluntario and current_user.aprobado %>
+          <%= link_to "Contestar Pruebas de Competencias", home_conpruebas_path, class: "item" %>
+          <%= link_to "Aplicar a Convocatorias", root_path, class: "item" %>
+      <% end %>
+      <% if current_user.esong and current_user.aprobado %>
+          <%= link_to "Crear nueva convocatoria", root_path, class: "item" %>
+          <%= link_to "Mis convocatorias", root_path, class: "item" %>
+      <% end %>
+  <% end %>
 
-    </div>
+
+
+
+  <div class="right menu" style="float: right;">
+
+
+    <% if user_signed_in? %>
+
+        <%= link_to('Cerrar sesion', destroy_user_session_path, class: "ui item", :method => :delete) %>
+
+    <% else %>
+
+        <%= link_to('Iniciar Sesion', new_user_session_path, class: "ui item") %>
+        <%= link_to('Registro Voluntario', new_user_registration_path, class: "ui item") %>
+        <%= link_to('Registro ONG', "/ong/new", class: "ui item") %>
+
+    <% end %>
+
   </div>
+</div>
 
 
-    <%= yield %>
-  </body>
+<%= yield %>
+</body>
 </html>
 
 

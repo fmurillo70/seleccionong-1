@@ -15,6 +15,7 @@
  *= require_self
  */
 
+@import "semantic-ui";
 
 .ui.primary.btnLogin {
     width: 100%;
@@ -76,6 +77,7 @@ button.ui.primary.btnNuevoVol:hover {
   -webkit-transition: opacity .1s ease;
   transition: opacity .1s ease;
 }
+
 
 
 

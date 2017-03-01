@@ -20,20 +20,20 @@
   outline: none;
   border: none;
   vertical-align: baseline;
-  background: #EEEEEE none;
-  color: #333333;
+  background: #E0E1E2 none;
+  color: rgba(0, 0, 0, 0.6);
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em 0em 0em 0.25em;
   padding: 0.78571429em 1.5em 0.78571429em;
   text-transform: none;
   text-shadow: none;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1em;
   font-style: normal;
   text-align: center;
   text-decoration: none;
-  border-radius: 0.25em;
-  box-shadow: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -55,9 +55,9 @@
 ---------------*/
 
 .ui.button:hover {
-  background-color: #DDDDDD;
+  background-color: #CACBCD;
   background-image: none;
-  box-shadow: none;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.button:hover .icon {
@@ -69,7 +69,7 @@
 ---------------*/
 
 .ui.button:focus {
-  background-color: #DDDDDD;
+  background-color: #CACBCD;
   color: rgba(0, 0, 0, 0.8);
   background-image: '' !important;
   box-shadow: '' !important;
@@ -84,10 +84,10 @@
 
 .ui.button:active,
 .ui.active.button:active {
-  background-color: #D0D0D0;
-  background-image: none;
+  background-color: #BABBBC;
+  background-image: '';
   color: rgba(0, 0, 0, 0.9);
-  box-shadow: none;
+  box-shadow: 0px 0px 0px 1px transparent inset, none;
 }
 
 /*--------------
@@ -95,18 +95,18 @@
 ---------------*/
 
 .ui.active.button {
-  background-color: #CCCCCC;
+  background-color: #C0C1C2;
   background-image: none;
-  box-shadow: none;
+  box-shadow: 0px 0px 0px 1px transparent inset;
   color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.button:hover {
-  background-color: #CCCCCC;
+  background-color: #C0C1C2;
   background-image: none;
   color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.button:active {
-  background-color: #CCCCCC;
+  background-color: #C0C1C2;
   background-image: none;
 }
 
@@ -659,42 +659,42 @@
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.6rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.7rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.85rem;
+  font-size: 0.92857143rem;
 }
 .ui.buttons .button,
 .ui.buttons .or,
 .ui.button {
-  font-size: 0.92rem;
+  font-size: 1rem;
 }
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1rem;
+  font-size: 1.14285714rem;
 }
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.125rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.25rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.3rem;
+  font-size: 1.71428571rem;
 }
 
 /*--------------
@@ -719,9 +719,9 @@
 .ui.basic.buttons .button,
 .ui.basic.button {
   background: transparent none !important;
-  color: #333333 !important;
+  color: rgba(0, 0, 0, 0.6) !important;
   font-weight: normal;
-  border-radius: 0.25em;
+  border-radius: 0.28571429rem;
   text-transform: none;
   text-shadow: none !important;
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
@@ -729,7 +729,7 @@
 .ui.basic.buttons {
   box-shadow: none;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.25em;
+  border-radius: 0.28571429rem;
 }
 .ui.basic.buttons .button {
   border-radius: 0em;
@@ -852,7 +852,7 @@
   width: 2.57142857em;
   background-color: rgba(0, 0, 0, 0.05);
   color: '';
-  box-shadow: none;
+  box-shadow: 1px 0px 0px 0px transparent inset;
 }
 
 /* Left Labeled */
@@ -873,7 +873,7 @@
   border-radius: 0px;
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
-  box-shadow: none;
+  box-shadow: -1px 0px 0px 0px transparent inset;
 }
 .ui.labeled.icon.buttons > .button > .icon:before,
 .ui.labeled.icon.button > .icon:before,
@@ -891,20 +891,20 @@
   border-radius: 0em;
 }
 .ui.labeled.icon.buttons .button:first-child > .icon {
-  border-top-right-radius: 0.25em;
-  border-bottom-right-radius: 0.25em;
+  border-top-right-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
 }
 .ui.labeled.icon.buttons .button:last-child > .icon {
-  border-top-left-radius: 0.25em;
-  border-bottom-left-radius: 0.25em;
+  border-top-left-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
 }
 .ui.vertical.labeled.icon.buttons .button:first-child > .icon {
   border-radius: 0em;
-  border-top-right-radius: 0.25em;
+  border-top-right-radius: 0.28571429rem;
 }
 .ui.vertical.labeled.icon.buttons .button:last-child > .icon {
   border-radius: 0em;
-  border-bottom-right-radius: 0.25em;
+  border-bottom-right-radius: 0.28571429rem;
 }
 
 /* Fluid Labeled */
@@ -1003,10 +1003,10 @@
 
 /* Top / Bottom */
 .ui.attached.top.button {
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.attached.bottom.button {
-  border-radius: 0em 0em 0.25em 0.25em;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
 /* Left / Right */
@@ -1015,13 +1015,13 @@
   border-right: none;
   text-align: left;
   padding-left: 0.75em;
-  border-radius: 0em 0.25em 0.25em 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
 .ui.right.attached.button {
   display: inline-block;
   text-align: right;
   padding-right: 0.75em;
-  border-radius: 0.25em 0em 0em 0.25em;
+  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
 }
 
 /* Plural */
@@ -1049,23 +1049,23 @@
 /* Top / Bottom */
 .ui[class*="top attached"].buttons {
   margin-bottom: -1px;
-  border-radius: 0.25em 0.25em 0em 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui[class*="top attached"].buttons .button:first-child {
-  border-radius: 0em 0.25em 0em 0em;
+  border-radius: 0em 0.28571429rem 0em 0em;
 }
 .ui[class*="top attached"].buttons .button:last-child {
-  border-radius: 0.25em 0em 0em 0em;
+  border-radius: 0.28571429rem 0em 0em 0em;
 }
 .ui[class*="bottom attached"].buttons {
   margin-top: -1px;
-  border-radius: 0em 0em 0.25em 0.25em;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui[class*="bottom attached"].buttons .button:first-child {
-  border-radius: 0em 0em 0.25em 0em;
+  border-radius: 0em 0em 0.28571429rem 0em;
 }
 .ui[class*="bottom attached"].buttons .button:last-child {
-  border-radius: 0em 0em 0em 0.25em;
+  border-radius: 0em 0em 0em 0.28571429rem;
 }
 
 /* Left / Right */
@@ -1075,15 +1075,15 @@
   display: inline-flex;
   margin-left: 0em;
   margin-right: -1px;
-  border-radius: 0.25em 0em 0em 0.25em;
+  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
 }
 .ui[class*="left attached"].buttons .button:first-child {
   margin-right: -1px;
-  border-radius: 0.25em 0em 0em 0em;
+  border-radius: 0.28571429rem 0em 0em 0em;
 }
 .ui[class*="left attached"].buttons .button:last-child {
   margin-right: -1px;
-  border-radius: 0em 0em 0em 0.25em;
+  border-radius: 0em 0em 0em 0.28571429rem;
 }
 .ui[class*="right attached"].buttons {
   display: -webkit-inline-box;
@@ -1091,15 +1091,15 @@
   display: inline-flex;
   margin-right: 0em;
   margin-left: -1px;
-  border-radius: 0em 0.25em 0.25em 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
 .ui[class*="right attached"].buttons .button:first-child {
   margin-right: -1px;
-  border-radius: 0em 0.25em 0em 0em;
+  border-radius: 0em 0.28571429rem 0em 0em;
 }
 .ui[class*="right attached"].buttons .button:last-child {
   margin-right: -1px;
-  border-radius: 0em 0em 0.25em 0em;
+  border-radius: 0em 0em 0.28571429rem 0em;
 }
 
 /*-------------------
@@ -1455,7 +1455,7 @@
 .ui.inverted.grey.buttons .button:active,
 .ui.inverted.grey.button:active {
   box-shadow: none !important;
-  color: #333333;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.inverted.grey.buttons .button:hover,
 .ui.inverted.grey.button:hover {
@@ -2715,7 +2715,7 @@
 .ui.inverted.teal.buttons .button:active,
 .ui.inverted.teal.button:active {
   box-shadow: none !important;
-  color: #333333;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.inverted.teal.buttons .button:hover,
 .ui.inverted.teal.button:hover {
@@ -2855,7 +2855,7 @@
 .ui.inverted.olive.buttons .button:active,
 .ui.inverted.olive.button:active {
   box-shadow: none !important;
-  color: #333333;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.inverted.olive.buttons .button:hover,
 .ui.inverted.olive.button:hover {
@@ -2995,7 +2995,7 @@
 .ui.inverted.yellow.buttons .button:active,
 .ui.inverted.yellow.button:active {
   box-shadow: none !important;
-  color: #333333;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.inverted.yellow.buttons .button:hover,
 .ui.inverted.yellow.button:hover {
@@ -3056,7 +3056,7 @@
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #333333;
+  background-color: #2185D0;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
@@ -3066,19 +3066,19 @@
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #262626;
+  background-color: #1678c2;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.primary.buttons .button:focus,
 .ui.primary.button:focus {
-  background-color: #1f1f1f;
+  background-color: #0d71bb;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #1a1a1a;
+  background-color: #1a69a4;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -3086,7 +3086,7 @@
 .ui.primary.buttons .active.button:active,
 .ui.primary.active.button,
 .ui.primary.button .active.button:active {
-  background-color: #262626;
+  background-color: #1279c6;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -3094,31 +3094,31 @@
 /* Basic */
 .ui.basic.primary.buttons .button,
 .ui.basic.primary.button {
-  box-shadow: 0px 0px 0px 1px #333333 inset !important;
-  color: #333333 !important;
+  box-shadow: 0px 0px 0px 1px #2185D0 inset !important;
+  color: #2185D0 !important;
 }
 .ui.basic.primary.buttons .button:hover,
 .ui.basic.primary.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 1px #262626 inset !important;
-  color: #262626 !important;
+  box-shadow: 0px 0px 0px 1px #1678c2 inset !important;
+  color: #1678c2 !important;
 }
 .ui.basic.primary.buttons .button:focus,
 .ui.basic.primary.button:focus {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 1px #1f1f1f inset !important;
-  color: #262626 !important;
+  box-shadow: 0px 0px 0px 1px #0d71bb inset !important;
+  color: #1678c2 !important;
 }
 .ui.basic.primary.buttons .active.button,
 .ui.basic.primary.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 1px #262626 inset !important;
-  color: #1a1a1a !important;
+  box-shadow: 0px 0px 0px 1px #1279c6 inset !important;
+  color: #1a69a4 !important;
 }
 .ui.basic.primary.buttons .button:active,
 .ui.basic.primary.button:active {
-  box-shadow: 0px 0px 0px 1px #1a1a1a inset !important;
-  color: #1a1a1a !important;
+  box-shadow: 0px 0px 0px 1px #1a69a4 inset !important;
+  color: #1a69a4 !important;
 }
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
   margin-right: -1px;
@@ -3393,17 +3393,17 @@
 }
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
 .ui.buttons:not(.basic):not(.inverted) > .button {
-  box-shadow: none;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 .ui.buttons .button:first-child {
   border-right: none;
   margin-right: 0em;
-  border-top-right-radius: 0.25em;
-  border-bottom-right-radius: 0.25em;
+  border-top-right-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
 }
 .ui.buttons .button:last-child {
-  border-top-left-radius: 0.25em;
-  border-bottom-left-radius: 0.25em;
+  border-top-left-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
 }
 
 /* Vertical  Style */
@@ -3425,21 +3425,21 @@
   border-radius: 0em;
 }
 .ui.vertical.buttons .button:first-child {
-  border-top-right-radius: 0.25em;
-  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.28571429rem;
+  border-top-left-radius: 0.28571429rem;
 }
 .ui.vertical.buttons .button:last-child {
   margin-bottom: 0px;
-  border-bottom-right-radius: 0.25em;
-  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
 }
 .ui.vertical.buttons .button:only-child {
-  border-radius: 0.25em;
+  border-radius: 0.28571429rem;
 }
 
 
 /*******************************
-           Overrides
+         Theme Overrides
 *******************************/
 
 
