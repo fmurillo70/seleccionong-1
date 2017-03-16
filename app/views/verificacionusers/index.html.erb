@@ -32,7 +32,13 @@
           <td><a href="<%= u.camaracomercio.url %>" target="_blank">Link</a></td>
           <td><a href="<%= u.docidentidad.url %>" target="_blank"></a>Link</td>
 
-          <td>None</td>
+          <td>
+            <form action="/home/aprobacion/" method="post">
+              <input type="hidden" name="id" value="<%= u.id %>">
+              <input type="hidden" name="user[aprobado]" value="<%= true %>">
+              <button class="ui button">Aprobar</button>
+            </form>
+          </td>
 
 
         </tr>
@@ -64,7 +70,13 @@
           <td><a href="<%= u.certexperiencia.url %>" target="_blank">Link</a></td>
           <td><a href="<%= u.docidentidad.url %>" target="_blank"></a>Link</td>
           <td><a href="<%= u.tarjetaprofesional.url %>" target="_blank">Link</a></td>
-          <td>None</td>
+          <td>
+            <form action="/home/aprobacion/" method="post">
+              <input type="hidden" name="id" value="<%= u.id %>">
+              <input type="hidden" name="user[aprobado]" value="<%= true %>">
+              <button class="ui button">Enviar</button>
+            </form>
+          </td>
 
 
         </tr>

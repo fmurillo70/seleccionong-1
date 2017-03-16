@@ -1,0 +1,2 @@
+json.extract! afich, :id, :nombreorg, :nombrepuesto, :objetivospuesto, :horario, :actividadasociada, :beneficiarios, :quesehace, :comosehace, :coordinador, :requisitos, :experiencia, :incentivos, :periocidadincentivos, :created_at, :updated_at
+json.url afich_url(afich, format: :json)

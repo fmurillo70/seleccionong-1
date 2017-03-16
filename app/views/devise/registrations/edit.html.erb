@@ -31,7 +31,7 @@
                       <div class="row">
                         <div class=" sixteen wide column">
                           <div class="field">
-                            <% if current_user.certestudios_file_name.to_s.empty? %>
+                            <% if current_user.certestudios_file_name.to_s.empty?  %>
                                 <label for="">Certificado de Estudios</label>
                                 <%= form.file_field :certestudios %>
                             <% end %>
@@ -86,34 +86,53 @@
 
 
               <% end %>
-
+            </div>
+            <div class="ui divided grid">
 
               <% if current_user.esong %>
                   <% if current_user.rut_file_name.to_s.empty? or current_user.camaracomercio_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
 
-                      <div class="field">
-                        <% if current_user.certestudios_file_name.to_s.empty? %>
-                            <label for="">Certificado de Camara y Comercio</label>
-                            <%= form.file_field :camaracomercio %>
-                        <% end %>
-                      </div>
-
-                      <div class="field">
-                        <% if current_user.certexperiencia_file_name.to_s.empty? %>
-                            <label for="">Rut</label>
-                            <%= form.file_field :rut %>
-                        <% end %>
-                      </div>
-
-                      </div>
-                      <div class="field">
-                        <% if current_user.docidentidad_file_name.to_s.empty? %>
-                            <label for="">Documento de Identidad Representante Legal</label>
-                            <%= form.file_field :docidentidad %>
-                        <% end %>
+                      <div class="ui divider" style="width: 100%;"></div>
+                      <div class="row">
+                        <div class=" sixteen wide column">
+                          <div class="field">
+                            <% if current_user.certestudios_file_name.to_s.empty? %>
+                                <label for="">Certificado de Camara y Comercio</label>
+                                <%= form.file_field :camaracomercio %>
+                            <% end %>
+                          </div>
+                        </div>
                       </div>
 
 
+                      <div class="ui divider" style="width: 100%;"></div>
+                      <div class="row">
+                        <div class=" sixteen wide column">
+                          <div class="field">
+                            <% if current_user.certexperiencia_file_name.to_s.empty? %>
+                                <label for="">Rut</label>
+                                <%= form.file_field :rut %>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ui divider" style="width: 100%;"></div>
+                      <div class="row">
+                        <div class=" sixteen wide column">
+
+
+                          <div class="field">
+                            <% if current_user.docidentidad_file_name.to_s.empty? %>
+                                <label for="">Documento de Identidad Representante Legal</label>
+                                <%= form.file_field :docidentidad %>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="ui divider" style="width: 100%;"></div>
                       <div class="field">
                         <input type="submit" value="Enviar" style="width: 100%;">
                       </div>
@@ -121,11 +140,13 @@
 
 
               <% end %>
+            </div>
 
-              </div>
+          </div>
         </div>
       </div>
     </div>
+
 
 
 <% end %>

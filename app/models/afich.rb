@@ -1,0 +1,2 @@
+class Afich < ApplicationRecord
+end

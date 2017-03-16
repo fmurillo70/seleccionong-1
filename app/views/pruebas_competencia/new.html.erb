@@ -1,52 +1,4 @@
-<script type="text/javascript" charset="utf-8">
-    angular.module('pruebasApp', [])
-        .controller('TodoListController', ['$scope', '$http', function ($scope, $http) {
-            $scope.titulo = "Nueva Prueba de Competencias";
-            $scope.preguntas = [];
-            $scope.nuevaPreg = function () {
-                $scope.preguntas.push({
-                    nombre: '',
-                    respuestas: [],
-                    editingresp: true
-                })
-            };
 
-            $scope.nuevaResp = function (pregunta) {
-                pregunta.push({
-                    nombre: ''
-                })
-            };
-            $scope.estado = 1;
-            $scope.impreguntas = function () {
-
-
-                if ($scope.estado >= 3) {
-                    $http.post("/pruebas_competencia",
-                        {
-                            nombrePrueba: $scope.nombrePrueba,
-                            competencia: $scope.competencia,
-                            preguntas: $scope.preguntas
-
-                        }).then(function (data) {
-                        console.log(data);
-                    }).catch(function (err) {
-                        console.log(err);
-                    })
-                }
-                $scope.estado += 1;
-
-            };
-
-
-
-            $scope.eliminarResp = function (respuestas, i) {
-                var index = respuestas.indexOf(i);
-                respuestas.splice(index, 1);
-            }
-
-
-        }])
-</script>
 <div ng-app="pruebasApp" ng-controller="TodoListController" class="ui container" style="margin-top: 80px;">
   <h2 style="text-align: center;color: #0d0b43;">{{titulo}}</h2>
 
@@ -162,8 +114,59 @@
     $('.ui.checkbox').checkbox();
 
 </script>
+
+<script type="text/javascript" charset="utf-8">
+
+    angular.module('pruebasApp', [])
+        .controller('TodoListController', ['$scope', '$http', function ($scope, $http) {
+            $scope.titulo = "Nueva Prueba de Competencias";
+            $scope.preguntas = [];
+            $scope.nuevaPreg = function () {
+                $scope.preguntas.push({
+                    nombre: '',
+                    respuestas: [],
+                    editingresp: true
+                })
+            };
+
+            $scope.nuevaResp = function (pregunta) {
+                pregunta.push({
+                    nombre: ''
+                })
+            };
+            $scope.estado = 1;
+            $scope.impreguntas = function () {
+
+
+                if ($scope.estado >= 3) {
+                    $http.post("/pruebas_competencia",
+                        {
+                            nombrePrueba: $scope.nombrePrueba,
+                            competencia: $scope.competencia,
+                            preguntas: $scope.preguntas
+
+                        }).then(function (data) {
+                        console.log(data);
+                    }).catch(function (err) {
+                        console.log(err);
+                    })
+                }
+                $scope.estado += 1;
+
+            };
+
+
+
+            $scope.eliminarResp = function (respuestas, i) {
+                var index = respuestas.indexOf(i);
+                respuestas.splice(index, 1);
+            }
+
+
+        }])
+</script>
 <!--
 
 -->
 
-<%= link_to 'Back', pruebas_competencia_path %>
+

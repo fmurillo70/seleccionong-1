@@ -12,7 +12,7 @@
   <h2 style="text-align: center;">Registrate como ONG</h2>
 
 
-  <form action="" class="ui form">
+  <form action="/ong/create" method="post" class="ui form">
 
 
     <div class="ui divided grid">
@@ -142,7 +142,7 @@
       <div class="four wide column">
         <div class="field">
           <label for=""> Clave</label>
-          <input type="password" autocomplete="off">
+          <input type="password" name="user[password]"  autocomplete="off">
 
         </div>
       </div>
@@ -150,7 +150,7 @@
       <div class="four wide column">
         <div class="field">
           <label for="">Confirmar Clave</label>
-          <input type="password">
+          <input type="password" name="user[password_confirmation]">
 
         </div>
       </div>

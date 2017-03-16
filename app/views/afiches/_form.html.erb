@@ -1,0 +1,138 @@
+<div class="ui container" style="margin-top: 25px;">
+
+  <h2 style="text-align: center;">Crear Nuevo Afiche</h2>
+
+
+
+
+
+
+
+
+
+
+  <%= form_for(afich, html: {class: "ui form"}) do |f| %>
+      <div class="ui divided grid">
+        <% if afich.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(afich.errors.count, "error") %> prohibited this afich from being saved:</h2>
+
+              <ul>
+                <% afich.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="ui divider" style="width: 100%;"></div>
+
+        <div class=" eight wide column primerDelRow">
+          <div class="field">
+            <%= f.label :nombre_organizacion %>
+            <%= f.text_field :nombreorg %>
+          </div>
+
+        </div>
+        <div class=" eight wide column primerDelRow">
+          <div class="field">
+            <%= f.label :nombre_puesto %>
+            <%= f.text_field :nombrepuesto %>
+          </div>
+        </div>
+        <div class="ui divider" style="width: 100%;"></div>
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :objetivos_del_puesto %>
+          <%= f.text_field :objetivospuesto %>
+        </div>
+        </div>
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :horario %>
+          <%= f.text_field :horario, placeholder: 'eg. 8:00am - 5:00pm' %>
+        </div>
+        </div>
+
+        <div class="ui divider" style="width: 100%;"></div>
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :actividad_asociada_al_proceso_de %>
+          <%= f.text_field :actividadasociada %>
+        </div>
+        </div>
+
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :beneficiarios_de_la_actividad %>
+          <%= f.text_field :beneficiarios %>
+        </div>
+        </div>
+
+        <div class="ui divider" style="width: 100%;"></div>
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :que_se_hace %>
+          <%= f.text_field :quesehace %>
+        </div>
+        </div>
+
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :como_se_hace %>
+          <%= f.text_field :comosehace %>
+        </div>
+        </div>
+
+        <div class="ui divider" style="width: 100%;"></div>
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :el_coordinador_del_proceso_es %>
+          <%= f.text_field :coordinador %>
+        </div>
+        </div>
+
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :profesion_y_conocimientos_previos %>
+          <%= f.text_field :requisitos %>
+        </div>
+        </div>
+
+        <div class="ui divider" style="width: 100%;"></div>
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :experiencia_laboral %>
+          <%= f.text_field :experiencia %>
+        </div>
+        </div>
+
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :incentivos %>
+          <%= f.text_field :incentivos %>
+        </div>
+        </div>
+
+        <div class="ui divider" style="width: 100%;"></div>
+        <div class=" eight wide column primerDelRow">
+        <div class="field">
+          <%= f.label :periocidad_de_los_incentivos %>
+          <%= f.text_field :periocidadincentivos %>
+        </div>
+        </div>
+
+
+        <div class="sixteen wide column primerDelRow">
+          <div class="field">
+
+            <label for=""> </label>
+            <%= f.submit "Crear Afiche", class: "ui primary button btnLogin" %>
+
+          </div>
+        </div>
+
+
+      </div>
+  <% end %>
+</div>

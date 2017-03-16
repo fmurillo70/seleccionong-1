@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :afiches
   get 'verificacionusers/index'
 
   resources :voluntario_pruebas
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
   get '/conpruebas/:id', to: 'home#conpruebasid'
 
   get '/ong/new', to: 'verificacionusers#ong'
+  post '/home/aprobacion', to: 'home#aprobacion'
+  post '/ong/create', to: 'verificacionusers#ongcreate'
   post '/pruebasresp', to: 'home#pruebasresp'
   put '/subirdocumentos', to: 'home#edit'
 

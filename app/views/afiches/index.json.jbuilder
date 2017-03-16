@@ -1,0 +1,1 @@
+json.array! @afiches, partial: 'afiches/afich', as: :afich

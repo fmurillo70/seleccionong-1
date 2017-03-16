@@ -6,9 +6,18 @@ class HomeController < ApplicationController
     if !current_user.aprobado
       redirect_to "/users/edit"
     end
-    sexo_id = current_user.tipo_de_sexos_id
-    @sexo = TipoDeSexo.find(sexo_id)
+    if current_user.esvoluntario
+      sexo_id = current_user.tipo_de_sexos_id
+      @sexo = TipoDeSexo.find(sexo_id)
+    end
+
     @volprueba = VoluntarioPrueba.where(users_id: sexo_id)
+  end
+
+  def aprobacion
+    @user = User.find params["id"]
+    @user.update(aprobacion_params)
+    redirect_to :back
   end
 
 
@@ -60,5 +69,10 @@ class HomeController < ApplicationController
     :camaracomercio,
     :rut,
     :certexperiencia)
+  end
+
+  private
+  def aprobacion_params
+    params.require(:user).permit( :aprobado)
   end
 end

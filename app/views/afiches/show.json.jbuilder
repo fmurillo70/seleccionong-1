@@ -1,0 +1,1 @@
+json.partial! "afiches/afich", afich: @afich
