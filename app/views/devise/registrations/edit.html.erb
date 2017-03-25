@@ -31,9 +31,9 @@
                       <div class="row">
                         <div class=" sixteen wide column">
                           <div class="field">
-                            <% if current_user.certestudios_file_name.to_s.empty?  %>
+                            <% if current_user.certestudios_file_name.to_s.empty? %>
                                 <label for="">Certificado de Estudios</label>
-                                <%= form.file_field :certestudios %>
+                                <%= form.file_field :certestudios, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
                           </div>
                         </div>
@@ -45,7 +45,7 @@
                           <div class="field">
                             <% if current_user.certexperiencia_file_name.to_s.empty? %>
                                 <label for="">Certificado de Experiencia laboral</label>
-                                <%= form.file_field :certexperiencia %>
+                                <%= form.file_field :certexperiencia, data: { max_file_size: 5.megabytes}, onchange: "validateFiles(this);" %>
                             <% end %>
                           </div>
                         </div>
@@ -58,7 +58,7 @@
                           <div class="field">
                             <% if current_user.docidentidad_file_name.to_s.empty? %>
                                 <label for="">Fotocopia del Documento de Identidad</label>
-                                <%= form.file_field :docidentidad %>
+                                <%= form.file_field :docidentidad, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
                           </div>
                         </div>
@@ -69,7 +69,7 @@
                           <div class="field">
                             <% if current_user.tarjetaprofesional_file_name.to_s.empty? %>
                                 <label for="">Tarjeta Profesional</label>
-                                <%= form.file_field :tarjetaprofesional %>
+                                <%= form.file_field :tarjetaprofesional, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
 
                           </div>
@@ -98,7 +98,7 @@
                           <div class="field">
                             <% if current_user.certestudios_file_name.to_s.empty? %>
                                 <label for="">Certificado de Camara y Comercio</label>
-                                <%= form.file_field :camaracomercio %>
+                                <%= form.file_field :camaracomercio, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
                           </div>
                         </div>
@@ -111,7 +111,7 @@
                           <div class="field">
                             <% if current_user.certexperiencia_file_name.to_s.empty? %>
                                 <label for="">Rut</label>
-                                <%= form.file_field :rut %>
+                                <%= form.file_field :rut, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
                           </div>
                         </div>
@@ -125,7 +125,7 @@
                           <div class="field">
                             <% if current_user.docidentidad_file_name.to_s.empty? %>
                                 <label for="">Documento de Identidad Representante Legal</label>
-                                <%= form.file_field :docidentidad %>
+                                <%= form.file_field :docidentidad, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
                           </div>
                         </div>
@@ -150,3 +150,39 @@
 
 
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+    function validateFiles(inputFile) {
+        var maxExceededMessage = "This file exceeds the maximum allowed file size (5 MB)";
+        var extErrorMessage = "Solo se ";
+        var allowedExtension = ["jpg", "jpeg", "png", "pdf"];
+
+        var extName;
+        var maxFileSize = $(inputFile).data('max-file-size');
+        var sizeExceeded = false;
+        var extError = false;
+
+        $.each(inputFile.files, function () {
+            if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {
+                sizeExceeded = true;
+            }
+
+            extName = this.name.split('.').pop();
+            if ($.inArray(extName, allowedExtension) == -1) {
+                extError = true;
+            }
+
+        });
+        if (sizeExceeded) {
+            window.alert(maxExceededMessage);
+            $(inputFile).val('');
+        }
+
+
+        if (extError) {
+            window.alert(extErrorMessage);
+            $(inputFile).val('');
+        }
+
+    }
+</script>

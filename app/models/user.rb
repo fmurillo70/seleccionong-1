@@ -9,6 +9,31 @@ class User < ApplicationRecord
 
 
 
+
+
+
+
+
+
+
+
+
+  validates :nombres, :presence => true
+  validates :apellidos, :presence => true
+  validates :numdoc, :presence => true
+  validates :tipo_de_sexos_id, :presence => true
+  validates :paises_id, :presence => true
+  validates :tipo_estado_civils_id, :presence => true
+  validates :ubicacionviviendas_id, :presence => true
+  validates :tenenciaviviendas_id, :presence => true
+  validates :nivelacademicos_id, :presence => true
+
+
+
+
+
+
+
   has_attached_file :certestudios
   has_attached_file :certexperiencia
   has_attached_file :docidentidad
