@@ -31,11 +31,13 @@ Rails.application.routes.draw do
 
   get 'prueba/index'
   get 'home/conpruebas'
+  get 'home/convocatorias'
 
   get '/conpruebas/:id', to: 'home#conpruebasid'
 
   get '/ong/new', to: 'verificacionusers#ong'
   post '/home/aprobacion', to: 'home#aprobacion'
+  post '/home/aplicarconvocatoria', to: 'home#aplicarconvocatoria'
   post '/ong/create', to: 'verificacionusers#ongcreate'
   post '/pruebasresp', to: 'home#pruebasresp'
   put '/subirdocumentos', to: 'home#edit'

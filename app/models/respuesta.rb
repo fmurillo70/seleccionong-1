@@ -1,2 +1,3 @@
 class Respuesta < ApplicationRecord
+
 end

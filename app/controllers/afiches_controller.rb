@@ -16,10 +16,12 @@ class AfichesController < ApplicationController
   # GET /afiches/1
   # GET /afiches/1.json
   def show
+    @aptitudes = Aptitude.all
   end
 
   # GET /afiches/new
   def new
+    @aptitudes = Aptitude.all
     @afich = Afich.new
   end
 
@@ -31,9 +33,28 @@ class AfichesController < ApplicationController
   # POST /afiches.json
   def create
     @afich = Afich.new(afich_params)
+    @aptitudes = Aptitude.all
+    a = params["afichereq"]
+
+
 
     respond_to do |format|
       if @afich.save
+
+
+        @aptitudes.each do |x|
+
+
+          Aficherequisito.create!(
+                aptitude_id: x.id,
+
+
+                afich_id: @afich.id,
+                valor: a[x.nombre].to_i
+          )
+
+        end
+
         format.html { redirect_to @afich, notice: 'Afich was successfully created.' }
         format.json { render :show, status: :created, location: @afich }
       else

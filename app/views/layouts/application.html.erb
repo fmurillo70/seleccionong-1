@@ -116,7 +116,7 @@
       <% end %>
       <% if current_user.esvoluntario and current_user.aprobado %>
           <%= link_to "Contestar Pruebas de Competencias", home_conpruebas_path, class: "item" %>
-          <%= link_to "Aplicar a Convocatorias", root_path, class: "item" %>
+          <%= link_to "Aplicar a Convocatorias", home_convocatorias_path, class: "item" %>
       <% end %>
       <% if current_user.esong and current_user.aprobado %>
           <%= link_to "Crear nueva convocatoria", new_afich_path, class: "item" %>

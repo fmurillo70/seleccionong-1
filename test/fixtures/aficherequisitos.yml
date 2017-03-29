@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aptitudes: one
+  afiches: one
+  valor: 1
+
+two:
+  aptitudes: two
+  afiches: two
+  valor: 1

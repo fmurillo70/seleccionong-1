@@ -31,13 +31,50 @@ class HomeController < ApplicationController
   end
 
   def conpruebas
-    @pruebas = PruebasCompetencia.all
+    @resultados = Resultado.select("pruebas_competencia_id").where(users_id: current_user.id)
+
+    if @resultados.length == 0
+      @resultados = [0]
+    else
+      @resultados = @resultados.collect{|u| u.pruebas_competencia_id}
+    end
+
+
+
+    @pruebas = PruebasCompetencia.where("pruebas_competencia.id not IN (?)", @resultados)
+
   end
 
   def conpruebasid
     id = params[:id]
     @prueba = PruebasCompetencia.find(id)
     @preguntas = Pregunta.where(pruebas_competencia_id: id)
+  end
+
+  def convocatorias
+    @puntajes = Resultado.where(users_id:  current_user.id)
+
+    @valores = Hash.new(0)
+    @puntajes.each do |p|
+     idcompetencia = PruebasCompetencia.find p.pruebas_competencia_id
+     competencia = Aptitude.find(idcompetencia.aptitudes_id)
+    # @valores.push([
+    #                  competencia.nombre,
+
+    #              ])
+
+      @valores[competencia.nombre] = Respuesta.where(resultados_id: p.id).sum(:puntaje) / Respuesta.where(resultados_id: p.id).count(:all)
+    end
+    @afiches = Afich.all
+
+
+  end
+
+
+  def aplicarconvocatoria
+    a = params[:afiche]
+
+    redirect_to :back
   end
 
   def pruebasresp
@@ -50,7 +87,9 @@ class HomeController < ApplicationController
       opcion = OpcionesRespuestum.find(params["resp"+p.id.to_s])
       numopcion = OpcionesRespuestum.where(pregunta_id: p.id).count
 
-      r = Respuesta.new(texto: opcion.nombre, puntaje: ((100 / numopcion) * opcion.valor).round, resultados_id: result.save )
+      r = Respuesta.new(texto: opcion.nombre,
+                        puntaje: ((100 / numopcion) * opcion.valor).round,
+                        resultados_id: result.id )
       r.save
     end
     x = params

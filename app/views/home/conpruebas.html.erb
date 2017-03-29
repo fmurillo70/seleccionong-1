@@ -2,11 +2,17 @@
   <h2 style="text-align: center;color: #0d0b43;">Formularios Disponibles</h2>
 
 
+  <% if @pruebas.length == 0 %>
+    No hay pruebas disponibles actualmente
+  <% end %>
+
   <ul class="ui list">
     <% @pruebas.each do |p| %>
         <li><a href="/conpruebas/<%= p.id %>"><%=  p.nombre  %></a> </li>
     <% end %>
 
   </ul>
+
+
 
 </div>

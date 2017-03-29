@@ -2,22 +2,18 @@
 
 <h1>Afiches</h1>
 
-<table>
+<table class="ui table">
   <thead>
     <tr>
-      <th>Nombreorg</th>
-      <th>Nombrepuesto</th>
-      <th>Objetivospuesto</th>
-      <th>Horario</th>
-      <th>Actividadasociada</th>
+
+      <th>Nombre puesto</th>
+      <th>Objetivos puesto</th>
+
+
       <th>Beneficiarios</th>
-      <th>Quesehace</th>
-      <th>Comosehace</th>
+
       <th>Coordinador</th>
-      <th>Requisitos</th>
-      <th>Experiencia</th>
-      <th>Incentivos</th>
-      <th>Periocidadincentivos</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,22 +21,18 @@
   <tbody>
     <% @afiches.each do |afich| %>
       <tr>
-        <td><%= afich.nombreorg %></td>
+
         <td><%= afich.nombrepuesto %></td>
         <td><%= afich.objetivospuesto %></td>
-        <td><%= afich.horario %></td>
-        <td><%= afich.actividadasociada %></td>
+
+
         <td><%= afich.beneficiarios %></td>
-        <td><%= afich.quesehace %></td>
-        <td><%= afich.comosehace %></td>
+
         <td><%= afich.coordinador %></td>
-        <td><%= afich.requisitos %></td>
-        <td><%= afich.experiencia %></td>
-        <td><%= afich.incentivos %></td>
-        <td><%= afich.periocidadincentivos %></td>
-        <td><%= link_to 'Show', afich %></td>
-        <td><%= link_to 'Edit', edit_afich_path(afich) %></td>
-        <td><%= link_to 'Destroy', afich, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to 'Mostrar', afich %></td>
+        <td><%= link_to 'Editar', edit_afich_path(afich) %></td>
+        <td><%= link_to 'Eliminar', afich, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

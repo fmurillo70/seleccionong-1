@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190131004012) do
+ActiveRecord::Schema.define(version: 20190131004014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aficherequisitos", force: :cascade do |t|
+    t.integer  "aptitude_id"
+    t.integer  "afich_id"
+    t.integer  "valor"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["afich_id"], name: "index_aficherequisitos_on_afich_id", using: :btree
+    t.index ["aptitude_id"], name: "index_aficherequisitos_on_aptitude_id", using: :btree
+  end
 
   create_table "afiches", force: :cascade do |t|
     t.string   "nombreorg"
@@ -31,6 +41,15 @@ ActiveRecord::Schema.define(version: 20190131004012) do
     t.string   "periocidadincentivos"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "aplicacionafiches", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "afich_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["afich_id"], name: "index_aplicacionafiches_on_afich_id", using: :btree
+    t.index ["user_id"], name: "index_aplicacionafiches_on_user_id", using: :btree
   end
 
   create_table "aptitudes", force: :cascade do |t|
@@ -248,6 +267,10 @@ ActiveRecord::Schema.define(version: 20190131004012) do
     t.index ["users_id"], name: "index_voluntario_pruebas_on_users_id", using: :btree
   end
 
+  add_foreign_key "aficherequisitos", "afiches"
+  add_foreign_key "aficherequisitos", "aptitudes"
+  add_foreign_key "aplicacionafiches", "afiches"
+  add_foreign_key "aplicacionafiches", "users"
   add_foreign_key "detalleubicacions", "ubicacionviviendas"
   add_foreign_key "nivelacademicos", "jornadaestudios"
   add_foreign_key "nivelacademicos", "tipoestudios"
