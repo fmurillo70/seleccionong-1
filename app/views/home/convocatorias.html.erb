@@ -17,59 +17,70 @@
 
     <th>Coordinador</th>
 
-    <th ></th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
 
 
+  <% @afiches.each do |a| %>
 
-<% @afiches.each do |a| %>
-
-    <% alpha = true %>
-    <% a.aficherequisitos.each do |x| %>
-        <!--
+      <% alpha = true %>
+      <% a.aficherequisitos.each do |x| %>
+          <!--
         <%= @valores[x.aptitude.nombre] > x.valor %>
         -->
-        <% if @valores[x.aptitude.nombre] < x.valor %>
-            <% alpha = false %>
-            <% break %>
-        <% end %>
+          <% if @valores[x.aptitude.nombre] < x.valor %>
+              <% alpha = false %>
+              <% break %>
+          <% end %>
 
-        <!--
+          <!--
         <%= x.valor %> <%= x.aptitude.nombre %>  <br>
         <%= @valores[x.aptitude.nombre] %>
         <br>
 -->
-    <% end %>
+      <% end %>
 
-    <% if alpha %>
-  <tr>
-    <td>
-        <%= a.nombrepuesto %>
-    </td>
-    <td>
-        <%= a.objetivospuesto %>
-    </td>
-    <td>
-        <%= a.beneficiarios %>
-    </td>
-    <td>
-        <%= a.coordinador %>
-    </td>
-    <td>
+      <% if alpha %>
+          <tr>
+            <td>
+              <%= a.nombrepuesto %>
+            </td>
+            <td>
+              <%= a.objetivospuesto %>
+            </td>
+            <td>
+              <%= a.beneficiarios %>
+            </td>
+            <td>
+              <%= a.coordinador %>
+            </td>
+            <td>
+              <% haaplicado = false %>
 
-      <form method="post" action="/home/aplicarconvocatoria">
-        <input type="hidden" name="afiche" value="<%= a.id %>">
-        <input type="submit" value="Aplicar a Convocatoria">
-      </form>
-    </td>
-  </tr>
-    <% end %>
+              <% a.aplicacionafiche.each do |af| %>
+                  <% if af.user_id = current_user.id %>
+                    <% haaplicado = true %>
+                  <% end %>
+              <% end %>
+
+              <% unless haaplicado %>
+
+                  <form method="post" action="/home/aplicarconvocatoria">
+                    <input type="hidden" name="afiche" value="<%= a.id %>">
+                    <input type="submit" value="Aplicar a Convocatoria">
+                  </form>
+              <% else %>
+                Ya ha aplicado a esta convocatoria
+              <% end %>
+
+            </td>
+          </tr>
+      <% end %>
 
 
-
-<% end %>
+  <% end %>
 
   </tbody>
 </table>

@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20190131004014) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "aficherequisitos", force: :cascade do |t|
+  create_table "aficherequisitos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "aptitude_id"
     t.integer  "afich_id"
     t.integer  "valor"
@@ -25,7 +22,7 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["aptitude_id"], name: "index_aficherequisitos_on_aptitude_id", using: :btree
   end
 
-  create_table "afiches", force: :cascade do |t|
+  create_table "afiches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombreorg"
     t.string   "nombrepuesto"
     t.string   "objetivospuesto"
@@ -43,7 +40,7 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "aplicacionafiches", force: :cascade do |t|
+  create_table "aplicacionafiches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "afich_id"
     t.datetime "created_at", null: false
@@ -52,13 +49,13 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["user_id"], name: "index_aplicacionafiches_on_user_id", using: :btree
   end
 
-  create_table "aptitudes", force: :cascade do |t|
+  create_table "aptitudes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "detalleubicacions", force: :cascade do |t|
+  create_table "detalleubicacions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.integer  "ubicacionvivienda_id"
     t.datetime "created_at",           null: false
@@ -66,13 +63,13 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["ubicacionvivienda_id"], name: "index_detalleubicacions_on_ubicacionvivienda_id", using: :btree
   end
 
-  create_table "jornadaestudios", force: :cascade do |t|
+  create_table "jornadaestudios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "nivelacademicos", force: :cascade do |t|
+  create_table "nivelacademicos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "actualmenteestudia"
     t.string   "programaestudio"
     t.string   "ultimotitulo"
@@ -84,7 +81,7 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["tipoestudio_id"], name: "index_nivelacademicos_on_tipoestudio_id", using: :btree
   end
 
-  create_table "opciones_respuesta", force: :cascade do |t|
+  create_table "opciones_respuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.integer  "valor"
     t.integer  "pregunta_id"
@@ -93,14 +90,14 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["pregunta_id"], name: "index_opciones_respuesta_on_pregunta_id", using: :btree
   end
 
-  create_table "paises", force: :cascade do |t|
+  create_table "paises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.string   "bandera"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "pregunta", force: :cascade do |t|
+  create_table "pregunta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.integer  "pruebas_competencia_id"
     t.datetime "created_at",             null: false
@@ -108,7 +105,7 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["pruebas_competencia_id"], name: "index_pregunta_on_pruebas_competencia_id", using: :btree
   end
 
-  create_table "pruebas_competencia", force: :cascade do |t|
+  create_table "pruebas_competencia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.integer  "aptitudes_id"
     t.datetime "created_at",   null: false
@@ -116,13 +113,13 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["aptitudes_id"], name: "index_pruebas_competencia_on_aptitudes_id", using: :btree
   end
 
-  create_table "religions", force: :cascade do |t|
+  create_table "religions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "respuesta", force: :cascade do |t|
+  create_table "respuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "texto"
     t.integer  "puntaje"
     t.integer  "resultados_id"
@@ -131,7 +128,7 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["resultados_id"], name: "index_respuesta_on_resultados_id", using: :btree
   end
 
-  create_table "resultados", force: :cascade do |t|
+  create_table "resultados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "pruebas_competencia_id"
     t.integer  "users_id"
     t.datetime "created_at",             null: false
@@ -140,49 +137,49 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["users_id"], name: "index_resultados_on_users_id", using: :btree
   end
 
-  create_table "tenenciaviviendas", force: :cascade do |t|
+  create_table "tenenciaviviendas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tipo_de_sexos", force: :cascade do |t|
+  create_table "tipo_de_sexos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tipo_documentos", force: :cascade do |t|
+  create_table "tipo_documentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tipo_estado_civils", force: :cascade do |t|
+  create_table "tipo_estado_civils", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tipocontactos", force: :cascade do |t|
+  create_table "tipocontactos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tipoestudios", force: :cascade do |t|
+  create_table "tipoestudios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "ubicacionviviendas", force: :cascade do |t|
+  create_table "ubicacionviviendas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                           default: "", null: false
     t.string   "encrypted_password",              default: "", null: false
     t.string   "reset_password_token"
@@ -244,7 +241,6 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.boolean  "esong"
     t.boolean  "esadmin"
     t.boolean  "aprobado"
-    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["nivelacademicos_id"], name: "index_users_on_nivelacademicos_id", using: :btree
     t.index ["paises_id"], name: "index_users_on_paises_id", using: :btree
@@ -258,7 +254,7 @@ ActiveRecord::Schema.define(version: 20190131004014) do
     t.index ["ubicacionviviendas_id"], name: "index_users_on_ubicacionviviendas_id", using: :btree
   end
 
-  create_table "voluntario_pruebas", force: :cascade do |t|
+  create_table "voluntario_pruebas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "pruebas_competencia_id"
     t.integer  "users_id"
     t.datetime "created_at",             null: false

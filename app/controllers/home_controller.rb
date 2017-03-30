@@ -24,7 +24,7 @@ class HomeController < ApplicationController
 
 
   def edit
-    hola = "hola"
+
     usuario = User.find current_user.id
     usuario.update(detalleubicacion_params)
     redirect_to "/users/edit"
@@ -73,7 +73,8 @@ class HomeController < ApplicationController
 
   def aplicarconvocatoria
     a = params[:afiche]
-
+    puts a
+    Aplicacionafiche.create(user_id: current_user.id, afich_id: a)
     redirect_to :back
   end
 
