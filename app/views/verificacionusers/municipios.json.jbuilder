@@ -1,0 +1,1 @@
+json.array! @municipios, partial: 'verificacionusers/mun', as: :municipio

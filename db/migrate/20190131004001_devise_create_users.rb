@@ -19,28 +19,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
 
+      t.boolean :esvoluntario
+      t.boolean :esong
+      t.boolean :esadmin
+      t.boolean :aprobado
+
+      t.references :tipouser, foreign_key: true
 
 
-
-
-      t.string  :nombres
-      t.string  :apellidos
-      t.string  :numdoc
-      t.date    :fechanacimiento
-      t.integer :edad
-      t.string  :direccion
-      t.string  :numerocontacto
-
-
-      t.belongs_to :paises, index: true, foreign_key: true
-      t.belongs_to :tipo_de_sexos, index: true, foreign_key: true
-      t.belongs_to :tipo_estado_civils, index: true, foreign_key: true
-      t.belongs_to :tipo_documentos, index: true, foreign_key: true
-      t.belongs_to :religions, index: true, foreign_key: true
-      t.belongs_to :ubicacionviviendas, index: true, foreign_key: true
-      t.belongs_to :tenenciaviviendas, index: true, foreign_key: true
-      t.belongs_to :tipocontactos, index: true, foreign_key: true
-      t.belongs_to :nivelacademicos, index: true, foreign_key: true
 
 
 

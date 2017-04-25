@@ -1,6 +1,4 @@
-<h1>dddVerificacionusers#index</h1>
 
-<p>Find me in app/views/verificacionusers/index.html.erb</p>
 
 
 
@@ -27,10 +25,10 @@
     <% @ongverificar.each do |u| %>
 
         <tr>
-          <td><%= u.nombres %></td>
-          <td><a href="<%= u.rut.url %>" target="_blank">Link</a></td>
-          <td><a href="<%= u.camaracomercio.url %>" target="_blank">Link</a></td>
-          <td><a href="<%= u.docidentidad.url %>" target="_blank"></a>Link</td>
+          <td><%= u.ong.nombre %></td>
+          <td><a href="<%= u.ong.rut.url %>" target="_blank">Link</a></td>
+          <td><a href="<%= u.ong.camaracomercio.url %>" target="_blank">Link</a></td>
+          <td><a href="<%= u.ong.documentoidentidad.url %>" target="_blank"></a>Link</td>
 
           <td>
             <form action="/home/aprobacion/" method="post">
@@ -64,12 +62,12 @@
     <% @usuariosverificar.each do |u| %>
 
         <tr>
-          <td><%= u.nombres %></td>
-          <td><%= u.apellidos %></td>
-          <td><a href="<%= u.certestudios.url %>" target="_blank">Link</a></td>
-          <td><a href="<%= u.certexperiencia.url %>" target="_blank">Link</a></td>
-          <td><a href="<%= u.docidentidad.url %>" target="_blank"></a>Link</td>
-          <td><a href="<%= u.tarjetaprofesional.url %>" target="_blank">Link</a></td>
+          <td><%= u.voluntario.nombres %></td>
+          <td><%= u.voluntario.apellidos %></td>
+          <td><a href="<%= u.voluntario.certestudios.url %>" target="_blank">Link</a></td>
+          <td><a href="<%= u.voluntario.certexperiencia.url %>" target="_blank">Link</a></td>
+          <td><a href="<%= u.voluntario.docidentidad.url %>" target="_blank"></a>Link</td>
+          <td><a href="<%= u.voluntario.tarjetaprofesional.url %>" target="_blank">Link</a></td>
           <td>
             <form action="/home/aprobacion/" method="post">
               <input type="hidden" name="id" value="<%= u.id %>">
@@ -100,8 +98,8 @@
     <% @usuariosactivos.each do |u| %>
 
         <tr>
-          <td><%= u.nombres %></td>
-          <td><%= u.apellidos %></td>
+          <td><%= u.voluntario.nombres %></td>
+          <td><%= u.voluntario.apellidos %></td>
 
           <td><a href="">Ver detalles</a></td>
 
@@ -126,7 +124,7 @@
     <% @ongactivos.each do |u| %>
 
         <tr>
-          <td><%= u.nombres %></td>
+          <td><%= u.ong.nombre %></td>
           <td><a href="">Ver detalles</a></td>
 
 

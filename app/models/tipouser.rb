@@ -1,0 +1,2 @@
+class Tipouser < ApplicationRecord
+end

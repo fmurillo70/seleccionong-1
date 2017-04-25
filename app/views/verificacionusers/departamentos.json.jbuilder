@@ -1,0 +1,1 @@
+json.array! @departamentos, partial: 'verificacionusers/dep', as: :departamento

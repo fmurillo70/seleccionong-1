@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
 
   has_one :tipo_documento
+  has_one :municipio
+  has_one :ong
+  has_one :voluntario
 
 
 
@@ -18,15 +21,15 @@ class User < ApplicationRecord
 
 
 
-  validates :nombres, :presence => true
-  validates :apellidos, :presence => true
-  validates :numdoc, :presence => true
-  validates :tipo_de_sexos_id, :presence => true
-  validates :paises_id, :presence => true
-  validates :tipo_estado_civils_id, :presence => true
-  validates :ubicacionviviendas_id, :presence => true
-  validates :tenenciaviviendas_id, :presence => true
-  validates :nivelacademicos_id, :presence => true
+  #validates :nombres, :presence => true
+  #validates :apellidos, :presence => true
+  #validates :numdoc, :presence => true
+  #validates :tipo_de_sexos_id, :presence => true
+  #validates :paises_id, :presence => true
+  #validates :tipo_estado_civils_id, :presence => true
+  #validates :ubicacionviviendas_id, :presence => true
+  #validates :tenenciaviviendas_id, :presence => true
+  #validates :nivelacademicos_id, :presence => true
 
 
 

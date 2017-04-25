@@ -3,7 +3,7 @@
     <div class="ui container" style="margin-top: 25px;">
 
       <% if current_user.esvoluntario %>
-          <% if current_user.certestudios_file_name.to_s.empty? or current_user.certexperiencia_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
+          <% if current_user.voluntario.certestudios_file_name.to_s.empty? or current_user.certexperiencia_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
               <h2 style="text-align: center;">Por favor adjunte los siguientes documentos</h2>
           <% else %>
               <h2 style="text-align: center;">Sus documentos estan en revision, cuando sea aprovado nos
@@ -12,7 +12,9 @@
       <% end %>
 
       <% if current_user.esong %>
-          <% if current_user.rut_file_name.to_s.empty? or current_user.camaracomercio_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
+          <% if current_user.ong.rut_file_name.to_s.empty? or
+              current_user.ong.camaracomercio_file_name.to_s.empty? or
+              current_user.ong.documentoidentidad_file_name.to_s.empty? %>
               <h2 style="text-align: center;">Por favor adjunte los siguientes documentos</h2>
           <% else %>
               <h2 style="text-align: center;">Sus documentos estan en revision, cuando sea aprovado nos
@@ -26,12 +28,14 @@
 
 
               <% if current_user.esvoluntario %>
-                  <% if current_user.certestudios_file_name.to_s.empty? or current_user.certexperiencia_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
+                  <% if current_user.voluntario.certestudios_file_name.to_s.empty? or
+                      current_user.voluntario.certexperiencia_file_name.to_s.empty? or
+                      current_user.voluntario.docidentidad_file_name.to_s.empty? %>
 
                       <div class="row">
                         <div class=" sixteen wide column">
                           <div class="field">
-                            <% if current_user.certestudios_file_name.to_s.empty? %>
+                            <% if current_user.voluntario.certestudios_file_name.to_s.empty? %>
                                 <label for="">Certificado de Estudios</label>
                                 <%= form.file_field :certestudios, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
@@ -39,11 +43,12 @@
                         </div>
                       </div>
 
+
                       <div class="ui divider" style="width: 100%;"></div>
                       <div class="row">
                         <div class=" sixteen wide column">
                           <div class="field">
-                            <% if current_user.certexperiencia_file_name.to_s.empty? %>
+                            <% if current_user.voluntario.certexperiencia_file_name.to_s.empty? %>
                                 <label for="">Certificado de Experiencia laboral</label>
                                 <%= form.file_field :certexperiencia, data: { max_file_size: 5.megabytes}, onchange: "validateFiles(this);" %>
                             <% end %>
@@ -56,7 +61,7 @@
                       <div class="row">
                         <div class=" sixteen wide column">
                           <div class="field">
-                            <% if current_user.docidentidad_file_name.to_s.empty? %>
+                            <% if current_user.voluntario.docidentidad_file_name.to_s.empty? %>
                                 <label for="">Fotocopia del Documento de Identidad</label>
                                 <%= form.file_field :docidentidad, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
@@ -67,7 +72,7 @@
                       <div class="row">
                         <div class=" sixteen wide column">
                           <div class="field">
-                            <% if current_user.tarjetaprofesional_file_name.to_s.empty? %>
+                            <% if current_user.voluntario.tarjetaprofesional_file_name.to_s.empty? %>
                                 <label for="">Tarjeta Profesional</label>
                                 <%= form.file_field :tarjetaprofesional, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
@@ -90,13 +95,15 @@
             <div class="ui divided grid">
 
               <% if current_user.esong %>
-                  <% if current_user.rut_file_name.to_s.empty? or current_user.camaracomercio_file_name.to_s.empty? or current_user.docidentidad_file_name.to_s.empty? %>
+                  <% if current_user.ong.rut_file_name.to_s.empty? or
+                      current_user.ong.camaracomercio_file_name.to_s.empty? or
+                      current_user.ong.documentoidentidad_file_name.to_s.empty? %>
 
                       <div class="ui divider" style="width: 100%;"></div>
                       <div class="row">
                         <div class=" sixteen wide column">
                           <div class="field">
-                            <% if current_user.certestudios_file_name.to_s.empty? %>
+                            <% if current_user.ong.camaracomercio_file_name.to_s.empty? %>
                                 <label for="">Certificado de Camara y Comercio</label>
                                 <%= form.file_field :camaracomercio, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
@@ -109,7 +116,7 @@
                       <div class="row">
                         <div class=" sixteen wide column">
                           <div class="field">
-                            <% if current_user.certexperiencia_file_name.to_s.empty? %>
+                            <% if current_user.ong.rut_file_name.to_s.empty? %>
                                 <label for="">Rut</label>
                                 <%= form.file_field :rut, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
@@ -123,9 +130,9 @@
 
 
                           <div class="field">
-                            <% if current_user.docidentidad_file_name.to_s.empty? %>
+                            <% if current_user.ong.documentoidentidad_file_name.to_s.empty? %>
                                 <label for="">Documento de Identidad Representante Legal</label>
-                                <%= form.file_field :docidentidad, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
+                                <%= form.file_field :documentoidentidad, data: { max_file_size: 2.megabytes }, onchange: "validateFiles(this);" %>
                             <% end %>
                           </div>
                         </div>
@@ -154,7 +161,7 @@
 <script type="text/javascript" charset="utf-8">
     function validateFiles(inputFile) {
         var maxExceededMessage = "This file exceeds the maximum allowed file size (5 MB)";
-        var extErrorMessage = "Solo se ";
+        var extErrorMessage = "Solo se admiten imagenes o archvivos pdf ";
         var allowedExtension = ["jpg", "jpeg", "png", "pdf"];
 
         var extName;

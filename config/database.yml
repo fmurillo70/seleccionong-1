@@ -9,21 +9,21 @@ default: &default
   pool: 5
   timeout: 5000
 
-development:
-  adapter: mysql2
-  encoding: utf8
-  database: seleccionong_development
-  username: root
-  password:
-
-
 #development:
-#  adapter: postgresql
-#  encoding: unicode
+#  adapter: mysql2
+#  encoding: utf8
 #  database: seleccionong_development
-#  pool: 5
-#  username: ivan
+#  username: root
 #  password:
+
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: seleccionong_development
+  pool: 5
+  username: ivan
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

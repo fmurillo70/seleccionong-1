@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       redirect_to "/users/edit"
     end
     if current_user.esvoluntario
-      sexo_id = current_user.tipo_de_sexos_id
+      sexo_id = current_user.voluntario.tipo_de_sexos_id
       @sexo = TipoDeSexo.find(sexo_id)
     end
 
@@ -21,12 +21,16 @@ class HomeController < ApplicationController
   end
 
 
-
-
   def edit
 
     usuario = User.find current_user.id
-    usuario.update(detalleubicacion_params)
+
+    if usuario.esong
+      usuario.ong.update(detalleubicacion_params)
+    elsif usuario.esvoluntario
+      usuario.voluntario.update(detalleubicacion_params)
+    end
+    # usuario.update(detalleubicacion_params)
     redirect_to "/users/edit"
   end
 
@@ -36,9 +40,8 @@ class HomeController < ApplicationController
     if @resultados.length == 0
       @resultados = [0]
     else
-      @resultados = @resultados.collect{|u| u.pruebas_competencia_id}
+      @resultados = @resultados.collect { |u| u.pruebas_competencia_id }
     end
-
 
 
     @pruebas = PruebasCompetencia.where("pruebas_competencia.id not IN (?)", @resultados)
@@ -52,16 +55,16 @@ class HomeController < ApplicationController
   end
 
   def convocatorias
-    @puntajes = Resultado.where(users_id:  current_user.id)
+    @puntajes = Resultado.where(users_id: current_user.id)
 
     @valores = Hash.new(0)
     @puntajes.each do |p|
-     idcompetencia = PruebasCompetencia.find p.pruebas_competencia_id
-     competencia = Aptitude.find(idcompetencia.aptitudes_id)
-    # @valores.push([
-    #                  competencia.nombre,
+      idcompetencia = PruebasCompetencia.find p.pruebas_competencia_id
+      competencia = Aptitude.find(idcompetencia.aptitudes_id)
+      # @valores.push([
+      #                  competencia.nombre,
 
-    #              ])
+      #              ])
 
       @valores[competencia.nombre] = Respuesta.where(resultados_id: p.id).sum(:puntaje) / Respuesta.where(resultados_id: p.id).count(:all)
     end
@@ -82,7 +85,7 @@ class HomeController < ApplicationController
     pruebaId = params[:pruebanum]
     prueba = PruebasCompetencia.find(pruebaId)
     preguntas = Pregunta.where(:pruebas_competencia_id => prueba.id)
-    result = Resultado.new(pruebas_competencia_id: pruebaId, users_id: current_user.id )
+    result = Resultado.new(pruebas_competencia_id: pruebaId, users_id: current_user.id)
     result.save
     preguntas.each do |p|
       opcion = OpcionesRespuestum.find(params["resp"+p.id.to_s])
@@ -90,7 +93,7 @@ class HomeController < ApplicationController
 
       r = Respuesta.new(texto: opcion.nombre,
                         puntaje: ((100 / numopcion) * opcion.valor).round,
-                        resultados_id: result.id )
+                        resultados_id: result.id)
       r.save
     end
     x = params
@@ -101,18 +104,18 @@ class HomeController < ApplicationController
   end
 
 
-
   def detalleubicacion_params
     params.require(:user).permit(:certestudios,
-    :docidentidad,
-    :tarjetaprofesional,
-    :camaracomercio,
-    :rut,
-    :certexperiencia)
+                                 :docidentidad,
+                                 :tarjetaprofesional,
+                                 :camaracomercio,
+                                 :rut,
+                                 :certexperiencia,
+                                 :documentoidentidad)
   end
 
   private
   def aprobacion_params
-    params.require(:user).permit( :aprobado)
+    params.require(:user).permit(:aprobado)
   end
 end
