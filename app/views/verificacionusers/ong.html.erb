@@ -2,9 +2,10 @@
   .primerDelRow {
     box-shadow: -1px 0 0 0 rgba(34, 36, 38, .15), 1px 0 0 0 rgba(34, 36, 38, .15) !important;
   }
-    .note{
-      color: red;
-    }
+
+  .note {
+    color: red;
+  }
 </style>
 
 
@@ -207,6 +208,10 @@
     var password = null;
     var password_confirmation = null;
     var emailunico = true;
+    var telefono = null;
+    var nombre_representante = null;
+    var apellido_representante = null;
+    var doc_representante = null;
 
 
     $("#email").on('change keyup paste', function () {
@@ -217,7 +222,7 @@
                 $('#emailajax').addClass('error');
                 $('.note').show();
                 emailunico = false;
-            } else{
+            } else {
                 $('#emailajax').removeClass('error');
                 $('.note').hide();
                 emailunico = true
@@ -234,26 +239,100 @@
 
 
         nombre = $('#nombre').val();
+        nombre_representante = $('#nombre_representante').val();
+        apellido_representante = $('#apellido_representante').val();
+        doc_representante = $('#doc_representante').val();
+
+
+        var nombrevalido = /^[a-zA-Z\s]+$/.test(nombre);
+        var nombre_representantevalido = /^[a-zA-Z\s]+$/.test(nombre_representante);
+        var apellido_representantevalido = /^[a-zA-Z\s]+$/.test(apellido_representante);
+        var doc_representantevalido = /^[0-9]+$/.test(doc_representante);
+
+
+        if (doc_representante && !doc_representantevalido) {
+            errores.push("El documento del representante debe contener unicamente numeros")
+        }
+
 
         if (!nombre) {
             errores.push("El nombre es obligatorio")
         }
+
+
+        if (nombre && !nombrevalido) {
+            errores.push("El nombre debe contener unicamente letras")
+        }
+        if (nombre_representante && !nombre_representantevalido) {
+            errores.push("El nombre del representante debe contener unicamente letras")
+        }
+        if (apellido_representante && !apellido_representantevalido) {
+            errores.push("El apellido del representante debe contener unicamente letras")
+        }
+
+
         nit = $('#nit').val();
+        var nitvalido = /^[0-9\-]+$/.test(nit);
         if (!nit) {
             errores.push("El NIT es obligatorio")
         }
+
+        if (nit && !nitvalido) {
+            errores.push("El nit debe contener unicamente numeros o guiones")
+        }
+
+
         email = $('#email').val();
+        telefono = $('#telefono').val();
+
+        var telefonovalido = /^[0-9]+$/.test(telefono);
+
+        if (telefono && !telefonovalido) {
+            errores.push("El telefono debe contener unicamente numeros")
+        }
+
+
         if (!email) {
             errores.push("El correo electronico es obligatorio")
         }
+
+
+
         mision = $('#mision').val();
+        var misionvalido = /^[a-zA-Z\s]+$/.test(mision);
         if (!mision) {
             errores.push("La mision es obligatoria")
         }
+
+        if (mision && !misionvalido) {
+            errores.push("La mision solo debe contener letras")
+        }
+
+        if (mision && mision.length < 100) {
+            errores.push("La mision minimo debe contener 100 caracteres actualmente tiene: " + mision.length)
+        }
+
+
         vision = $('#vision').val();
+        var visionvalido = /^[a-zA-Z\s]+$/.test(vision);
         if (!vision) {
             errores.push("La vision es obligatoria")
         }
+
+
+        if (vision && !visionvalido) {
+            errores.push("La vision solo debe contener letras")
+        }
+
+        if (vision && vision.length < 100) {
+            errores.push("La vision minimo debe contener 100 caracteres actualmente tiene: " + mision.length)
+        }
+
+
+
+
+
+
         daybirth = $('#daybirth').val();
         monthbirth = $('#monthbirth').val();
         yearbirth = $('#yearbirth').val();
@@ -270,6 +349,13 @@
         if (!yearbirth) {
             errores.push("El anio de constitucion de la empresa es obligatorio")
         }
+
+
+        if (yearbirth < 1900 || yearbirth > 2017) {
+            errores.push("El anio de constitucion de la empresa es invalido")
+        }
+
+
 
         password = $('#password').val();
         if (!password) {
@@ -304,7 +390,7 @@
 
             return false
 
-        } else if(!emailunico) {
+        } else if (!emailunico) {
             return false;
         } else {
             return true
