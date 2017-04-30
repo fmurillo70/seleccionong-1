@@ -153,7 +153,7 @@ class VerificacionusersController < ApplicationController
         esong: true
     )
 
-    respond_to do |format|
+
       if @user.save
         @ong = Ong.create(
             nombre: nombre,
@@ -170,10 +170,9 @@ class VerificacionusersController < ApplicationController
         )
         redirect_to root_path
       else
-        format.html { render :ong }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        redirect_to :back
       end
-    end
+
 
 
 
