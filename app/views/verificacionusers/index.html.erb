@@ -1,8 +1,8 @@
 <div class="ui top attached tabular menu">
   <a class="item active" data-tab="first">Verificar ONG</a>
   <a class="item" data-tab="forth"> ONG activas</a>
-  <a class="item" data-tab="second">Verificar Usuarios</a>
-  <a class="item" data-tab="third">Usuarios activos</a>
+  <a class="item" data-tab="second">Verificar Voluntarios</a>
+  <a class="item" data-tab="third">Voluntarios activos</a>
 </div>
 <div class="ui bottom attached tab segment active" data-tab="first">
   <table class="ui celled table">
@@ -22,13 +22,31 @@
 
         <tr>
           <td><%= u.ong.nombre %></td>
-          <td><a href="<%= u.ong.rut.url %>" target="_blank">Link</a></td>
-          <td><a href="<%= u.ong.camaracomercio.url %>" target="_blank">Link</a></td>
-          <td><a href="<%= u.ong.documentoidentidad.url %>" target="_blank"></a>Link</td>
+          <% if !(u.ong.rut.url.end_with? "missing.png") %>
+              <td><a href="<%= u.ong.rut.url %>" target="_blank">Link</a></td>
+          <% else %>
+              <td>No se ha adjuntado el documento</td>
+          <% end %>
+
+          <% if !(u.ong.camaracomercio.url.end_with? "missing.png" ) %>
+
+              <td>
+
+                <a href="<%= u.ong.camaracomercio.url %>" target="_blank">Link</a></td>
+          <% else %>
+              <td>No se ha adjuntado el documento</td>
+          <% end %>
+          <% if !(u.ong.documentoidentidad.url.end_with? "missing.png") %>
+              <td>
+
+                <a href="<%= u.ong.documentoidentidad.url %>" target="_blank">Link</a></td>
+          <% else %>
+              <td>No se ha adjuntado el documento</td>
+          <% end %>
 
           <td>
 
-              <button class="ui button modalong" data-id="<%= u.id %>">Aprobar</button>
+            <button class="ui button modalong" data-id="<%= u.id %>">Aprobar</button>
 
           </td>
 
@@ -58,10 +76,49 @@
         <tr>
           <td><%= u.voluntario.nombres %></td>
           <td><%= u.voluntario.apellidos %></td>
-          <td><a href="<%= u.voluntario.certestudios.url %>" target="_blank">Link</a></td>
-          <td><a href="<%= u.voluntario.certexperiencia.url %>" target="_blank">Link</a></td>
-          <td><a href="<%= u.voluntario.docidentidad.url %>" target="_blank"></a>Link</td>
-          <td><a href="<%= u.voluntario.tarjetaprofesional.url %>" target="_blank">Link</a></td>
+
+          <% if !(u.ong.certestudios.url.end_with? "missing.png" ) %>
+
+
+
+              <td>
+
+
+              <td><a href="<%= u.voluntario.certestudios.url %>" target="_blank">Link</a></td></td>
+          <% else %>
+              <td>No se ha adjuntado el documento</td>
+          <% end %>
+          <% if !(u.ong.certexperiencia.url.end_with? "missing.png" ) %>
+              <td></td>
+
+              <td>
+
+                <a href="<%= u.voluntario.certexperiencia.url %>" target="_blank">Link</a></td>
+          <% else %>
+              <td>No se ha adjuntado el documento</td>
+          <% end %>
+          <% if !(u.ong.docidentidad.url.end_with? "missing.png" ) %>
+
+
+
+              <td>
+
+              <td><a href="<%= u.voluntario.docidentidad.url %>" target="_blank"></a>Link</td>
+              </td>
+          <% else %>
+              <td>No se ha adjuntado el documento</td>
+          <% end %>
+          <% if !(u.ong.tarjetaprofesional.url.end_with? "missing.png" ) %>
+
+              <td>
+
+              <td><a href="<%= u.voluntario.tarjetaprofesional.url %>" target="_blank">Link</a></td></td>
+          <% else %>
+              <td>No se ha adjuntado el documento</td>
+          <% end %>
+
+
+
           <td>
 
             <button class="ui button modalusuarios" data-id="<%= u.id %>">Aprobar</button>
