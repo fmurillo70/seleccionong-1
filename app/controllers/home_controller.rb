@@ -116,6 +116,6 @@ class HomeController < ApplicationController
 
   private
   def aprobacion_params
-    params.require(:user).permit(:aprobado)
+    params.require(:user).permit(:aprobado, :observacion)
   end
 end

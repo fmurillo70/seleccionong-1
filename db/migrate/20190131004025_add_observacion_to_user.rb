@@ -1,0 +1,5 @@
+class AddObservacionToUser < ActiveRecord::Migration[5.0]
+  def change
+    add_column :users, :observacion, :string
+  end
+end
