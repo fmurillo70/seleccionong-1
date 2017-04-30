@@ -11,6 +11,13 @@ class User < ApplicationRecord
   has_one :voluntario
 
 
+  def self.search(email)
+    if email
+      where('email = ?',email).first
+    end
+
+  end
+
 
 
 

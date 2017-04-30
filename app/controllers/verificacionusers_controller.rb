@@ -18,7 +18,6 @@ class VerificacionusersController < ApplicationController
   end
 
 
-
   def departamentos
     @departamentos = Departamento.all
   end
@@ -154,24 +153,30 @@ class VerificacionusersController < ApplicationController
         esong: true
     )
 
-    if @user.save
-      @ong = Ong.create(
-          nombre: nombre,
-          nit: nit,
-          direccion: direccion,
-          telefono: telefono,
-          nombre_representante: nombre_representante,
-          apellido_representante: apellido_representante,
-          doc_representante: doc_representante,
-          mision: mision,
-          vision: vision,
-          constitucion: constitucion,
-          user_id: @user.id
-      )
-      redirect_to root_path
-    else
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+    respond_to do |format|
+      if @user.save
+        @ong = Ong.create(
+            nombre: nombre,
+            nit: nit,
+            direccion: direccion,
+            telefono: telefono,
+            nombre_representante: nombre_representante,
+            apellido_representante: apellido_representante,
+            doc_representante: doc_representante,
+            mision: mision,
+            vision: vision,
+            constitucion: constitucion,
+            user_id: @user.id
+        )
+        redirect_to root_path
+      else
+        format.html { render :ong }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
+
+
+
 
     # params[:user][:fechanacimiento] = date
     # if params[:user][:esong] == "true"
@@ -187,6 +192,16 @@ class VerificacionusersController < ApplicationController
     # end
   end
 
+
+  def emailcheck
+    @user = User.search(params[:email])
+    #@user = User.where(email: params[:email])
+    #existe = @user.length == 1 ? "existe" : nil
+    respond_to do |format|
+      format.json {render :json => {email_exists: @user.present?}} #sir Deep suggestion to return true or false for email_exists or the code below
+      #format.json {render :json => @us} #this will output null if email is not in the database
+    end
+  end
 
   def ong
 

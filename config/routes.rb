@@ -47,6 +47,9 @@ Rails.application.routes.draw do
   post '/pruebasresp', to: 'home#pruebasresp'
   put '/subirdocumentos', to: 'home#edit'
 
+
+  post '/checkemail', to: 'verificacionusers#emailcheck'
+
   get 'prueba/show'
 
 

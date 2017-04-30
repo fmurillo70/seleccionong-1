@@ -2,6 +2,9 @@
   .primerDelRow {
     box-shadow: -1px 0 0 0 rgba(34, 36, 38, .15), 1px 0 0 0 rgba(34, 36, 38, .15) !important;
   }
+    .note{
+      color: red;
+    }
 </style>
 
 
@@ -12,7 +15,18 @@
   <h2 style="text-align: center;">Registrate como ONG</h2>
 
 
-  <form action="/ong/create" method="post" class="ui form">
+  <div class="ui negative message">
+
+    <div class="header">
+      Ha ocurrido un error
+    </div>
+    <ul id="errores" class="errores">
+
+    </ul>
+  </div>
+
+
+  <form action="/ong/create" method="post" class="ui form" id="new_user">
 
 
     <div class="ui divided grid">
@@ -22,7 +36,7 @@
       <div class=" eight wide column primerDelRow">
         <div class="field">
           <label for="">Nombre</label>
-          <input type="text" name="nombre" placeholder="Nombre">
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre">
 
         </div>
       </div>
@@ -30,14 +44,14 @@
       <div class=" four wide column">
         <div class="field">
           <label for="">NIT</label>
-          <input type="text" name="nit" placeholder="NIT">
+          <input type="text" id="nit" name="nit" placeholder="NIT">
 
         </div>
       </div>
       <div class=" four wide column">
         <div class="field">
           <label for="">Direccion</label>
-          <input type="text" name="direccion" placeholder="Direccion">
+          <input type="text" id="direccion" name="direccion" placeholder="Direccion">
         </div>
       </div>
 
@@ -46,30 +60,30 @@
       <div class=" four wide column primerDelRow">
         <div class="field">
           <label for="">Telefono</label>
-          <input type="text" name="telefono" placeholder="Telefono">
+          <input type="text" id="telefono" name="telefono" placeholder="Telefono">
 
         </div>
       </div>
 
       <div class=" four wide column ">
-        <div class="field">
+        <div class="field" id="emailajax">
           <label for="">Correo Electronico</label>
-          <input type="email" name="email" placeholder="Correo Electronico">
-
+          <input type="email" id="email" name="email" placeholder="Correo Electronico">
+          <p class="note">El correo electronico ya existe</p>
         </div>
       </div>
 
       <div class=" four wide column ">
         <div class="field">
           <label for="">Nombres representante legal</label>
-          <input type="text" name="nombre_representante" placeholder="Nombres representante legal">
+          <input type="text" id="nombre_representante" name="nombre_representante" placeholder="Nombres representante legal">
 
         </div>
       </div>
       <div class=" four wide column ">
         <div class="field">
           <label for="">Apellidos representante legal</label>
-          <input type="text" name="apellido_representante" placeholder="Apellidos representante legal">
+          <input type="text" id="apellido_representante" name="apellido_representante" placeholder="Apellidos representante legal">
 
         </div>
       </div>
@@ -79,7 +93,7 @@
       <div class=" four wide column primerDelRow">
         <div class="field">
           <label for="">Numero documento representante legal</label>
-          <input type="text" name="doc_representante" placeholder="Numero">
+          <input type="text" id="doc_representante" name="doc_representante" placeholder="Numero">
 
         </div>
       </div>
@@ -87,7 +101,7 @@
       <div class=" twelve wide column primerDelRow">
         <div class="field">
           <label for="">Mision</label>
-          <input type="text" name="mision" placeholder="Mision">
+          <input type="text" id="mision" name="mision" placeholder="Mision">
 
         </div>
       </div>
@@ -99,7 +113,7 @@
       <div class=" sixteen wide column primerDelRow">
         <div class="field">
           <label for="">Vision</label>
-          <input type="text" name="vision" placeholder="Vision">
+          <input type="text" id="vision" name="vision" placeholder="Vision">
 
         </div>
       </div>
@@ -107,16 +121,14 @@
       <div class="ui divider" style="width: 100%;"></div>
 
 
-
-
       <div class="eight wide column">
         <label for="">Fecha de constitucion</label>
         <div class="three fields">
           <div class="field">
-            <input type="text" name="daybirth" maxlength="2" placeholder="Dia">
+            <input type="text" id="daybirth" name="daybirth" maxlength="2" placeholder="Dia">
           </div>
           <div class="field">
-            <select class="ui fluid search dropdown" name="monthbirth">
+            <select class="ui fluid search dropdown" name="monthbirth" id="monthbirth">
               <option value="">Mes</option>
               <option value="1">Enero</option>
               <option value="2">Febrero</option>
@@ -133,7 +145,7 @@
             </select>
           </div>
           <div class="field">
-            <input type="text" name="yearbirth" maxlength="4" placeholder="Año">
+            <input type="text" id="yearbirth" name="yearbirth" maxlength="4" placeholder="Año">
           </div>
         </div>
       </div>
@@ -142,7 +154,7 @@
       <div class="four wide column">
         <div class="field">
           <label for=""> Clave</label>
-          <input type="password" name="password"  autocomplete="off">
+          <input type="password" id="password" name="password" autocomplete="off">
 
         </div>
       </div>
@@ -150,7 +162,7 @@
       <div class="four wide column">
         <div class="field">
           <label for="">Confirmar Clave</label>
-          <input type="password" name="password_confirmation">
+          <input type="password" id="password_confirmation" name="password_confirmation">
 
         </div>
       </div>
@@ -168,9 +180,6 @@
       <div class="ui divider" style="width: 100%;"></div>
 
 
-
-
-
     </div>
   </form>
 </div>
@@ -182,6 +191,125 @@
 <script type="text/javascript" charset="utf-8">
     $('.ui.dropdown').dropdown();
     $('.ui.checkbox').checkbox();
+    $('.note').hide();
+
+
+    var nombre = null;
+    var nit = null;
+    var email = null;
+    var mision = null;
+    var vision = null;
+    var daybirth = null;
+    var monthbirth = null;
+    var yearbirth = null;
+    var password = null;
+    var password_confirmation = null;
+    var emailunico = true;
+
+
+    $("#email").on('change keyup paste', function () {
+
+        $.post('/checkemail?email=' + $("#email").val(), function (data) {
+
+            if (data.email_exists) {
+                $('#emailajax').addClass('error');
+                $('.note').show();
+                emailunico = false;
+            } else{
+                $('#emailajax').removeClass('error');
+                $('.note').hide();
+                emailunico = true
+            }
+
+
+        });
+    });
+
+
+    $('#new_user').submit(function () {
+
+        var errores = [];
+
+
+        nombre = $('#nombre').val();
+
+        if (!nombre) {
+            errores.push("El nombre es obligatorio")
+        }
+        nit = $('#nit').val();
+        if (!nit) {
+            errores.push("El NIT es obligatorio")
+        }
+        email = $('#email').val();
+        if (!email) {
+            errores.push("El correo electronico es obligatorio")
+        }
+        mision = $('#mision').val();
+        if (!mision) {
+            errores.push("La mision es obligatoria")
+        }
+        vision = $('#vision').val();
+        if (!vision) {
+            errores.push("La vision es obligatoria")
+        }
+        daybirth = $('#daybirth').val();
+        monthbirth = $('#monthbirth').val();
+        yearbirth = $('#yearbirth').val();
+
+
+        if (!daybirth) {
+            errores.push("El dia de constitucion de la empresa es obligatorio")
+        }
+        if (!monthbirth) {
+            errores.push("El mes de constitucion de la empresa es obligatorio")
+        }
+
+
+        if (!yearbirth) {
+            errores.push("El anio de constitucion de la empresa es obligatorio")
+        }
+
+        password = $('#password').val();
+        if (!password) {
+            errores.push("La clave es obligatoria")
+        }
+        password_confirmation = $('#password_confirmation').val();
+        if (!password_confirmation) {
+            errores.push("La confirmacion de la clave es obligatoria")
+        }
+
+        if (password && password.length < 6) {
+            errores.push("La clave minimo debe contener 6 caracteres")
+        }
+
+        if (password != password_confirmation) {
+            errores.push("Las claves no coinciden")
+        }
+
+
+        if (errores.length > 0) {
+            var diverrores = $('#errores');
+            diverrores.html('');
+
+            for (var i = 0; i < errores.length; i++) {
+                diverrores.append("<li>" +
+                    errores[i] +
+                    "</li>")
+            }
+
+            window.scrollTo(0, 0);
+
+            return false
+
+        } else if(!emailunico) {
+            return false;
+        } else {
+            return true
+        }
+
+
+    })
+
 </script>
 
 <style>
