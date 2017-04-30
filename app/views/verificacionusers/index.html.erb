@@ -28,7 +28,7 @@
               <td>No se ha adjuntado el documento</td>
           <% end %>
 
-          <% if !(u.ong.camaracomercio.url.end_with? "missing.png" ) %>
+          <% if !(u.ong.camaracomercio.url.end_with? "missing.png") %>
 
               <td>
 
@@ -77,18 +77,18 @@
           <td><%= u.voluntario.nombres %></td>
           <td><%= u.voluntario.apellidos %></td>
 
-          <% if !(u.ong.certestudios.url.end_with? "missing.png" ) %>
-
+          <% if !(u.voluntario.certestudios.url.end_with? "missing.png") %>
 
 
               <td>
 
 
-              <td><a href="<%= u.voluntario.certestudios.url %>" target="_blank">Link</a></td></td>
+              <td><a href="<%= u.voluntario.certestudios.url %>" target="_blank">Link</a></td>
+              </td>
           <% else %>
               <td>No se ha adjuntado el documento</td>
           <% end %>
-          <% if !(u.ong.certexperiencia.url.end_with? "missing.png" ) %>
+          <% if !(u.voluntario.certexperiencia.url.end_with? "missing.png") %>
               <td></td>
 
               <td>
@@ -97,8 +97,7 @@
           <% else %>
               <td>No se ha adjuntado el documento</td>
           <% end %>
-          <% if !(u.ong.docidentidad.url.end_with? "missing.png" ) %>
-
+          <% if !(u.voluntario.docidentidad.url.end_with? "missing.png") %>
 
 
               <td>
@@ -108,11 +107,12 @@
           <% else %>
               <td>No se ha adjuntado el documento</td>
           <% end %>
-          <% if !(u.ong.tarjetaprofesional.url.end_with? "missing.png" ) %>
+          <% if !(u.voluntario.tarjetaprofesional.url.end_with? "missing.png") %>
 
               <td>
 
-              <td><a href="<%= u.voluntario.tarjetaprofesional.url %>" target="_blank">Link</a></td></td>
+              <td><a href="<%= u.voluntario.tarjetaprofesional.url %>" target="_blank">Link</a></td>
+              </td>
           <% else %>
               <td>No se ha adjuntado el documento</td>
           <% end %>
