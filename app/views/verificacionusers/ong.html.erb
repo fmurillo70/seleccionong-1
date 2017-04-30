@@ -15,7 +15,7 @@
   <h2 style="text-align: center;">Registrate como ONG</h2>
 
 
-  <div class="ui negative message">
+  <div class="ui negative message" id="erroresdiv">
 
     <div class="header">
       Ha ocurrido un error
@@ -193,6 +193,8 @@
     $('.ui.checkbox').checkbox();
     $('.note').hide();
 
+    $('#erroresdiv').hide();
+
 
     var nombre = null;
     var nit = null;
@@ -288,6 +290,7 @@
 
 
         if (errores.length > 0) {
+            $('#erroresdiv').show();
             var diverrores = $('#errores');
             diverrores.html('');
 
