@@ -1,0 +1,159 @@
+<div class="container ui">
+  <h1>ONG</h1>
+
+
+  <div class="ui relaxed divided list">
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Correo Electronico: <%= @user.email %></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Observacion: <%= @user.observacion %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Nombre: <%= @user.ong.nombre %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">NIT: <%= @user.ong.nit %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Direccion: <%= @user.ong.direccion %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Telefono: <%= @user.ong.telefono %></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Nombres del Representante Legal: <%= @user.ong.nombre_representante %></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Apellidos del representante legal: <%= @user.ong.apellido_representante %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Documento del representante legal: <%= @user.ong.doc_representante %></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Mision: <%= @user.ong.mision %></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Vision: <%= @user.ong.vision %></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Fecha de constitucion: <%= @user.ong.constitucion %></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+        <div class="description">RUT:
+          <% if !(@user.ong.rut.url.end_with? "missing.png") %>
+              <a href="<%= @user.ong.rut.url %>" target="_blank">Link</a>
+
+          <% else %>
+
+              No se ha adjuntado ningun documento
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+        <div class="description">Camara y Comercio:
+        <% if !(@user.ong.camaracomercio.url.end_with? "missing.png") %>
+
+            <a href="<%= @user.ong.camaracomercio.url %>" target="_blank">Link</a>
+
+        <% else %>
+              No se ha adjuntado ningun documento
+
+        <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+        <div class="description">Documento de identidad del representante legal:
+          <% if !(@user.ong.documentoidentidad.url.end_with? "missing.png") %>
+
+
+              <a href="<%= @user.ong.documentoidentidad.url %>" target="_blank">Link</a>
+          <% else %>
+
+              No se ha adjuntado ningun documento
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

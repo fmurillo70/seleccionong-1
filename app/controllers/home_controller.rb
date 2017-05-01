@@ -1,6 +1,15 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
 
+
+
+  def voluntario
+    @user = User.find(params[:id])
+  end
+  def ong
+    @user = User.find(params[:id])
+  end
+
   def index
 
     if !current_user.aprobado

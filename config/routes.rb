@@ -38,6 +38,14 @@ Rails.application.routes.draw do
   get '/conpruebas/:id', to: 'home#conpruebasid'
 
   get '/ong/new', to: 'verificacionusers#ong'
+
+
+
+
+  get '/home/voluntario/:id', to: 'home#voluntario'
+  get '/home/ong/:id', to: 'home#ong'
+
+
   post '/home/aprobacion', to: 'home#aprobacion'
   post '/home/aplicarconvocatoria', to: 'home#aplicarconvocatoria'
   post '/ong/create', to: 'verificacionusers#ongcreate'
