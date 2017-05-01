@@ -1,77 +1,215 @@
-<p id="notice"><%= notice %></p>
+<div class="ui container">
 
-<table>
-  <thead>
+  <p id="notice"><%= notice %></p>
+
+
+  Voluntarios
+  <table class="ui unstackable table">
+    <thead>
     <tr>
-      <td></td>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th></th>
     </tr>
-  </thead>
-</table>
+    </thead>
+    <tbody>
+    <% @afich.aplicacionafiche.each do |a| %>
+        <tr>
+          <td><%= a.user.voluntario.nombres %></td>
+          <td><%= a.user.voluntario.apellidos %></td>
+          <td><a href="/home/voluntario/<%= a.user.id %>">Ver detalles</a></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-<p>
-  <strong>Nombreorg:</strong>
-  <%= @afich.nombreorg %>
-</p>
 
-<p>
-  <strong>Nombrepuesto:</strong>
-  <%= @afich.nombrepuesto %>
-</p>
+  <div class="ui relaxed divided list">
+    <br>
+    <br>
+    <div class="item">
 
-<p>
-  <strong>Objetivospuesto:</strong>
-  <%= @afich.objetivospuesto %>
-</p>
+      <div class="content">
 
-<p>
-  <strong>Horario:</strong>
-  <%= @afich.horario %>
-</p>
+        <div class="description">
+          <strong>Nombre Organizacion:</strong>
+          <%= @afich.nombreorg %>
 
-<p>
-  <strong>Actividadasociada:</strong>
-  <%= @afich.actividadasociada %>
-</p>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Beneficiarios:</strong>
-  <%= @afich.beneficiarios %>
-</p>
 
-<p>
-  <strong>Quesehace:</strong>
-  <%= @afich.quesehace %>
-</p>
+    <br>
 
-<p>
-  <strong>Comosehace:</strong>
-  <%= @afich.comosehace %>
-</p>
+    <div class="item">
 
-<p>
-  <strong>Coordinador:</strong>
-  <%= @afich.coordinador %>
-</p>
+      <div class="content">
 
-<p>
-  <strong>Requisitos:</strong>
-  <%= @afich.requisitos %>
-</p>
+        <div class="description">
 
-<p>
-  <strong>Experiencia:</strong>
-  <%= @afich.experiencia %>
-</p>
+          <strong>Nombre del puesto:</strong>
+          <%= @afich.nombrepuesto %>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Incentivos:</strong>
-  <%= @afich.incentivos %>
-</p>
+    <br>
+    <div class="item">
 
-<p>
-  <strong>Periocidadincentivos:</strong>
-  <%= @afich.periocidadincentivos %>
-</p>
+      <div class="content">
 
-<%= link_to 'Edit', edit_afich_path(@afich) %> |
-<%= link_to 'Back', afiches_path %>
+        <div class="description">
+          <strong>Objetivos del puesto:</strong>
+          <%= @afich.objetivospuesto %>
+
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+          <strong>Horario:</strong>
+          <%= @afich.horario %>
+
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Actividad asociada:</strong>
+          <%= @afich.actividadasociada %>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Beneficiarios:</strong>
+          <%= @afich.beneficiarios %>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Que se hace?:</strong>
+          <%= @afich.quesehace %>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Como se hace?:</strong>
+          <%= @afich.comosehace %>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Coordinador:</strong>
+          <%= @afich.coordinador %>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Requisitos:</strong>
+          <%= @afich.requisitos %>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Experiencia:</strong>
+          <%= @afich.experiencia %>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Incentivos:</strong>
+          <%= @afich.incentivos %>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+
+          <strong>Periocidad de los incentivos:</strong>
+          <%= @afich.periocidadincentivos %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">
+          <%= link_to 'Atras', afiches_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
