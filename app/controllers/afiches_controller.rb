@@ -55,7 +55,7 @@ class AfichesController < ApplicationController
 
         end
 
-        format.html { redirect_to @afich, notice: 'Afich was successfully created.' }
+        format.html { redirect_to afiches_path, notice: 'Afich was successfully created.' }
         format.json { render :show, status: :created, location: @afich }
       else
         format.html { render :new }

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Afiches</h1>
+<h1>Convocatorias</h1>
 
 <table class="ui table">
   <thead>
@@ -14,7 +14,7 @@
 
       <th>Coordinador</th>
 
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -31,7 +31,7 @@
         <td><%= afich.coordinador %></td>
 
         <td><%= link_to 'Mostrar', afich %></td>
-        <td><%= link_to 'Editar', edit_afich_path(afich) %></td>
+        <!--<td><%= link_to 'Editar', edit_afich_path(afich) %></td> -->
         <td><%= link_to 'Eliminar', afich, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Afich', new_afich_path %>
+<%= link_to 'Nueva convocatoria', new_afich_path %>

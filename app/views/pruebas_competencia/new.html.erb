@@ -1,4 +1,3 @@
-
 <div ng-app="pruebasApp" ng-controller="TodoListController" class="ui container" style="margin-top: 80px;">
   <h2 style="text-align: center;color: #0d0b43;">{{titulo}}</h2>
 
@@ -28,10 +27,9 @@
             <select class="ui fluid search dropdown" name="user[tipo_documentos]" ng-model="competencia">
               <option value="">Competencia...</option>
 
-                  <% @apitudes.each do |p| %>
-                      <option value="<%= p.id %>"><%= p.nombre %></option>
-                  <% end %>
-
+              <% @apitudes.each do |p| %>
+                  <option value="<%= p.id %>"><%= p.nombre %></option>
+              <% end %>
 
 
             </select>
@@ -146,6 +144,8 @@
                             preguntas: $scope.preguntas
 
                         }).then(function (data) {
+                            window.location = "/pruebas_competencia";
+
                         console.log(data);
                     }).catch(function (err) {
                         console.log(err);
@@ -154,7 +154,6 @@
                 $scope.estado += 1;
 
             };
-
 
 
             $scope.eliminarResp = function (respuestas, i) {

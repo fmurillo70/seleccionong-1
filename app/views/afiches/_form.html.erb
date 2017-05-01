@@ -1,6 +1,6 @@
 <div class="ui container" style="margin-top: 25px;">
 
-  <h2 style="text-align: center;">Crear Nuevo Afiche</h2>
+  <h2 style="text-align: center;">Crear Nueva Convocatoria</h2>
 
 
 
@@ -30,7 +30,7 @@
         <div class=" eight wide column primerDelRow">
           <div class="field">
             <%= f.label :nombre_organizacion %>
-            <%= f.text_field :nombreorg %>
+            <%= f.text_field :nombreorg, value: current_user.ong.nombre %>
           </div>
 
         </div>
@@ -180,7 +180,7 @@
           <div class="field">
 
             <label for=""> </label>
-            <%= f.submit "Crear Afiche", class: "ui primary button btnLogin" %>
+            <%= f.submit "Crear Convocatoria", class: "ui primary button btnLogin" %>
 
           </div>
         </div>
