@@ -301,7 +301,7 @@
         <div class=" four wide column">
           <div class="field">
             <label for="">Ultimo titulo obtenido</label>
-            <input type="text" placeholder="Ultimo titulo obtenido" name="ultimotitulo">
+            <input type="text" placeholder="Ultimo titulo obtenido" name="ultimotitulo" id="ultimotitulo">
 
           </div>
         </div>
@@ -483,17 +483,59 @@
     var jornada = null;
 
     $('#new_user').submit(function () {
+
+
+        var   nombrepersona = $('#nombrepersona').val();
+        var relacionpersona = $('#relacionpersona').val();
+        var ultimotitulo = $('#ultimotitulo').val();
+
+
+        var nombrepersonavalido = /^[a-zA-Z\s]+$/.test(nombrepersona);
+        var relacionpersonavalido = /^[a-zA-Z\s]+$/.test(relacionpersona);
+        var ultimotitulovalido = /^[a-zA-Z\s]+$/.test(ultimotitulo);
+
+
+        if (ultimotitulo && !ultimotitulovalido) {
+            alert("El ultimo titulo obtenido debe contener unicamente letras");
+            return false
+        }
+
+        if (nombrepersona && !nombrepersonavalido) {
+            alert("El nombre de la persona de contacto debe contener unicamente letras");
+            return false
+        }
+
+        if (relacionpersona && !relacionpersonavalido) {
+            alert("La relacion con la persona de contacto debe contener unicamente letras");
+            return false
+        }
+
         nombres = $('#nombres').val();
+
+
+        var nombrevalido = /^[a-zA-Z\s]+$/.test(nombres);
         if (!nombres) {
             alert("Los nombres son obligatorios");
             return false
         }
+        if (nombres && !nombrevalido) {
+            alert("El nombre debe contener unicamente letras");
+            return false
+        }
 
         apellidos = $('#apellidos').val();
+        var apellidovalido = /^[a-zA-Z\s]+$/.test(apellidos);
         if (!apellidos) {
             alert("Los apellidos son obligatorios");
             return false
         }
+        if (apellidos && !apellidovalido) {
+            alert("El apellido debe contener unicamente letras");
+            return false
+        }
+
+
+
         tipodoc = $('#tipo_documentos_id').val();
         if (!tipodoc) {
             alert("El tipo de documento es obligatorio");
@@ -561,6 +603,13 @@
             return false
         }
 
+
+        var anio = $('#year').val();
+
+        if (anio && anio > 1999) {
+            alert("La fecha de nacimiento no es valida");
+            return false
+        }
 
         fechanac = $('#day').val() && $('#mon').val() && $('#year').val();
 

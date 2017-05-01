@@ -244,7 +244,7 @@
         doc_representante = $('#doc_representante').val();
 
 
-        var nombrevalido = /^[a-zA-Z\s]+$/.test(nombre);
+
         var nombre_representantevalido = /^[a-zA-Z\s]+$/.test(nombre_representante);
         var apellido_representantevalido = /^[a-zA-Z\s]+$/.test(apellido_representante);
         var doc_representantevalido = /^[0-9]+$/.test(doc_representante);
@@ -260,9 +260,7 @@
         }
 
 
-        if (nombre && !nombrevalido) {
-            errores.push("El nombre debe contener unicamente letras")
-        }
+
         if (nombre_representante && !nombre_representantevalido) {
             errores.push("El nombre del representante debe contener unicamente letras")
         }
