@@ -1,3 +1,238 @@
 <div class="container ui">
   <h1>Voluntario</h1>
+
+
+  <div class="ui relaxed divided list">
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Correo Electronico: <%= @user.email %></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Observacion: <%= @user.observacion %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Nombres: <%= @user.voluntario.nombres %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Apellidos: <%= @user.voluntario.apellidos %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Numero de documento: <%= @user.voluntario.numdoc %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Fecha de nacimiento: <%= @user.voluntario.fechanacimiento %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Edad: <%= @user.voluntario.edad %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Direccion: <%= @user.voluntario.direccion %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Tipo de contacto: <%= @tipocontacto.nombre %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Numero de contacto: <%= @user.voluntario.numerocontacto %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Pais: <%= @pais.nombre %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Sexo: <%= @sexo.nombre %></div>
+      </div>
+    </div>
+    <br>
+
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Estado civil: <%= @estadocivil.nombre %></div>
+      </div>
+    </div>
+    <br>
+
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Religion: <%= @religion.nombre %></div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Ubicacion de vivienda: <%= @ubicacionvivienda.nombre %></div>
+      </div>
+    </div>
+    <br>
+
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Tenencia de vivienda: <%= @tenenciavivienda.nombre %></div>
+      </div>
+    </div>
+    <br>
+
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Nivel academico: <%= @nivelacademico.tipoestudio.nombre %>, Ultimo titulo: <%= @nivelacademico.ultimotitulo %>  <%= @nivelacademico.programaestudio %>, Jornada de EStudio: <%= @nivelacademico.jornadaestudio.nombre %>   </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="item">
+
+      <div class="content">
+
+        <div class="description">Ubicacion: <%= @municipio.nombre %> , <%= @departamento.nombre %></div>
+      </div>
+    </div>
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="item">
+
+      <div class="content">
+        <div class="description">RUT:
+          <% if !(@user.voluntario.certestudios.url.end_with? "missing.png") %>
+              <a href="<%= @user.voluntario.certestudios.url %>" target="_blank">Link</a>
+
+          <% else %>
+
+              No se ha adjuntado ningun documento
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="item">
+
+      <div class="content">
+        <div class="description">RUT:
+          <% if !(@user.voluntario.certexperiencia.url.end_with? "missing.png") %>
+              <a href="<%= @user.voluntario.certexperiencia.url %>" target="_blank">Link</a>
+
+          <% else %>
+
+              No se ha adjuntado ningun documento
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+        <div class="description">Camara y Comercio:
+          <% if !(@user.voluntario.docidentidad.url.end_with? "missing.png") %>
+
+              <a href="<%= @user.voluntario.docidentidad.url %>" target="_blank">Link</a>
+
+          <% else %>
+              No se ha adjuntado ningun documento
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="item">
+
+      <div class="content">
+        <div class="description">Documento de identidad del representante legal:
+          <% if !(@user.voluntario.tarjetaprofesional.url.end_with? "missing.png") %>
+
+
+              <a href="<%= @user.voluntario.tarjetaprofesional.url %>" target="_blank">Link</a>
+          <% else %>
+
+              No se ha adjuntado ningun documento
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>

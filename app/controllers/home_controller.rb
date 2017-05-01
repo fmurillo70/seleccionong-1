@@ -5,6 +5,18 @@ class HomeController < ApplicationController
 
   def voluntario
     @user = User.find(params[:id])
+
+
+    @pais = Paise.find(@user.voluntario.paises_id)
+    @sexo = TipoDeSexo.find(@user.voluntario.tipo_de_sexos_id)
+    @estadocivil = TipoEstadoCivil.find(@user.voluntario.tipo_estado_civils_id)
+    @religion = Religion.find(@user.voluntario.religions_id)
+    @ubicacionvivienda = Ubicacionvivienda.find(@user.voluntario.ubicacionviviendas_id)
+    @tenenciavivienda = Tenenciavivienda.find(@user.voluntario.tenenciaviviendas_id)
+    @tipocontacto = Tipocontacto.find(@user.voluntario.tipocontactos_id)
+    @nivelacademico = Nivelacademico.find(@user.voluntario.nivelacademicos_id)
+    @municipio = Municipio.find(@user.voluntario.municipio_id)
+    @departamento = Departamento.find(@user.voluntario.departamento_id)
   end
   def ong
     @user = User.find(params[:id])

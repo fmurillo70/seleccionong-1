@@ -2,6 +2,7 @@ class Voluntario < ApplicationRecord
   belongs_to :user
 
 
+  belongs_to :paise
 
   has_attached_file :certestudios
   has_attached_file :certexperiencia
