@@ -84,14 +84,20 @@ class VerificacionusersController < ApplicationController
         email: email,
         password: password,
         password_confirmation: password_confirmation,
-        esvoluntario: true
+        esvoluntario: true,
+        actualmentetrabaja: actualmentetrabaja,
+        tipo_eps: tipo_eps,
+        estrato: estrato,
+        nombrepersona: nombrepersona,
+        telpersona: telpersona,
+        relacionpersona: relacionpersona
 
     )
 
 
     if @user.save
-      puts municipio_id
-      @voluntario = Voluntario.create(
+
+      @voluntario = Voluntario.create!(
           nombres: nombres,
           apellidos: apellidos,
           tipo_documentos_id: tipo_documentos_id,
@@ -111,16 +117,12 @@ class VerificacionusersController < ApplicationController
           nivelacademicos_id: nivelacademicos_id,
           municipio_id: municipio_id,
           departamento_id: departamento_id,
-          actualmentetrabaja: actualmentetrabaja,
-          tipo_eps: tipo_eps,
-          estrato: estrato,
-          nombrepersona: nombrepersona,
-          telpersona: telpersona,
-          relacionpersona: relacionpersona
+
       )
       redirect_to root_path
     else
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+      redirect_to root_path
+      #format.json { render json: @user.errors, status: :unprocessable_entity }
     end
 
 

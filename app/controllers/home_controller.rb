@@ -28,6 +28,7 @@ class HomeController < ApplicationController
       redirect_to "/users/edit"
     end
     if current_user.esvoluntario
+      puts current_user.voluntario
       sexo_id = current_user.voluntario.tipo_de_sexos_id
       @sexo = TipoDeSexo.find(sexo_id)
     end
