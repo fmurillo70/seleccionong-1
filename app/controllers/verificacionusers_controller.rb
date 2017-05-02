@@ -3,6 +3,9 @@ class VerificacionusersController < ApplicationController
     unless current_user.esadmin
       redirect_to root_path
     end
+
+    @usuarios = User.all
+
     @usuariosverificar = User.where('(aprobado=false OR aprobado is null) and esvoluntario = true')
     @usuariosactivos = User.where(aprobado: true, esvoluntario: true)
 
