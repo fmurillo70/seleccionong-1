@@ -131,6 +131,38 @@ class VerificacionusersController < ApplicationController
 
   end
 
+
+  def newadmin
+
+  end
+  def createadmin
+    email = params[:email]
+    password = params[:password]
+    password_confirmation = params[:password_confirmation]
+    nombre = params[:nombre]
+    apellido = params[:apellido]
+    cedula = params[:cedula]
+
+    cargo = params[:cargo]
+
+    User.create!(
+            email: email,
+            password: password,
+            password_confirmation: password_confirmation,
+            nombreadmin: nombre,
+            apellidoadmin: apellido,
+            cedulaadmin: cedula,
+            cargoadmin: cargo,
+            esadmin: true,
+            aprobado: true
+
+    )
+
+    redirect_to "/verificacionusers/index"
+
+  end
+
+
   def ongcreate
 
     nombre = params[:nombre]

@@ -1,0 +1,38 @@
+<div class="ui container">
+  <h1>Nuevo Usuario Administrador</h1>
+
+  <form action="/createadmin" method="post" class="ui form">
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Email">
+    </div>
+    <div class="field">
+      <label>Clave</label>
+      <input type="password" name="password" placeholder="Clave">
+    </div>
+    <div class="field">
+      <label>Confirmar Clave</label>
+      <input type="password" name="password_confirmation" placeholder="Confirmar Clave">
+    </div>
+    <div class="field">
+      <label>Nombre</label>
+      <input type="text" name="nombre" placeholder="Nombre">
+    </div>
+    <div class="field">
+      <label>Apellido</label>
+      <input type="text" name="apellido" placeholder="Apellido">
+    </div>
+    <div class="field">
+      <label>Cedula</label>
+      <input type="text" name="cedula" placeholder="Cedula">
+    </div>
+
+    <div class="field">
+      <label>Cargo</label>
+      <input type="text" name="cargo" placeholder="Cargo">
+    </div>
+
+
+    <input type="submit" class="ui primary button btnNuevoVol" value="Crear">
+  </form>
+</div>

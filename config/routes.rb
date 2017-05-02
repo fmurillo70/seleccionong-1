@@ -50,7 +50,12 @@ Rails.application.routes.draw do
   post '/home/aplicarconvocatoria', to: 'home#aplicarconvocatoria'
   post '/ong/create', to: 'verificacionusers#ongcreate'
   post '/voluntario/create', to: 'verificacionusers#voluntariocreate'
-  get '/v1/departamentos', to: 'verificacionusers#departamentos'
+  get '/v1/departamentos' , to: 'verificacionusers#departamentos'
+
+
+  get '/newadmin' , to: 'verificacionusers#newadmin'
+  post '/createadmin' , to: 'verificacionusers#createadmin'
+
   get '/v1/municipios/:id', to: 'verificacionusers#municipios'
   post '/pruebasresp', to: 'home#pruebasresp'
   put '/subirdocumentos', to: 'home#edit'
