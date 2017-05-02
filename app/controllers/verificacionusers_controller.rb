@@ -1,4 +1,5 @@
 class VerificacionusersController < ApplicationController
+
   def index
     unless current_user.esadmin
       redirect_to root_path
@@ -135,6 +136,7 @@ class VerificacionusersController < ApplicationController
   def newadmin
 
   end
+
   def createadmin
     email = params[:email]
     password = params[:password]
@@ -160,6 +162,59 @@ class VerificacionusersController < ApplicationController
 
     redirect_to "/verificacionusers/index"
 
+  end
+
+  def editadmin
+    @user = User.find(params[:id])
+  end
+
+  def updateadmin
+    id = params[:id]
+    puts id
+    email = params[:email]
+    nombre = params[:nombre]
+    apellido = params[:apellido]
+    cedula = params[:cedula]
+    cargo = params[:cargo]
+
+    #password = params[:password]
+    #password_confirmation = params[:password_confirmation]
+    #password: password,
+    #    password_confirmation: password_confirmation,
+
+    usuario = User.find(id)
+
+    usuario.update!(
+        email: email,
+        nombreadmin: nombre,
+        apellidoadmin: apellido,
+        cedulaadmin: cedula,
+        cargoadmin: cargo,
+
+    )
+
+    redirect_to "/verificacionusers/index"
+  end
+
+
+  def admindestroy
+    id = params[:id]
+
+    @user = User.find(id)
+
+    if @user.esong
+      @user.ong.destroy
+    end
+
+    if @user.esvoluntario
+      @user.voluntario.destroy
+    end
+
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to "/verificacionusers/index", notice: 'El usuario ha sido eliminado.' }
+
+    end
   end
 
 

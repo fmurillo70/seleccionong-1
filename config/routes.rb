@@ -56,6 +56,13 @@ Rails.application.routes.draw do
   get '/newadmin' , to: 'verificacionusers#newadmin'
   post '/createadmin' , to: 'verificacionusers#createadmin'
 
+  get '/editadmin/:id' , to: 'verificacionusers#editadmin'
+  post '/updateadmin' , to: 'verificacionusers#updateadmin'
+
+  delete '/admindestroy/:id' , to: 'verificacionusers#admindestroy'
+
+
+
   get '/v1/municipios/:id', to: 'verificacionusers#municipios'
   post '/pruebasresp', to: 'home#pruebasresp'
   put '/subirdocumentos', to: 'home#edit'

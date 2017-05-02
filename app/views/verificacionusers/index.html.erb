@@ -1,7 +1,9 @@
+<p id="notice"><%= notice %></p>
 <% if current_user.superadmin %>
-
     <a class="ui primary button btnNuevoVol" href="/newadmin"> Crear Usuario</a>
 <% end %>
+
+
 
 <div class="ui top attached tabular menu">
   <a class="item active" data-tab="first">Verificar ONG</a>
@@ -21,6 +23,7 @@
           <th>Nombre</th>
           <th>Aprobado</th>
           <th>Tipo de Usuario</th>
+          <th></th>
           <th></th>
         </tr>
         </thead>
@@ -53,9 +56,18 @@
                   <td> Administrador</td>
               <% end %>
 
+              <% if u.esadmin%>
+                  <td>
+                    <a href="/editadmin/<%= u.id %>"> Editar</a>
+                  </td>
+              <% else %>
+                <td></td>
+              <% end %>
+
               <% if current_user.id != u.id %>
                   <td>
-                    <a href="#"> Eliminar</a>
+                    <%= link_to 'Eliminar', "/admindestroy/#{u.id}", method: :delete, data: { confirm: 'Estas seguro que deseas eliminar el usuario?' } %>
+
                   </td>
               <% else %>
                 <td></td>

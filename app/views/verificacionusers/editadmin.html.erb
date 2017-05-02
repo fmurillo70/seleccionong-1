@@ -1,0 +1,31 @@
+<div class="ui container">
+  <h1>Nuevo Usuario Administrador</h1>
+
+  <form action="/updateadmin" method="post" class="ui form">
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="email" value="<%= @user.email %>" placeholder="Email">
+    </div>
+    <div class="field">
+      <label>Nombre</label>
+      <input type="text" name="nombre" placeholder="Nombre"  value="<%= @user.nombreadmin %>">
+    </div>
+    <div class="field">
+      <label>Apellido</label>
+      <input type="text" name="apellido" placeholder="Apellido"  value="<%= @user.apellidoadmin %>">
+    </div>
+    <input type="hidden" value="<%= @user.id %>" name="id">
+    <div class="field">
+      <label>Cedula</label>
+      <input type="text" name="cedula" placeholder="Cedula"  value="<%= @user.cedulaadmin %>">
+    </div>
+
+    <div class="field">
+      <label>Cargo</label>
+      <input type="text" name="cargo" placeholder="Cargo"  value="<%= @user.cargoadmin %>">
+    </div>
+
+
+    <input type="submit" class="ui primary button btnNuevoVol" value="Editar">
+  </form>
+</div>
