@@ -10,7 +10,7 @@ class AfichesController < ApplicationController
     if !current_user.esong
       redirect_to :back
     end
-    @afiches = Afich.all
+    @afiches = Afich.where(user_id: current_user.id)
   end
 
   # GET /afiches/1
@@ -33,6 +33,7 @@ class AfichesController < ApplicationController
   # POST /afiches.json
   def create
     @afich = Afich.new(afich_params)
+
     @aptitudes = Aptitude.all
     a = params["afichereq"]
 
@@ -96,6 +97,6 @@ class AfichesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def afich_params
-      params.require(:afich).permit(:nombreorg, :nombrepuesto, :objetivospuesto, :horario, :actividadasociada, :beneficiarios, :quesehace, :comosehace, :coordinador, :requisitos, :experiencia, :incentivos, :periocidadincentivos)
+      params.require(:afich).permit(:nombreorg, :nombrepuesto, :objetivospuesto, :horario, :actividadasociada, :beneficiarios, :quesehace, :comosehace, :coordinador, :requisitos, :experiencia, :incentivos, :periocidadincentivos, :user_id)
     end
 end
