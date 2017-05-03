@@ -110,6 +110,9 @@
 <script type="text/javascript" charset="utf-8">
     $('.ui.dropdown').dropdown();
     $('.ui.checkbox').checkbox();
+    if (window.location.href.indexOf('reload')==-1) {
+        window.location.replace(window.location.href+'?reload');
+    }
 
 </script>
 
