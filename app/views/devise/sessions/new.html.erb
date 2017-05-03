@@ -4,7 +4,22 @@
 
 
 
+  <% if flash[:alert].present? %>
+      <div class="ui centered grid">
+        <div class="column six wide">
+          <div class="ui negative message">
+            <i class="close icon"></i>
+            <div class="header">
+              Lo sentimos
+            </div>
+            <p>
+              El correo electronico o la clave no son correctos
+            </p>
+          </div>
+        </div>
+      </div>
 
+  <% end %>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "ui form"}) do |f| %>
       <div class="ui centered grid">
@@ -59,7 +74,7 @@
             <div class="field">
 
               <a href="/ong/new">
-              <button class="ui primary button btnNuevoONG">Nueva ONG?</button>
+                <button class="ui primary button btnNuevoONG">Nueva ONG?</button>
               </a>
             </div>
           </div>
@@ -96,11 +111,6 @@
 </div>
 
 <style>
-
-
-
-
-
 
 
   /*
