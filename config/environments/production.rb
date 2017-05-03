@@ -4,6 +4,17 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: 'key-0d5bf1842487e19e86639097949b56dd',
+      domain: 'experienciaganadora.com'
+  }
+
+  config.action_mailer.default_url_options = { :host => '104.236.19.200' }
+
+  
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
