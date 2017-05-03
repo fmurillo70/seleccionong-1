@@ -245,8 +245,8 @@
 
 
 
-        var nombre_representantevalido = /^[a-zA-Z\s]+$/.test(nombre_representante);
-        var apellido_representantevalido = /^[a-zA-Z\s]+$/.test(apellido_representante);
+        var nombre_representantevalido = /^[a-zA-Z\sñáéíóúü]+$/.test(nombre_representante);
+        var apellido_representantevalido = /^[a-zA-Z\sñáéíóúü]+$/.test(apellido_representante);
         var doc_representantevalido = /^[0-9]+$/.test(doc_representante);
 
 
@@ -297,7 +297,7 @@
 
 
         mision = $('#mision').val();
-        var misionvalido = /^[a-zA-Z\s]+$/.test(mision);
+        var misionvalido = /^[a-zA-Z\sñáéíóúü]+$/.test(mision);
         if (!mision) {
             errores.push("La mision es obligatoria")
         }
@@ -312,7 +312,7 @@
 
 
         vision = $('#vision').val();
-        var visionvalido = /^[a-zA-Z\s]+$/.test(vision);
+        var visionvalido = /^[a-zA-Z\sñáéíóúü]+$/.test(vision);
         if (!vision) {
             errores.push("La vision es obligatoria")
         }

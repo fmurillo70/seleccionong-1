@@ -490,9 +490,9 @@
         var ultimotitulo = $('#ultimotitulo').val();
 
 
-        var nombrepersonavalido = /^[a-zA-Z\s]+$/.test(nombrepersona);
-        var relacionpersonavalido = /^[a-zA-Z\s]+$/.test(relacionpersona);
-        var ultimotitulovalido = /^[a-zA-Z\s]+$/.test(ultimotitulo);
+        var nombrepersonavalido = /^[a-zA-Z\sñáéíóúü]+$/.test(nombrepersona);
+        var relacionpersonavalido = /^[a-zA-Z\sñáéíóúü]+$/.test(relacionpersona);
+        var ultimotitulovalido = /^[a-zA-Z\sñáéíóúü]+$/.test(ultimotitulo);
 
 
         if (ultimotitulo && !ultimotitulovalido) {
@@ -513,7 +513,7 @@
         nombres = $('#nombres').val();
 
 
-        var nombrevalido = /^[a-zA-Z\s]+$/.test(nombres);
+        var nombrevalido = /^[a-zA-Z\sñáéíóúü]+$/.test(nombres);
         if (!nombres) {
             alert("Los nombres son obligatorios");
             return false
@@ -524,7 +524,7 @@
         }
 
         apellidos = $('#apellidos').val();
-        var apellidovalido = /^[a-zA-Z\s]+$/.test(apellidos);
+        var apellidovalido = /^[a-zA-Z\sñáéíóúü]+$/.test(apellidos);
         if (!apellidos) {
             alert("Los apellidos son obligatorios");
             return false
