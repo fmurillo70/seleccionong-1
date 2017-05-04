@@ -17,10 +17,12 @@
 </div>
 <% if current_user.superadmin %>
     <div class="ui bottom attached tab segment" data-tab="fifth">
-      <%= link_to 'Reporte de voluntarios', exvoluntarios_path(format: :xlsx) %>
-      <br>
       <%= link_to 'Reporte de ingresos al sistema', exingresos_path(format: :xlsx) %>
+      <!--
 
+      <br>
+
+-->
 
       <table class="ui celled table">
         <thead>
@@ -67,7 +69,7 @@
                   </td>
               <% elsif u.esvoluntario %>
                   <td>
-                    <%= link_to 'Reporte de evaluaciones', "/exevaluacion/#{u.id}.xlsx" %>
+                  <!--  <%= link_to 'Reporte de evaluaciones', "/exevaluacion/#{u.id}.xlsx" %>-->
                   </td>
               <% else %>
                   <td></td>
@@ -163,16 +165,17 @@
           <% if !(u.voluntario.certestudios.url.end_with? "missing.png") %>
 
 
-              <td>
+
 
 
               <td><a href="<%= u.voluntario.certestudios.url %>" target="_blank">Link</a></td>
-              </td>
+
           <% else %>
               <td>No se ha adjuntado el documento</td>
           <% end %>
+
           <% if !(u.voluntario.certexperiencia.url.end_with? "missing.png") %>
-              <td></td>
+
 
               <td>
 
@@ -183,19 +186,19 @@
           <% if !(u.voluntario.docidentidad.url.end_with? "missing.png") %>
 
 
-              <td>
+
 
               <td><a href="<%= u.voluntario.docidentidad.url %>" target="_blank"></a>Link</td>
-              </td>
+
           <% else %>
               <td>No se ha adjuntado el documento</td>
           <% end %>
           <% if !(u.voluntario.tarjetaprofesional.url.end_with? "missing.png") %>
 
-              <td>
+
 
               <td><a href="<%= u.voluntario.tarjetaprofesional.url %>" target="_blank">Link</a></td>
-              </td>
+             
           <% else %>
               <td>No se ha adjuntado el documento</td>
           <% end %>
@@ -215,7 +218,7 @@
   </table>
 </div>
 <div class="ui bottom attached tab segment" data-tab="third">
-
+  <%= link_to 'Reporte de voluntarios', exvoluntarios_path(format: :xlsx) %>
   <table class="ui celled table">
     <thead>
     <tr>
