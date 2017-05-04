@@ -30,6 +30,11 @@ Rails.application.routes.draw do
   root 'home#index'
 
 
+
+
+
+
+
   resources :publicaciones
 
 
@@ -38,6 +43,11 @@ Rails.application.routes.draw do
   get 'home/convocatorias'
 
   get '/conpruebas/:id', to: 'home#conpruebasid'
+
+
+  get '/exvoluntarios', to: 'home#exvoluntarios'
+  get '/exingresos', to: 'home#exingresos'
+  get '/exevaluacion/:id', to: 'home#exevaluacion'
 
   get '/ong/new', to: 'verificacionusers#ong'
 

@@ -3,6 +3,48 @@ class HomeController < ApplicationController
 
 
 
+
+  def exvoluntarios
+    @voluntarios = Voluntario.order('created_at DESC')
+    respond_to do |format|
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="voluntarios.xlsx"'
+      }
+    end
+  end
+
+  def exingresos
+
+    @users = User.order('id DESC')
+
+
+
+
+
+    respond_to do |format|
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="ingresos.xlsx"'
+      }
+    end
+  end
+
+  def exevaluacion
+
+
+    @user = User.find(params[:id])
+
+
+
+
+
+    respond_to do |format|
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="ingresos.xlsx"'
+      }
+    end
+
+  end
+
   def voluntario
     @user = User.find(params[:id])
 

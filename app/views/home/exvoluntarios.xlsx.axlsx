@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Products") do |sheet|
+sheet.add_row ["Nombres", "Apellidos", "Numero de documento", "Edad", "Correo electronico" ]
+  @voluntarios.each do |v|
+    sheet.add_row [v.nombres, v.apellidos, v.numdoc, v.edad ,  v.user.email ]
+  end
+end

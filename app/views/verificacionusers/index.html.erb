@@ -17,6 +17,11 @@
 </div>
 <% if current_user.superadmin %>
     <div class="ui bottom attached tab segment" data-tab="fifth">
+      <%= link_to 'Reporte de voluntarios', exvoluntarios_path(format: :xlsx) %>
+      <br>
+      <%= link_to 'Reporte de ingresos al sistema', exingresos_path(format: :xlsx) %>
+
+
       <table class="ui celled table">
         <thead>
         <tr>
@@ -56,21 +61,25 @@
                   <td> Administrador</td>
               <% end %>
 
-              <% if u.esadmin%>
+              <% if u.esadmin %>
                   <td>
                     <a href="/editadmin/<%= u.id %>"> Editar</a>
                   </td>
+              <% elsif u.esvoluntario %>
+                  <td>
+                    <%= link_to 'Reporte de evaluaciones', "/exevaluacion/#{u.id}.xlsx" %>
+                  </td>
               <% else %>
-                <td></td>
+                  <td></td>
               <% end %>
 
               <% if current_user.id != u.id %>
                   <td>
-                    <%= link_to 'Eliminar', "/admindestroy/#{u.id}", method: :delete, data: { confirm: 'Estas seguro que deseas eliminar el usuario?' } %>
+                    <%= link_to 'Eliminar', "/admindestroy/#{u.id}", method: :delete, data: {confirm: 'Estas seguro que deseas eliminar el usuario?'} %>
 
                   </td>
               <% else %>
-                <td></td>
+                  <td></td>
               <% end %>
             </tr>
         <% end %>
