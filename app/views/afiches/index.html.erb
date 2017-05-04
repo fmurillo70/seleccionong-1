@@ -2,41 +2,64 @@
 
 <h1>Convocatorias</h1>
 
-<table class="ui table">
-  <thead>
-    <tr>
-
-      <th>Nombre puesto</th>
-      <th>Objetivos puesto</th>
 
 
-      <th>Beneficiarios</th>
 
-      <th>Coordinador</th>
 
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @afiches.each do |afich| %>
+    <table class="ui table">
+      <thead>
       <tr>
 
-        <td><%= afich.nombrepuesto %></td>
-        <td><%= afich.objetivospuesto %></td>
+        <% if current_user.esadmin %>
+            <th>ONG</th>
 
 
-        <td><%= afich.beneficiarios %></td>
+        <% end %>
 
-        <td><%= afich.coordinador %></td>
+        <th>Nombre puesto</th>
+        <th>Objetivos puesto</th>
 
-        <td><%= link_to 'Mostrar', afich %></td>
-        <!--<td><%= link_to 'Editar', edit_afich_path(afich) %></td> -->
-        <td><%= link_to 'Eliminar', afich, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <th>Beneficiarios</th>
+
+        <th>Coordinador</th>
+
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @afiches.each do |afich| %>
+          <tr>
+
+            <% if current_user.esadmin %>
+                <% if afich.user %>
+
+                    <td> <%= afich.user.ong.nombre %> </td>
+                <% else %>
+                    <td></td>
+                <% end %>
+            <% else %>
+                <td></td>
+            <% end %>
+
+            <td><%= afich.nombrepuesto %></td>
+            <td><%= afich.objetivospuesto %></td>
+
+
+            <td><%= afich.beneficiarios %></td>
+
+            <td><%= afich.coordinador %></td>
+
+            <td><%= link_to 'Mostrar', afich %></td>
+            <!--<td><%= link_to 'Editar', edit_afich_path(afich) %></td> -->
+            <td><%= link_to 'Eliminar', afich, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
 
 <br>
 

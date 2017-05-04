@@ -82,6 +82,10 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     htmlentities (4.3.4)
+    htmltoword (0.5.1)
+      actionpack
+      nokogiri
+      rubyzip (>= 1.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -112,7 +116,6 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
-    mysql2 (0.4.5)
     netrc (0.11.0)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
@@ -215,11 +218,11 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  htmltoword
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   mailgun_rails
-  mysql2
   paperclip
   pg
   puma (~> 3.0)

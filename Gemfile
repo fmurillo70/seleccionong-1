@@ -12,7 +12,8 @@ gem 'rails', '~> 5.0.1'
 gem 'sqlite3'
 gem 'mailgun_rails'
 gem 'axlsx_rails'
-gem 'mysql2'
+gem 'htmltoword'
+# gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem "paperclip"

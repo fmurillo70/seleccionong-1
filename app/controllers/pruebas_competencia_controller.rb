@@ -72,6 +72,9 @@ class PruebasCompetenciaController < ApplicationController
     end
   end
 
+
+
+
   # DELETE /pruebas_competencia/1
   # DELETE /pruebas_competencia/1.json
   def destroy

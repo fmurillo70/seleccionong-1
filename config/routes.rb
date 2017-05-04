@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get 'home/convocatorias'
 
   get '/conpruebas/:id', to: 'home#conpruebasid'
+  get '/imprimir/:id', to: 'home#imprimir'
 
 
   get '/exvoluntarios', to: 'home#exvoluntarios'
@@ -59,6 +60,7 @@ Rails.application.routes.draw do
 
 
   post '/home/aprobacion', to: 'home#aprobacion'
+  post '/home/bloquear', to: 'home#bloquear'
   post '/home/aplicarconvocatoria', to: 'home#aplicarconvocatoria'
   post '/ong/create', to: 'verificacionusers#ongcreate'
   post '/voluntario/create', to: 'verificacionusers#voluntariocreate'

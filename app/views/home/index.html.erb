@@ -1,10 +1,45 @@
+<div class="ui container">
+
+  <h3>Bienvenido</h3>
+
+  <% if current_user.esvoluntario %>
+    <p>Dirijase al menu superior para navegar a las distintas opciones</p>
+      <ul class="list">
+        <li>Primero debe contestar las pruebas de competencias</li>
+        <li>Al contestar las pruebas de competencias se generara una calificacion automaticamente</li>
+        <li>Una vez sea calificado podra ver las convocatorias con las que cumple los requisitos</li>
+        <li>Haciendo click sobre el boton aplicar podra participar</li>
+      </ul>
+  <% elsif current_user.esong %>
+      <p>Dirijase al menu superior para navegar a las distintas opciones</p>
+      <ul class="list">
+        <li>Se deben crear convocatorias para que los voluntarios apliquen</li>
+        <li>Una vez los voluntarios apliquen usted podra verlos en los detalles de cada convocatoria</li>
+        <li>Puede proceeder a ver los detalles de estos</li>
+
+      </ul>
+
+  <% elsif current_user.esadmin %>
+      <p>Dirijase al menu superior para navegar a las distintas opciones</p>
+      <ul class="list">
+        <li>Se deben aprobar los usuarios revisando los documentos que han adjuntado</li>
+        <li>Se pueden parametrizar los campos de los formularios de registro</li>
+        <li>Se pueden crear pruebas de competencias</li>
+        <li>Se pueden ver las convocatorias activas</li>
+
+      </ul>
+  <% end %>
+</div>
+
+
 <% if @volprueba.count > 0 %>
     Ver afiches Disponibles
 <% end %>
 
-<% if current_user.esvoluntario %>
-<%= link_to "Contestar Formularios", home_conpruebas_path %>
-<% end %>
+
+
+
+
 
 
 <!--

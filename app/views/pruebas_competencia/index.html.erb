@@ -1,29 +1,33 @@
 <div class="ui container">
 
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<h1>Pruebas Competencia</h1>
+  <h1>Pruebas Competencia</h1>
 
-<table class="ui unstackable table">
-  <thead>
+  <table class="ui unstackable table">
+    <thead>
     <tr>
       <th>Nombre</th>
-      <th colspan="1"></th>
+      <th colspan="12"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @pruebas_competencia.each do |pruebas_competencium| %>
-      <tr>
-        <td><%= pruebas_competencium.nombre %></td>
-
-        <td><%= link_to 'Eliminar', pruebas_competencium, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
-      </tr>
+        <tr>
+          <td><%= pruebas_competencium.nombre %></td>
+          <td>
+            <a href="/imprimir/<%= pruebas_competencium.id %>.docx">
+              Imprimir
+            </a>
+          </td>
+          <td><%= link_to 'Eliminar', pruebas_competencium, method: :delete, data: {confirm: 'Estas seguro?'} %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Pruebas Competencium', new_pruebas_competencium_path %>
+  <%= link_to 'New Pruebas Competencium', new_pruebas_competencium_path %>
 </div>

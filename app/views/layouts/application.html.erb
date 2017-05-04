@@ -44,7 +44,9 @@
   <% if user_signed_in? %>
       <% if current_user.esadmin %>
           <%= link_to "Crear Prueba de Competencias", new_pruebas_competencium_path, class: "item" %>
+          <%= link_to "Pruebas de Competencias", pruebas_competencia_path, class: "item" %>
           <%= link_to "Usuarios", "/verificacionusers/index", class: "item" %>
+          <%= link_to "Convocatorias creadas", afiches_path, class: "item" %>
 
           <div class="ui dropdown item">
             <div class="text">Parametros</div>

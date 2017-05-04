@@ -7,10 +7,18 @@ class AfichesController < ApplicationController
     if !current_user.aprobado
       redirect_to "/users/edit"
     end
-    if !current_user.esong
+    if !current_user.esong && !current_user.esadmin
       redirect_to :back
     end
-    @afiches = Afich.where(user_id: current_user.id)
+
+    if current_user.esong
+      @afiches = Afich.where(user_id: current_user.id)
+    end
+
+    if current_user.esadmin
+      @afiches = Afich.all
+    end
+
   end
 
   # GET /afiches/1

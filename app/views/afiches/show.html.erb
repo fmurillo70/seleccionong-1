@@ -2,28 +2,27 @@
 
   <p id="notice"><%= notice %></p>
 
-
-  Voluntarios
-  <table class="ui unstackable table">
-    <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @afich.aplicacionafiche.each do |a| %>
+  <% unless current_user.esvoluntario %>
+      Voluntarios
+      <table class="ui unstackable table">
+        <thead>
         <tr>
-          <td><%= a.user.voluntario.nombres %></td>
-          <td><%= a.user.voluntario.apellidos %></td>
-          <td><a href="/home/voluntario/<%= a.user.id %>">Ver detalles</a></td>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th></th>
         </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-
+        </thead>
+        <tbody>
+        <% @afich.aplicacionafiche.each do |a| %>
+            <tr>
+              <td><%= a.user.voluntario.nombres %></td>
+              <td><%= a.user.voluntario.apellidos %></td>
+              <td><a href="/home/voluntario/<%= a.user.id %>">Ver detalles</a></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
   <div class="ui relaxed divided list">
     <br>
     <br>

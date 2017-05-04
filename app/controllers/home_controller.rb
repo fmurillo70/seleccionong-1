@@ -28,6 +28,12 @@ class HomeController < ApplicationController
     end
   end
 
+
+  def bloquear
+    us = User.find(params[:id])
+    us.update!(aprobado: !us.aprobado)
+    redirect_to :back
+  end
   def exevaluacion
 
 
@@ -81,6 +87,15 @@ class HomeController < ApplicationController
   def aprobacion
     @user = User.find params["id"]
     @user.update(aprobacion_params)
+
+    RestClient.post "https://api:key-0d5bf1842487e19e86639097949b56dd"\
+  "@api.mailgun.net/v3/experienciaganadora.com/messages",
+                    :from => "soporte@uan.edu.co",
+                    :to => @user.email,
+                    :subject => "Has sido aprobado",
+                    :text => "Felicitaciones. Has sido aprobado por el administrador ahora puedes iniciar sesion en el sistema",
+                    "o:deliverytime" => "Fri, 25 Oct 2011 23:10:10 -0000"
+
     redirect_to :back
   end
 
@@ -112,6 +127,20 @@ class HomeController < ApplicationController
 
   end
 
+
+  def imprimir
+
+    id = params[:id]
+    @prueba = PruebasCompetencia.find(id)
+    @preguntas = Pregunta.where(pruebas_competencia_id: id)
+
+    respond_to do |format|
+      format.docx do
+        render docx: 'conpruebasid', filename: 'prueba.docx'
+      end
+    end
+  end
+
   def conpruebasid
     id = params[:id]
     @prueba = PruebasCompetencia.find(id)
@@ -140,8 +169,19 @@ class HomeController < ApplicationController
 
   def aplicarconvocatoria
     a = params[:afiche]
-    puts a
+
     Aplicacionafiche.create(user_id: current_user.id, afich_id: a)
+
+    af = Afich.find(params[:id])
+    RestClient.post "https://api:key-0d5bf1842487e19e86639097949b56dd"\
+  "@api.mailgun.net/v3/experienciaganadora.com/messages",
+                    :from => "soporte@uan.edu.co",
+                    :to => current_user.email,
+                    :subject => "Ha aplicado a la convocatoria exitosamente",
+                    :text => "Felicitaciones. Ha aplicado a la convocatoria exitosamente, sus datos estaran en revision por el organizador de la convocatoria",
+                    "o:deliverytime" => "Fri, 25 Oct 2011 23:10:10 -0000"
+
+
     redirect_to :back
   end
 
