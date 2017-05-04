@@ -2,14 +2,14 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Jornadaestudios</h1>
+<h1>Jornada de estudios</h1>
 
   <table class="ui unstackable table">
     <thead>
     <tr>
 
       <th>Nombre</th>
-      <th>Mirar</th>
+      <th>Mostrar</th>
       <th>Editar</th>
       <th>Eliminar</th>
 
@@ -19,7 +19,7 @@
     <% @jornadaestudios.each do |jornadaestudio| %>
         <tr>
           <td><%= jornadaestudio.nombre %></td>
-          <td><%= link_to 'Mirar', jornadaestudio %></td>
+          <td><%= link_to 'Mostrar', jornadaestudio %></td>
           <td><%= link_to 'Editar', edit_jornadaestudio_path(jornadaestudio) %></td>
           <td><%= link_to 'Eliminar', jornadaestudio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

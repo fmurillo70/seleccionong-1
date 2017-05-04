@@ -30,7 +30,7 @@
         <div class=" eight wide column primerDelRow">
           <div class="field">
             <%= f.label :nombre_organizacion %>
-            <%= f.text_field :nombreorg, value: current_user.ong.nombre %>
+            <%= f.text_field :nombreorg, value: current_user.ong.nombre, disabled: 'true' %>
           </div>
 
         </div>

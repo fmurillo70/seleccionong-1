@@ -9,7 +9,7 @@
   <tr>
 
     <th>Nombre</th>
-    <th>Mirar</th>
+    <th>Mostrar</th>
     <th>Editar</th>
     <th>Eliminar</th>
 
@@ -19,7 +19,7 @@
   <% @tenenciaviviendas.each do |tenenciavivienda| %>
       <tr>
         <td><%= tenenciavivienda.nombre %></td>
-        <td><%= link_to 'Show', tenenciavivienda %></td>
+        <td><%= link_to 'Mostrar', tenenciavivienda %></td>
         <td><%= link_to 'Edit', edit_tenenciavivienda_path(tenenciavivienda) %></td>
         <td><%= link_to 'Destroy', tenenciavivienda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

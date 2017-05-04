@@ -12,8 +12,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
 
-
-
   <style>
     * {
       font-family: 'Raleway', sans-serif !important;
@@ -29,6 +27,9 @@
       text-decoration: inherit;
       text-transform: none;
     }
+    .ui.menu .ui.dropdown .menu > a.item {
+        color: #4183C4 !important;
+      }
 
   </style>
 </head>
@@ -51,65 +52,67 @@
             <div class="menu">
 
 
+              <%= link_to 'Religiones', religions_path,  class: 'item' %>
+              <%= link_to 'Tipos de Documento', tipo_documentos_path,  class: 'item' %>
+              <%= link_to 'Jornadas de Estudio', jornadaestudios_path,  class: 'item' %>
+              <%= link_to 'Paises', paises_path,  class: 'item' %>
+              <%= link_to 'Departamentos', jornadaestudios_path, class: 'item' %>
+              <%= link_to 'Ciudades', jornadaestudios_path,  class: 'item' %>
+              <%= link_to 'Tenencias de Vivienda', tenenciaviviendas_path,  class: 'item' %>
+              <%= link_to 'Sexos', tipo_de_sexos_path,  class: 'item' %>
+              <%= link_to 'Tipos de Estado Civil', tipo_estado_civils_path,  class: 'item' %>
+              <%= link_to 'Tipos de Contacto', tipocontactos_path,  class: 'item' %>
+              <%= link_to 'Ubicaciones de Vivienda', ubicacionviviendas_path,  class: 'item' %>
+
+              <!-- <div class="item"><%= link_to 'Niveles Academicos', nivelacademicos_path %></div> -->
 
 
-              <div class="item"><%= link_to 'Jornadas de Estudio', jornadaestudios_path %></div>
+              <!--
 
-             <!-- <div class="item"><%= link_to 'Niveles Academicos', nivelacademicos_path %></div> -->
-
-              <div class="item"><%= link_to 'Paises', paises_path %></div>
-              <div class="item"><%= link_to 'Religiones', religions_path %></div>
-              <div class="item"><%= link_to 'Tenencias de Vivienda', tenenciaviviendas_path %></div>
-              <div class="item"><%= link_to 'Sexos', tipo_de_sexos_path %></div>
-              <div class="item"><%= link_to 'Tipos de Documento', tipo_documentos_path %></div>
-              <div class="item"><%= link_to 'Tipos de Estado Civil', tipo_estado_civils_path %></div>
-              <div class="item"><%= link_to 'Tipos de Contacto', tipocontactos_path %></div>
               <div class="item"><%= link_to 'Tipos de Estudios', tipoestudios_path %></div>
-              <div class="item"><%= link_to 'Ubicaciones de Vivienda', ubicacionviviendas_path %></div>
+    -->
 
 
+              <!--
 
+                            <div class="item">
+                              <span class="description">ctrl + o</span>
+                              Open...
+                            </div>
+                            <div class="item">
+                              <span class="description">ctrl + s</span>
+                              Save as...
+                            </div>
+                            <div class="item">
+                              <span class="description">ctrl + r</span>
+                              Rename
+                            </div>
+                            <div class="item">Make a copy</div>
+                            <div class="item">
+                              <i class="folder icon"></i>
+                              Move to folder
+                            </div>
+                            <div class="item">
+                              <i class="trash icon"></i>
+                              Move to trash
+                            </div>
+                            <div class="divider"></div>
+                            <div class="item">Download As...</div>
+                            <div class="item">
+                              <i class="dropdown icon"></i>
+                              Publish To Web
+                              <div class="menu">
+                                <div class="item">Google Docs</div>
+                                <div class="item">Google Drive</div>
+                                <div class="item">Dropbox</div>
+                                <div class="item">Adobe Creative Cloud</div>
+                                <div class="item">Private FTP</div>
+                                <div class="item">Another Service...</div>
+                              </div>
+                            </div>
+                            <div class="item">E-mail Collaborators</div>
 
-<!--
-
-              <div class="item">
-                <span class="description">ctrl + o</span>
-                Open...
-              </div>
-              <div class="item">
-                <span class="description">ctrl + s</span>
-                Save as...
-              </div>
-              <div class="item">
-                <span class="description">ctrl + r</span>
-                Rename
-              </div>
-              <div class="item">Make a copy</div>
-              <div class="item">
-                <i class="folder icon"></i>
-                Move to folder
-              </div>
-              <div class="item">
-                <i class="trash icon"></i>
-                Move to trash
-              </div>
-              <div class="divider"></div>
-              <div class="item">Download As...</div>
-              <div class="item">
-                <i class="dropdown icon"></i>
-                Publish To Web
-                <div class="menu">
-                  <div class="item">Google Docs</div>
-                  <div class="item">Google Drive</div>
-                  <div class="item">Dropbox</div>
-                  <div class="item">Adobe Creative Cloud</div>
-                  <div class="item">Private FTP</div>
-                  <div class="item">Another Service...</div>
-                </div>
-              </div>
-              <div class="item">E-mail Collaborators</div>
-
-              -->
+                            -->
 
             </div>
           </div>
