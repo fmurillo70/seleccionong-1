@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :tipo_de_sexos
   resources :tipo_documentos
   resources :paises
+  resources :municipios
+  resources :departamentos
   root 'home#index'
 
 
