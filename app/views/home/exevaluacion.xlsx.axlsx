@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
 
 
-wb.add_worksheet(name: "Products") do |sheet|
+wb.add_worksheet(name: "Pruebas por voluntarios") do |sheet|
     wb.styles do |s|
         title_cell = s.add_style :bg_color => "ee", :fg_color => "00", :sz => 20, :alignment => {:horizontal => :center}
         black_cell = s.add_style :bg_color => "00", :fg_color => "FF", :sz => 14, :alignment => {:horizontal => :center}

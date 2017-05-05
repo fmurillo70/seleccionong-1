@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
 
   get '/exvoluntarios', to: 'home#exvoluntarios'
+  get '/exong', to: 'home#exong'
   get '/exingresos', to: 'home#exingresos'
   get '/exevaluacion', to: 'home#exevaluacion'
 

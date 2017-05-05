@@ -13,6 +13,15 @@ class HomeController < ApplicationController
     end
   end
 
+  def exong
+    @ongs = Ong.order('created_at DESC')
+    respond_to do |format|
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="ong.xlsx"'
+      }
+    end
+  end
+
   def exingresos
 
     @users = User.order('id DESC')

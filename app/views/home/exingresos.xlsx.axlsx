@@ -1,5 +1,5 @@
 wb = xlsx_package.workbook
-wb.add_worksheet(name: "Products") do |sheet|
+wb.add_worksheet(name: "Ingresos al sistema") do |sheet|
 sheet.add_row [ "Correo electronico", "Tipo de usuario" , "numero de inicios de sesion", "Fecha del ultimo inicio de sesion" ]
   @users.each do |v|
 

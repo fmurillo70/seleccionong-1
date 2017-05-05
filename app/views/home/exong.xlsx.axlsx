@@ -1,0 +1,23 @@
+wb = xlsx_package.workbook
+
+
+wb.add_worksheet(name: "ONG") do |sheet|
+    wb.styles do |s|
+        title_cell = s.add_style  :bg_color => "ee", :fg_color => "00", :sz => 20, :alignment => {:horizontal => :center}
+        black_cell = s.add_style :bg_color => "00", :fg_color => "FF", :sz => 14, :alignment => {:horizontal => :center}
+        title2_cell = s.add_style  :fg_color => "00", :sz => 16, :alignment => {:horizontal => :center}
+        sheet.add_row ["Nombre", "NIT", "Telefono", "Representante legal", "Documento de identidad"], :style => [title_cell,title_cell,title_cell,title_cell, title_cell]
+        @ongs.each do |v|
+
+            sheet.add_row [v.nombre, v.nit, v.telefono, "#{v.nombre_representante}  #{v.apellido_representante}", v.doc_representante]
+            sheet.add_row ["Convocatorias de la ong"], :style => [ title2_cell]
+            v.user.afiches.each do |af|
+                sheet.add_row [ "Nombre puesto:", af.nombrepuesto, "Objetivo del puesto", af.objetivospuesto, "Horario:" , af.horario, "Beneficiarios", af.beneficiarios]
+            end
+
+            sheet.add_row ["", "", "", "", ""], style: black_cell
+        end
+    end
+
+
+end
