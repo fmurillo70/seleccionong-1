@@ -1,7 +1,23 @@
 wb = xlsx_package.workbook
+
+
 wb.add_worksheet(name: "Products") do |sheet|
-sheet.add_row ["Nombres", "Apellidos", "Numero de documento", "Edad", "Correo electronico" ]
-  @voluntarios.each do |v|
-    sheet.add_row [v.nombres, v.apellidos, v.numdoc, v.edad ,  v.user.email ]
-  end
+    wb.styles do |s|
+        title_cell = s.add_style  :bg_color => "ee", :fg_color => "00", :sz => 20, :alignment => {:horizontal => :center}
+        black_cell = s.add_style :bg_color => "00", :fg_color => "FF", :sz => 14, :alignment => {:horizontal => :center}
+        title2_cell = s.add_style  :fg_color => "00", :sz => 16, :alignment => {:horizontal => :center}
+        sheet.add_row ["Nombres", "Apellidos", "Numero de documento", "Edad", "Correo electronico"], :style => [title_cell,title_cell,title_cell,title_cell, title_cell]
+        @voluntarios.each do |v|
+
+            sheet.add_row [v.nombres, v.apellidos, v.numdoc, v.edad, v.user.email]
+            sheet.add_row ["Convocatorias a las que ha aplicado"], :style => [ title2_cell]
+            v.user.aplicacionafiche.each do |af|
+                sheet.add_row ["Nombre organizacion:", af.afich.nombreorg, "Nombre puesto:", af.afich.nombrepuesto]
+            end
+
+            sheet.add_row ["", "", "", "", ""], style: black_cell
+        end
+    end
+
+
 end
