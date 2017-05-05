@@ -233,7 +233,9 @@
   </table>
 </div>
 <div class="ui bottom attached tab segment" data-tab="third">
-  <%= link_to 'Reporte de voluntarios', exvoluntarios_path(format: :xlsx) %>
+  <%= link_to 'Reporte de voluntarios y convocatorias', exvoluntarios_path(format: :xlsx) %>
+  <br>
+  <%= link_to 'Reporte de voluntarios y pruebas', exevaluacion_path(format: :xlsx) %>
   <table class="ui celled table">
     <thead>
     <tr>
@@ -251,7 +253,17 @@
         <tr>
           <td><%= u.voluntario.nombres %></td>
           <td><%= u.voluntario.apellidos %></td>
+          <td>
 
+            <% u.resultados.each do |af| %>
+
+
+                <%= af.pruebas_competencia.nombre %>
+                <%= "puntaje total #{af.respuestas.sum(:puntaje) / af.respuestas.count }" %>
+
+
+            <% end %>
+          </td>
           <td><a href="/home/voluntario/<%= u.id %>">Ver detalles</a></td>
 
 

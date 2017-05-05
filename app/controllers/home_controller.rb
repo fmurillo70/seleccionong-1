@@ -16,11 +16,6 @@ class HomeController < ApplicationController
   def exingresos
 
     @users = User.order('id DESC')
-
-
-
-
-
     respond_to do |format|
       format.xlsx {
         response.headers['Content-Disposition'] = 'attachment; filename="ingresos.xlsx"'
@@ -35,17 +30,10 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   def exevaluacion
-
-
-    @user = User.find(params[:id])
-
-
-
-
-
+    @voluntarios = Voluntario.order('created_at DESC')
     respond_to do |format|
       format.xlsx {
-        response.headers['Content-Disposition'] = 'attachment; filename="ingresos.xlsx"'
+        response.headers['Content-Disposition'] = 'attachment; filename="voluntarios-pruebas.xlsx"'
       }
     end
 
@@ -114,7 +102,7 @@ class HomeController < ApplicationController
   end
 
   def conpruebas
-    @resultados = Resultado.select("pruebas_competencia_id").where(users_id: current_user.id)
+    @resultados = Resultado.select("pruebas_competencia_id").where(user_id: current_user.id)
 
     if @resultados.length == 0
       @resultados = [0]
@@ -148,7 +136,7 @@ class HomeController < ApplicationController
   end
 
   def convocatorias
-    @puntajes = Resultado.where(users_id: current_user.id)
+    @puntajes = Resultado.where(user_id: current_user.id)
 
     @valores = Hash.new(0)
     @puntajes.each do |p|
@@ -159,7 +147,7 @@ class HomeController < ApplicationController
 
       #              ])
 
-      @valores[competencia.nombre] = Respuesta.where(resultados_id: p.id).sum(:puntaje) / Respuesta.where(resultados_id: p.id).count(:all)
+      @valores[competencia.nombre] = Respuesta.where(resultado_id: p.id).sum(:puntaje) / Respuesta.where(resultado_id: p.id).count(:all)
     end
     @afiches = Afich.all
 
@@ -189,7 +177,7 @@ class HomeController < ApplicationController
     pruebaId = params[:pruebanum]
     prueba = PruebasCompetencia.find(pruebaId)
     preguntas = Pregunta.where(:pruebas_competencia_id => prueba.id)
-    result = Resultado.new(pruebas_competencia_id: pruebaId, users_id: current_user.id)
+    result = Resultado.new(pruebas_competencia_id: pruebaId, user_id: current_user.id)
     result.save
     preguntas.each do |p|
       opcion = OpcionesRespuestum.find(params["resp"+p.id.to_s])
@@ -197,7 +185,7 @@ class HomeController < ApplicationController
 
       r = Respuesta.new(texto: opcion.nombre,
                         puntaje: ((100 / numopcion) * opcion.valor).round,
-                        resultados_id: result.id)
+                        resultado_id: result.id)
       r.save
     end
     x = params

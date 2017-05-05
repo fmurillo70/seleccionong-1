@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_one :voluntario
   has_many :afiches
   has_many :aplicacionafiche
+  has_many :resultados
 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190131004028) do
+ActiveRecord::Schema.define(version: 20190131004030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,19 +179,19 @@ ActiveRecord::Schema.define(version: 20190131004028) do
   create_table "respuesta", force: :cascade do |t|
     t.string   "texto"
     t.integer  "puntaje"
-    t.integer  "resultados_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["resultados_id"], name: "index_respuesta_on_resultados_id", using: :btree
+    t.integer  "resultado_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["resultado_id"], name: "index_respuesta_on_resultado_id", using: :btree
   end
 
   create_table "resultados", force: :cascade do |t|
     t.integer  "pruebas_competencia_id"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["pruebas_competencia_id"], name: "index_resultados_on_pruebas_competencia_id", using: :btree
-    t.index ["users_id"], name: "index_resultados_on_users_id", using: :btree
+    t.index ["user_id"], name: "index_resultados_on_user_id", using: :btree
   end
 
   create_table "sectors", force: :cascade do |t|
@@ -374,9 +374,9 @@ ActiveRecord::Schema.define(version: 20190131004028) do
   add_foreign_key "opciones_respuesta", "pregunta", column: "pregunta_id"
   add_foreign_key "pregunta", "pruebas_competencia", column: "pruebas_competencia_id"
   add_foreign_key "pruebas_competencia", "aptitudes", column: "aptitudes_id"
-  add_foreign_key "respuesta", "resultados", column: "resultados_id"
+  add_foreign_key "respuesta", "resultados"
   add_foreign_key "resultados", "pruebas_competencia", column: "pruebas_competencia_id"
-  add_foreign_key "resultados", "users", column: "users_id"
+  add_foreign_key "resultados", "users"
   add_foreign_key "sectors", "municipios"
   add_foreign_key "users", "municipios"
   add_foreign_key "users", "tipousers"
