@@ -256,17 +256,7 @@
         <tr>
           <td><%= u.voluntario.nombres %></td>
           <td><%= u.voluntario.apellidos %></td>
-          <td>
 
-            <% u.resultados.each do |af| %>
-
-
-                <%= af.pruebas_competencia.nombre %>
-                <%= "puntaje total #{af.respuestas.sum(:puntaje) / af.respuestas.count }" %>
-
-
-            <% end %>
-          </td>
           <td><a href="/home/voluntario/<%= u.id %>">Ver detalles</a></td>
 
 

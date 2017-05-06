@@ -30,17 +30,17 @@ class PruebasCompetenciaController < ApplicationController
     preguntas = params[:preguntas]
     competencia = params[:competencia]
 
-    x = PruebasCompetencia.new(nombre:nombre,aptitudes_id: competencia)
+    x = PruebasCompetencia.new(nombre: nombre, aptitudes_id: competencia)
     x.save
     preguntas.each do |p|
 
-     d = Pregunta.new(nombre: p[:nombre], pruebas_competencia_id: x[:id] )
-     d.save
-     p[:respuestas].each_with_index do |r,index|
-       valor = index + 1
-       z = OpcionesRespuestum.new(nombre: r[:nombre], valor: valor, pregunta_id: d[:id] )
-       z.save
-     end
+      d = Pregunta.new(nombre: p[:nombre], pruebas_competencia_id: x[:id])
+      d.save
+      p[:respuestas].each_with_index do |r, index|
+        valor = index + 1
+        z = OpcionesRespuestum.new(nombre: r[:nombre], valor: valor, pregunta_id: d[:id])
+        z.save
+      end
     end
     render :json => {'ok': "Ok"}
 
@@ -73,26 +73,32 @@ class PruebasCompetenciaController < ApplicationController
   end
 
 
-
-
   # DELETE /pruebas_competencia/1
   # DELETE /pruebas_competencia/1.json
   def destroy
-    @pruebas_competencium.destroy
     respond_to do |format|
-      format.html { redirect_to pruebas_competencia_url, notice: 'Pruebas competencium was successfully destroyed.' }
-      format.json { head :no_content }
+
+      begin
+        @pruebas_competencium.destroy
+        format.html { redirect_to pruebas_competencia_url, notice: 'Se ha borrado la prueba de competencias.' }
+        format.json { head :no_content }
+      rescue => ex
+        format.html { redirect_to pruebas_competencia_url, notice: 'No se puede eliminar la prueba ya que esta relacionada.' }
+        format.json { head :no_content }
+      end
+
+
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pruebas_competencium
-      @pruebas_competencium = PruebasCompetencia.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pruebas_competencium
+    @pruebas_competencium = PruebasCompetencia.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def pruebas_competencium_params
-      params.require(:pruebas_competencium).permit(:nombre)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def pruebas_competencium_params
+    params.require(:pruebas_competencium).permit(:nombre)
+  end
 end
