@@ -42,7 +42,7 @@ wb.add_worksheet(name: "Ingresos al sistema") do |sheet|
                               v.email,
                               v.voluntario.nombres,
                               v.voluntario.apellidos,
-                              v.voluntario.telefono,
+                              v.voluntario.numerocontacto,
                            #   v.current_sign_in_at,
                               v.voluntario.direccion,
                               v.voluntario.certestudios.exists?,
