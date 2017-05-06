@@ -3,6 +3,13 @@ class HomeController < ApplicationController
 
 
 
+  def exaprovol
+    @voluntaros = User.where(aprobado: !true, esvoluntario: true)
+  end
+
+  def exaproong
+    @ong = User.where(aprobado: !true, esong: true)
+  end
 
   def exvoluntarios
     @appafiche = Aplicacionafiche.all

@@ -49,6 +49,10 @@ Rails.application.routes.draw do
   get '/exvoluntarios', to: 'home#exvoluntarios'
   get '/exong', to: 'home#exong'
   get '/exingresos', to: 'home#exingresos'
+
+  get '/exaprovol', to: 'home#exaprovol'
+  get '/exaproong', to: 'home#exaproong'
+
   get '/exevaluacion', to: 'home#exevaluacion'
 
   get '/ong/new', to: 'verificacionusers#ong'

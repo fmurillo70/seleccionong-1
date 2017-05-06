@@ -1594,7 +1594,7 @@ Tipouser.create(name: "Voluntario")
 Tipouser.create(name: "ONG")
 
 
-User.create(email: "ivantrips1@gmail.com",
+User.create(email: "evpena@uan.edu.co",
             password: "123456",
             password_confirmation: "123456",
             esadmin: true,
@@ -1602,5 +1602,6 @@ User.create(email: "ivantrips1@gmail.com",
             esvoluntario:false,
             tipouser_id: ad.id,
             municipio_id: 1,
-            aprobado: true
+            aprobado: true,
+            superadmin: true
             )

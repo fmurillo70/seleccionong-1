@@ -1,0 +1,56 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Ingresos al sistema") do |sheet|
+
+    sheet.add_row ["LISTADO DE VOLUNTARIOS POR VERIFICAR"]
+    sheet.add_row ["SISELONG"]
+    sheet.merge_cells("A1:K1")
+    sheet.merge_cells("A2:K2")
+    sheet.add_row [ "USUARIO",
+                    "NOMBRES",
+                    "APELLIDOS",
+                    "TELEFONO",
+                    "DIRECCION",
+                    "CE",
+                    "CL",
+                    "DI",
+                    "TP",
+                    "EDAD",
+                    "F.INGRESO" ]
+    @voluntaros.each do |v|
+
+
+        b =
+
+        a = ""
+        if v.esadmin
+            a = "Administrador"
+            b = "#{v.nombreadmin} #{v.apellidoadmin}"
+        end
+
+        if v.esong
+            a = "ONG"
+            b = v.ong.nombre
+        end
+        if v.esvoluntario
+            a = "Voluntario"
+            b = "#{v.voluntario.nombres} #{v.voluntario.apellidos}"
+        end
+
+
+
+        sheet.add_row [
+                              v.email,
+                              v.voluntario.nombres,
+                              v.voluntario.apellidos,
+                              v.voluntario.telefono,
+                           #   v.current_sign_in_at,
+                              v.voluntario.direccion,
+                              v.voluntario.certestudios.exists?,
+                              v.voluntario.certexperiencia.exists?,
+                              v.voluntario.docidentidad.exists?,
+                              v.voluntario.tarjetaprofesional.exists?,
+                              v.voluntario.edad,
+                              v.created_at
+                      ]
+    end
+end

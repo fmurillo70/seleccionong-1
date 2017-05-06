@@ -111,6 +111,7 @@
     </div>
 <% end %>
 <div class="ui bottom attached tab segment active" data-tab="first">
+  <%= link_to 'Reporte de ONG pendientes', exaproong_path(format: :xlsx) %>
   <table class="ui celled table">
     <thead>
     <tr>
@@ -163,6 +164,8 @@
   </table>
 </div>
 <div class="ui bottom attached tab segment" data-tab="second">
+
+  <%= link_to 'Reporte de Voluntarios pendientes', exaprovol_path(format: :xlsx) %>
   <table class="ui celled table">
     <thead>
     <tr>
