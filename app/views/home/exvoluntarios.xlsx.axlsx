@@ -2,22 +2,29 @@ wb = xlsx_package.workbook
 
 
 wb.add_worksheet(name: "Voluntarios") do |sheet|
-    wb.styles do |s|
-        title_cell = s.add_style  :bg_color => "ee", :fg_color => "00", :sz => 20, :alignment => {:horizontal => :center}
-        black_cell = s.add_style :bg_color => "00", :fg_color => "FF", :sz => 14, :alignment => {:horizontal => :center}
-        title2_cell = s.add_style  :fg_color => "00", :sz => 16, :alignment => {:horizontal => :center}
-        sheet.add_row ["Nombres", "Apellidos", "Numero de documento", "Edad", "Correo electronico"], :style => [title_cell,title_cell,title_cell,title_cell, title_cell]
-        @voluntarios.each do |v|
+    sheet.add_row ["VOLUNTARIOS Y CONVOCATORIAS"]
+    sheet.add_row ["SISELONG"]
+    sheet.merge_cells("A1:H1")
+    sheet.merge_cells("A2:H2")
 
-            sheet.add_row [v.nombres, v.apellidos, v.numdoc, v.edad, v.user.email]
-            sheet.add_row ["Convocatorias a las que ha aplicado"], :style => [ title2_cell]
-            v.user.aplicacionafiche.each do |af|
-                sheet.add_row ["Nombre organizacion:", af.afich.nombreorg, "Nombre puesto:", af.afich.nombrepuesto]
-            end
-
-            sheet.add_row ["", "", "", "", ""], style: black_cell
-        end
+    #title_cell = s.add_style  :bg_color => "ee", :fg_color => "00", :sz => 20, :alignment => {:horizontal => :center}
+    #black_cell = s.add_style :bg_color => "00", :fg_color => "FF", :sz => 14, :alignment => {:horizontal => :center}
+    #title2_cell = s.add_style  :fg_color => "00", :sz => 16, :alignment => {:horizontal => :center}
+    sheet.add_row ["USUARIO", "NOMBRES", "APELLIDOS", "IDENTIFICACION", "EDAD", "CONVOCATORIA", "EMPRESA / ONG", "FEC APLICACION"]
+    @appafiche.each do |v|
+        sheet.add_row [v.user.email, v.user.voluntario.nombres, v.user.voluntario.apellidos, v.user.voluntario.numdoc, v.user.voluntario.edad, v.afich.nombrepuesto, v.afich.nombreorg, v.created_at]
     end
+
+    # @voluntarios.each do |v|
+    #
+    #     sheet.add_row [v.nombres, v.apellidos, v.numdoc, v.edad, v.user.email]
+    #     sheet.add_row ["Convocatorias a las que ha aplicado"], :style => [title2_cell]
+    #     v.user.aplicacionafiche.each do |af|
+    #         sheet.add_row ["Nombre organizacion:", af.afich.nombreorg, "Nombre puesto:", af.afich.nombrepuesto]
+    #     end
+    #
+    #     sheet.add_row ["", "", "", "", ""], style: black_cell
+    # end
 
 
 end

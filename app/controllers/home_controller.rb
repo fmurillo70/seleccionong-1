@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 
 
   def exvoluntarios
+    @appafiche = Aplicacionafiche.all
     @voluntarios = Voluntario.order('created_at DESC')
     respond_to do |format|
       format.xlsx {
