@@ -3,12 +3,17 @@ class HomeController < ApplicationController
 
 
 
+
+
+
+
+
   def exaprovol
-    @voluntaros = User.where(aprobado: !true, esvoluntario: true)
+    @voluntaros = User.where('(aprobado=false OR aprobado is null) and esvoluntario = true')
   end
 
   def exaproong
-    @ong = User.where(aprobado: !true, esong: true)
+    @ong = User.where('(aprobado=false OR aprobado is null) and esong = true')
   end
 
   def exvoluntarios
