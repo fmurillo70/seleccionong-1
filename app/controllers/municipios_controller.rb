@@ -28,7 +28,7 @@ class MunicipiosController < ApplicationController
 
     respond_to do |format|
       if @municipio.save
-        format.html { redirect_to @municipio, notice: 'Municipio was successfully created.' }
+        format.html { redirect_to @municipio, notice: 'El municipio ha sido creado.' }
         format.json { render :show, status: :created, location: @municipio }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class MunicipiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def municipio_params
-      params.fetch(:municipio, {})
+      params.require(:municipio).permit(:nombre, :departamento_id)
     end
 end

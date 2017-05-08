@@ -28,7 +28,7 @@ class DepartamentosController < ApplicationController
 
     respond_to do |format|
       if @departamento.save
-        format.html { redirect_to @departamento, notice: 'Departamento was successfully created.' }
+        format.html { redirect_to @departamento, notice: 'El departamento ha sido creado.' }
         format.json { render :show, status: :created, location: @departamento }
       else
         format.html { render :new }
@@ -62,13 +62,15 @@ class DepartamentosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_departamento
-      @departamento = Departamento.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_departamento
+    @departamento = Departamento.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def departamento_params
-      params.fetch(:departamento, {})
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+
+
+  def departamento_params
+    params.require(:departamento).permit(:nombre)
+  end
 end

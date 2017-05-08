@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_departamento_path(@departamento) %> |
-<%= link_to 'Back', departamentos_path %>
+<%= @departamento.nombre %>
+
+<%= link_to 'Editar', edit_departamento_path(@departamento) %> |
+<%= link_to 'Volver', departamentos_path %>
