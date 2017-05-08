@@ -22,8 +22,8 @@ development:
   encoding: unicode
   database: seleccionong_development
   pool: 5
-  username: ivan
-  password:
+  username: siselong
+  password: 1234
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
