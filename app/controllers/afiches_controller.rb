@@ -64,7 +64,7 @@ class AfichesController < ApplicationController
 
         end
 
-        format.html { redirect_to afiches_path, notice: 'Afich was successfully created.' }
+        format.html { redirect_to afiches_path, notice: 'La convocatoria ha sido creada.' }
         format.json { render :show, status: :created, location: @afich }
       else
         format.html { render :new }
@@ -90,10 +90,16 @@ class AfichesController < ApplicationController
   # DELETE /afiches/1
   # DELETE /afiches/1.json
   def destroy
-    @afich.destroy
+
     respond_to do |format|
-      format.html { redirect_to afiches_url, notice: 'Afich was successfully destroyed.' }
-      format.json { head :no_content }
+      begin
+        @afich.destroy
+        format.html { redirect_to afiches_url, notice: 'Se ha borrado la convocatoria.' }
+        format.json { head :no_content }
+      rescue => ex
+        format.html { redirect_to afiches_url, notice: 'No se puede eliminar la convocatoria ya que esta relacionada.' }
+        format.json { head :no_content }
+      end
     end
   end
 
